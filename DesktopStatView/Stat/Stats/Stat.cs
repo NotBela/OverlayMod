@@ -18,11 +18,15 @@ namespace DesktopStatView.Stat.Stats
         public GameObject canvasObject;
         public Canvas canvas;
 
-        public Stat()
+        public readonly CanvasController _canvasController;
+
+        public Stat(CanvasController _canvasController)
         {
-            canvasObject = new GameObject();
+            this._canvasController = _canvasController;
+
+            canvasObject = _canvasController.canvasGameObj;
             textObject = new GameObject();
-            canvas = canvasObject.AddComponent<Canvas>();
+            canvas = _canvasController.canvas;
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
 
             textObject.transform.parent = canvasObject.transform;
@@ -30,7 +34,6 @@ namespace DesktopStatView.Stat.Stats
             text = textObject.AddComponent<TextMeshProUGUI>();
 
             enabled = true;
-            position = new Vector2(200, 400);
 
             RectTransform rectTransform = textObject.GetComponent<RectTransform>();
             rectTransform.localPosition = position;

@@ -1,4 +1,5 @@
-﻿using DesktopStatView.Stat.Stats;
+﻿using DesktopStatView.Stat;
+using DesktopStatView.Stat.Stats;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace DesktopStatView.Installers
     {
         public override void InstallBindings()
         {
+            Container.BindInterfacesAndSelfTo<CanvasController>().AsSingle();
             Container.BindInterfacesAndSelfTo<TestStat>().AsSingle();
         }
     }
