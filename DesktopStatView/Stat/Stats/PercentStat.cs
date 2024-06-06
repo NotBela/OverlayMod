@@ -25,7 +25,6 @@ namespace DesktopStatView.Stat.Stats
         public void Initialize()
         {
             _relativeScoreCounter.relativeScoreOrImmediateRankDidChangeEvent += updateText;
-
         }
 
         private void updateText()

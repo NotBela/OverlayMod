@@ -20,11 +20,6 @@ namespace DesktopStatView
         internal static IPALogger Log { get; private set; }
 
         [Init]
-        /// <summary>
-        /// Called when the plugin is first loaded by IPA (either when the game starts or when the plugin is enabled if it starts disabled).
-        /// [Init] methods that use a Constructor or called before regular methods like InitWithConfig.
-        /// Only use [Init] with one Constructor.
-        /// </summary>
         public void Init(IPALogger logger, Config conf, Zenjector zenject)
         {
             Instance = this;
@@ -32,17 +27,5 @@ namespace DesktopStatView
             Configuration.PluginConfig.Instance = conf.Generated<Configuration.PluginConfig>();
             zenject.Install<GameInstaller>(Location.GameCore);
         }
-
-        #region BSIPA Config
-        //Uncomment to use BSIPA's config
-        /*
-        [Init]
-        public void InitWithConfig(Config conf)
-        {
-            Configuration.PluginConfig.Instance = conf.Generated<Configuration.PluginConfig>();
-            Log.Debug("Config loaded");
-        }
-        */
-        #endregion
     }
 }
