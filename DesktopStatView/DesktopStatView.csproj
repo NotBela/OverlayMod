@@ -117,8 +117,11 @@
     <Compile Include="Configuration\PluginConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stat\CanvasController.cs" />
-    <Compile Include="Stat\Stat.cs" />
+    <Compile Include="Stat\IStat.cs" />
+    <Compile Include="Stat\Stats\ComboStat.cs" />
     <Compile Include="Stat\Stats\MissStat.cs" />
+    <Compile Include="Stat\Stats\PercentStat.cs" />
+    <Compile Include="Stat\Stats\ScoreStat.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="manifest.json" />

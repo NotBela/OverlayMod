@@ -11,7 +11,7 @@ using System.Runtime.CompilerServices;
 
 namespace DesktopStatView.Stat.Stats
 {
-    internal class MissStat : Stat, IInitializable, IDisposable
+    internal class MissStat : IStat, IInitializable, IDisposable
     {
         [Inject] private readonly BeatmapObjectManager _beatmapObjectManager;
 
@@ -23,7 +23,7 @@ namespace DesktopStatView.Stat.Stats
 
             this.text.text = $"{missedAmt}";
             this.text.fontSize = 60;
-            this.position = new Vector2(0, 0);
+            this.textObject.transform.localPosition = new Vector2(100, 0);
         }
 
         public void Initialize()

@@ -14,7 +14,11 @@ namespace DesktopStatView.Installers
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<CanvasController>().AsSingle();
+
             Container.BindInterfacesAndSelfTo<MissStat>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ComboStat>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ScoreStat>().AsSingle();
+            Container.BindInterfacesAndSelfTo<PercentStat>().AsSingle();
         }
     }
 }
