@@ -8,23 +8,23 @@ using Zenject;
 
 namespace DesktopStatView.Stat
 {
-    internal class CanvasController : IInitializable
+    internal class DesktopStatViewCanvasController : IInitializable
     {
-        public GameObject canvasGameObj;
         public Canvas canvas;
+        public GameObject canvasObject;
 
-        public CanvasController()
+        public DesktopStatViewCanvasController()
         {
-            canvasGameObj = new GameObject();
-            canvas = canvasGameObj.AddComponent<Canvas>();
+            canvasObject = new GameObject();
+            canvas = canvasObject.AddComponent<Canvas>();
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
 
-            canvas.name = "DesktopStatView";
+            canvas.name = "DesktopStatViewCanvas";
         }
 
         public void Initialize()
         {
-            Plugin.Log.Info("hi");
+            Plugin.Log.Info("THIS IS NORMAL!!!!");
         }
     }
 }
