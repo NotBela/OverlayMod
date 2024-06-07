@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Zenject;
 using UnityEngine;
 using TMPro;
-using BS_Utils.Utilities;
 using System.Runtime.CompilerServices;
 
 namespace DesktopStatView.Stat.Stats

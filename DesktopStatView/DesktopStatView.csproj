@@ -129,7 +129,9 @@
     <Compile Include="Stat\Stats\MissStat.cs" />
     <Compile Include="Stat\Stats\PercentStat.cs" />
     <Compile Include="Stat\Stats\ScoreStat.cs" />
+    <Compile Include="Vews\FlowControllers\ConfigFlowController.cs" />
     <Compile Include="Vews\MenuButtonController.cs" />
+    <Compile Include="Vews\ViewControllers\ConfigViewController.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="manifest.json" />
@@ -137,6 +139,9 @@
   <ItemGroup>
     <None Include="Directory.Build.props" Condition="Exists('Directory.Build.props')" />
     <None Include="DesktopStatView.csproj.user" Condition="Exists('DesktopStatView.csproj.user')" />
+    <EmbeddedResource Include="Vews\ViewControllers\ConfigViewController.bsml">
+      <DependentUpon>ConfigViewController.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="BeatSaberModdingTools.Tasks">

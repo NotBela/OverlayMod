@@ -1,4 +1,6 @@
 ﻿using DesktopStatView.Vews;
+using DesktopStatView.Vews.FlowControllers;
+using DesktopStatView.Vews.ViewControllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,8 @@ namespace DesktopStatView.Installers
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<MenuButtonController>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ConfigFlowController>().FromNewComponentOnNewGameObject().AsSingle();
+            Container.BindInterfacesAndSelfTo<ConfigViewController>().FromNewComponentAsViewController().AsSingle();
         }
     }
 }
