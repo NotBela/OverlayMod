@@ -12,11 +12,19 @@ namespace DesktopStatView.Stat.Stats
     {
         [Inject] private readonly ComboController _comboController;
 
-        public ComboStat(CanvasController controller) : base(controller) 
+        public ComboStat(CanvasController controller) : base(controller)
         {
+            this.counterName = "Combo";
+
             this.text.text = "0";
-            this.text.fontSize = 60;
-            this.textObject.transform.localPosition = new Vector2(-500, -300);
+            this.defaultSize = 60;
+            this.defaultPosition = new Vector2(-500, -300);
+
+            this.textObject.transform.localPosition = position;
+            this.text.fontSize = size;
+
+            setTextParams();
+
         }
 
         public void Initialize()

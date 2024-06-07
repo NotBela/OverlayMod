@@ -19,11 +19,18 @@ namespace DesktopStatView.Stat.Stats
 
         public MissStat(CanvasController canvasController) : base(canvasController)
         {
+            this.counterName = "Miss";
+
             missedAmt = 0;
 
             this.text.text = $"{missedAmt}";
-            this.text.fontSize = 60;
-            this.textObject.transform.localPosition = new Vector2(100, 0);
+            this.defaultSize = 60;
+            this.defaultPosition = new Vector2(100, 0);
+
+            this.textObject.transform.localPosition = position;
+            this.text.fontSize = size;
+
+            setTextParams();
         }
 
         public void Initialize()

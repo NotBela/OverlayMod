@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DesktopStatView.Configuration;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,9 +13,16 @@ namespace DesktopStatView.Stat.Stats
 {
     internal abstract class IStat
     {
-        public TextMeshProUGUI text;
+        [JsonIgnore] public TextMeshProUGUI text;
         public bool enabled;
-        public GameObject textObject;
+        [JsonIgnore] public GameObject textObject;
+        [JsonIgnore] public string counterName;
+        [JsonIgnore] public StatConfig config;
+        public Vector2 position;
+        public int size;
+
+        [JsonIgnore] internal Vector2 defaultPosition;
+        [JsonIgnore] internal int defaultSize;
 
         public readonly CanvasController _canvasController;
 
@@ -21,12 +30,39 @@ namespace DesktopStatView.Stat.Stats
         {
             this._canvasController = _canvasController;
 
+            config = new StatConfig(this);
+
             textObject = new GameObject();
 
             textObject.transform.parent = _canvasController.canvasGameObj.transform;
             text = textObject.AddComponent<TextMeshProUGUI>();
+        }
 
-            enabled = true;
+        internal void setTextParams()
+        {
+            // using ?? operator doesnt work apparently
+            // this sucks
+            bool? configEnabled = config.getConfigEntry<bool>("enabled");
+            Vector2? configPosition = config.getConfigEntry<Vector2>("position");
+            int? configSize = config.getConfigEntry<int>("size");
+
+            if (configEnabled == null)
+                enabled = true;
+            else
+                enabled = configEnabled.Value;
+
+            if (configPosition == null)
+                position = defaultPosition;
+            else
+                position = configPosition.Value;
+
+            if (configSize == null)
+                size = defaultSize;
+            else
+                size = configSize.Value;
+
+            this.textObject.transform.localPosition = position;
+            this.text.fontSize = size;
         }
     }
 }
