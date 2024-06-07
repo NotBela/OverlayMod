@@ -26,6 +26,7 @@ namespace DesktopStatView
             Log = logger;
             Configuration.PluginConfig.Instance = conf.Generated<Configuration.PluginConfig>();
             zenject.Install<GameInstaller>(Location.GameCore);
+            zenject.Install<MenuInstaller>(Location.Menu);
         }
     }
 }

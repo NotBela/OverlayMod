@@ -40,8 +40,8 @@
     <DisableZipRelease>True</DisableZipRelease>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BS_Utils">
-      <HintPath>$(BeatSaberDir)\Plugins\BS_Utils.dll</HintPath>
+    <Reference Include="BSML">
+      <HintPath>$(BeatSaberDir)\Plugins\BSML.dll</HintPath>
       <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -119,6 +119,7 @@
   <ItemGroup>
     <Compile Include="Configuration\StatConfig.cs" />
     <Compile Include="Installers\GameInstaller.cs" />
+    <Compile Include="Installers\MenuInstaller.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Configuration\PluginConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -128,6 +129,7 @@
     <Compile Include="Stat\Stats\MissStat.cs" />
     <Compile Include="Stat\Stats\PercentStat.cs" />
     <Compile Include="Stat\Stats\ScoreStat.cs" />
+    <Compile Include="Vews\MenuButtonController.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="manifest.json" />
