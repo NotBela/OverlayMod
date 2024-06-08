@@ -6,18 +6,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Zenject;
 
 namespace DesktopStatView.Vews.FlowControllers
 {
     internal class ConfigFlowController : HMUI.FlowCoordinator
     {
-        private readonly MainFlowCoordinator _parent;
-        private readonly ConfigViewController _viewController;
+        private MainFlowCoordinator _parent;
+        private ConfigViewController _viewController;
 
-        public ConfigFlowController(MainFlowCoordinator parent, ConfigViewController viewController)
+        [Inject]
+        private void Construct(MainFlowCoordinator parent, ConfigViewController viewController)
         {
-            _viewController = viewController;
             _parent = parent;
+            _viewController = viewController;
         }
 
         protected override void DidActivate(bool firstActivation, bool addedToHierarchy, bool screenSystemEnabling)

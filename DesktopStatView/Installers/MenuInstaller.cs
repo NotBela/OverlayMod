@@ -14,9 +14,9 @@ namespace DesktopStatView.Installers
     {
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<MenuButtonController>().AsSingle();
             Container.BindInterfacesAndSelfTo<ConfigFlowController>().FromNewComponentOnNewGameObject().AsSingle();
             Container.BindInterfacesAndSelfTo<ConfigViewController>().FromNewComponentAsViewController().AsSingle();
+            Container.BindInterfacesAndSelfTo<MenuButtonController>().AsSingle();
         }
     }
 }

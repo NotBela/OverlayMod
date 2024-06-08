@@ -23,8 +23,9 @@ namespace DesktopStatView.Vews
             _flowController = flowController;
             _parent = parent;
             _menuButton = new MenuButton("DesktopStatView", string.Empty, buttonClicked);
-
         }
+
+        
 
         private void buttonClicked() => _parent.PresentFlowCoordinator(_flowController);
 
