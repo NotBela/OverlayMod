@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
-namespace DesktopStatView.Stat
+namespace OverlayMod.Stat
 {
-    internal class DesktopStatViewCanvasController : IInitializable
+    internal class OverlayModCanvasController : IInitializable
     {
         public Canvas canvas;
         public GameObject canvasObject;
 
-        public DesktopStatViewCanvasController()
+        public OverlayModCanvasController()
         {
             canvasObject = new GameObject();
             canvas = canvasObject.AddComponent<Canvas>();
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
 
-            canvas.name = "DesktopStatViewCanvas";
+            canvas.name = "OverlayModCanvas";
         }
 
         public void Initialize()

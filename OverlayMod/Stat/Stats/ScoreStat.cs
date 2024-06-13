@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OverlayMod.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,8 @@ namespace OverlayMod.Stat.Stats
     internal class ScoreStat : IStat, IInitializable, IDisposable
     {
         [Inject] private readonly ScoreController _scoreController;
+
+        public override StatTypes enumType => StatTypes.ScoreStat;
 
         public ScoreStat(CanvasController controller) : base(controller)
         {

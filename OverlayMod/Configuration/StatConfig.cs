@@ -16,22 +16,22 @@ namespace OverlayMod.Configuration
     {
         private static readonly string pathToConfigFolder = $"{UnityGame.InstallPath}\\UserData\\OverlayMod\\";
 
-        public static T? getConfigEntry<Stat, T>(string entry) where T : struct where Stat : IStat
+        public static T? getConfigEntry<T>(IStat.StatTypes stat, string entry) where T : struct
         {
-            if (!Directory.Exists(pathToConfigFolder) || !File.Exists($"{pathToConfigFolder}{typeof(Stat)}.json")) return null;
+            if (!Directory.Exists(pathToConfigFolder) || !File.Exists($"{pathToConfigFolder}{stat}.json")) return null;
 
             try
             {
-                return JObject.Parse(File.ReadAllText($"{pathToConfigFolder}{typeof(Stat)}.json"))[entry].Value<T>();
+                return JObject.Parse(File.ReadAllText($"{pathToConfigFolder}{stat}.json"))[entry].Value<T>();
             }
             catch
             {
-                Plugin.Log.Warn($"Config {typeof(Stat)} could not be loaded! Is it valid?");
+                Plugin.Log.Warn($"Config {stat} could not be loaded! Is it valid?");
                 return null;
             }
         }
 
-        public static void setConfigEntry<Stat>(string entry, object value) where Stat : IStat
+        public static void setConfigEntry(IStat.StatTypes stat, string entry, object value)
         {
             Directory.CreateDirectory(pathToConfigFolder);
 
@@ -39,7 +39,7 @@ namespace OverlayMod.Configuration
 
             try
             {
-                config = JObject.Parse(File.ReadAllText($"{pathToConfigFolder}{typeof(Stat)}.json"));
+                config = JObject.Parse(File.ReadAllText($"{pathToConfigFolder}{stat}.json"));
             }
             catch
             {
@@ -49,7 +49,7 @@ namespace OverlayMod.Configuration
             if (config.ContainsKey(entry)) config[entry] = JToken.FromObject(value);
             else config.Add(entry, JToken.FromObject(value));
 
-            File.WriteAllText($"{pathToConfigFolder}{typeof(Stat)}.json", JsonConvert.SerializeObject(config));
+            File.WriteAllText($"{pathToConfigFolder}{stat}.json", JsonConvert.SerializeObject(config));
         }
     }
 }

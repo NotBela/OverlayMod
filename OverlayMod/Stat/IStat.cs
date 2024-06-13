@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using Zenject;
+using System.Runtime.CompilerServices;
+using System.CodeDom;
+using System.Diagnostics.PerformanceData;
 
 namespace OverlayMod.Stat.Stats
 {
@@ -15,6 +18,16 @@ namespace OverlayMod.Stat.Stats
     {
         public TextMeshProUGUI text;
         public GameObject textObject;
+
+        public enum StatTypes
+        {
+            PercentStat,
+            ComboStat,
+            ScoreStat,
+            MissStat
+        }
+
+        public abstract StatTypes enumType { get; }
 
         public bool enabled;
         public Vector2 position;
@@ -37,32 +50,11 @@ namespace OverlayMod.Stat.Stats
             text = textObject.AddComponent<TextMeshProUGUI>();
         }
 
-        internal void setTextParams()
+        protected void setTextParams()
         {
-            // using ?? operator doesnt work apparently
-            // this sucks
-            // bool? configEnabled = // implement when config done
-            // Vector2? configPosition = // implement when config done
-            // int? configSize = // implement when config done
-            /*
-            if (configEnabled == null)
-                enabled = true;
-            else
-                enabled = configEnabled.Value;
-
-            if (configPosition == null)
-                position = defaultPosition;
-            else
-                position = configPosition.Value;
-
-            if (configSize == null)
-                size = defaultSize;
-            else
-                size = configSize.Value;
-
-            this.textObject.transform.localPosition = position;
-            this.text.fontSize = size;
-            */
+            this.textObject.SetActive(StatConfig.getConfigEntry<bool>(enumType, "enabled") ?? defaultEnabled);
+            this.textObject.transform.localPosition = StatConfig.getConfigEntry<Vector2>(enumType, "position") ?? defaultPosition;
+            this.text.fontSize = StatConfig.getConfigEntry<int>(enumType, "size") ?? defaultSize;
         }
     }
 }

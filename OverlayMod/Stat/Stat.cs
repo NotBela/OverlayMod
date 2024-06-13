@@ -7,7 +7,7 @@ using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace DesktopStatView.Stat.Stats
+namespace OverlayMod.Stat.Stats
 {
     internal abstract class Stat : IInitializable, IDisposable
     {
@@ -16,7 +16,7 @@ namespace DesktopStatView.Stat.Stats
         public bool enabled;
         public GameObject textObject;
 
-        public static DesktopStatViewCanvasController controller = new DesktopStatViewCanvasController();
+        public static OverlayModCanvasController controller = new OverlayModCanvasController();
 
         public Stat()
         {
@@ -35,7 +35,7 @@ namespace DesktopStatView.Stat.Stats
 
         public void Initialize()
         {
-            controller = new DesktopStatViewCanvasController();
+            controller = new OverlayModCanvasController();
         }
 
         public void Dispose()

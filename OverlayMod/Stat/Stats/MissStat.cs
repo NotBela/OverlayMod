@@ -7,6 +7,7 @@ using Zenject;
 using UnityEngine;
 using TMPro;
 using System.Runtime.CompilerServices;
+using OverlayMod.Configuration;
 
 namespace OverlayMod.Stat.Stats
 {
@@ -15,6 +16,8 @@ namespace OverlayMod.Stat.Stats
         [Inject] private readonly BeatmapObjectManager _beatmapObjectManager;
 
         private int missedAmt;
+
+        public override StatTypes enumType => StatTypes.MissStat;
 
         public MissStat(CanvasController canvasController) : base(canvasController)
         {

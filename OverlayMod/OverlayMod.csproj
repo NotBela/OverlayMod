@@ -8,8 +8,8 @@
     <ProjectGuid>{059043F6-B7E2-452B-8D1A-A122E0E2BD7A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DesktopStatView</RootNamespace>
-    <AssemblyName>DesktopStatView</AssemblyName>
+    <RootNamespace>OverlayMod</RootNamespace>
+    <AssemblyName>OverlayMod</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <DebugSymbols>true</DebugSymbols>
@@ -138,7 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Directory.Build.props" Condition="Exists('Directory.Build.props')" />
-    <None Include="DesktopStatView.csproj.user" Condition="Exists('DesktopStatView.csproj.user')" />
+    <None Include="OverlayMod.csproj.user" Condition="Exists('OverlayMod.csproj.user')" />
     <EmbeddedResource Include="Views\ViewControllers\ConfigViewController.bsml">
       <DependentUpon>ConfigViewController.cs</DependentUpon>
     </EmbeddedResource>

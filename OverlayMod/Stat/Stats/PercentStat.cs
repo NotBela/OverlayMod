@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Zenject;
 using UnityEngine;
+using OverlayMod.Configuration;
 
 namespace OverlayMod.Stat.Stats
 {
@@ -12,6 +13,8 @@ namespace OverlayMod.Stat.Stats
     {
         [Inject] private readonly RelativeScoreAndImmediateRankCounter _relativeScoreCounter;
         [Inject] private readonly ScoreController _scoreController;
+
+        public override StatTypes enumType => StatTypes.PercentStat;
 
         public PercentStat(CanvasController controller) : base(controller) 
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OverlayMod.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,8 @@ namespace OverlayMod.Stat.Stats
     internal class ComboStat : IStat, IInitializable, IDisposable
     {
         [Inject] private readonly ComboController _comboController;
+
+        public override StatTypes enumType { get => StatTypes.ComboStat; }
 
         public ComboStat(CanvasController controller) : base(controller)
         {

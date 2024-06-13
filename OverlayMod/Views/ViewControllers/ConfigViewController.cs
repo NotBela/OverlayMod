@@ -2,6 +2,7 @@
 using BeatSaberMarkupLanguage.Attributes;
 using BeatSaberMarkupLanguage.Components;
 using BeatSaberMarkupLanguage.ViewControllers;
+using OverlayMod.Configuration;
 using OverlayMod.Stat.Stats;
 using System;
 using System.Collections.Generic;
@@ -20,12 +21,12 @@ namespace OverlayMod.Views.ViewControllers
         {
             get
             {
-                var comboEnabled = Configuration.StatConfig.getConfigEntry<ComboStat, bool>("enabled");
+                var comboEnabled = Configuration.StatConfig.getConfigEntry<bool>(IStat.StatTypes.ComboStat, "enabled");
                 return comboEnabled ?? ComboStat.defaultEnabled;
             }
             set
             {
-                Configuration.StatConfig.setConfigEntry<ComboStat>("enabled", value);
+                Configuration.StatConfig.setConfigEntry(IStat.StatTypes.ComboStat, "enabled", value);
             }
         }
         #endregion Combo
@@ -36,11 +37,11 @@ namespace OverlayMod.Views.ViewControllers
         {
             get
             {
-                return Configuration.StatConfig.getConfigEntry<PercentStat, bool>("enabled") ?? PercentStat.defaultEnabled;
+                return Configuration.StatConfig.getConfigEntry<bool>(IStat.StatTypes.PercentStat, "enabled") ?? PercentStat.defaultEnabled;
             }
             set
             {
-                Configuration.StatConfig.setConfigEntry<PercentStat>("enabled", value);
+                Configuration.StatConfig.setConfigEntry(IStat.StatTypes.PercentStat, "enabled", value);
             }
         }
         #endregion percent
