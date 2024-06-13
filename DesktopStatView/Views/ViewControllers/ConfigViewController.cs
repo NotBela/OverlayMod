@@ -2,16 +2,16 @@
 using BeatSaberMarkupLanguage.Attributes;
 using BeatSaberMarkupLanguage.Components;
 using BeatSaberMarkupLanguage.ViewControllers;
-using DesktopStatView.Stat.Stats;
+using OverlayMod.Stat.Stats;
 using System;
 using System.Collections.Generic;
 using Zenject;
 
 
-namespace DesktopStatView.Views.ViewControllers
+namespace OverlayMod.Views.ViewControllers
 {
     [HotReload(RelativePathToLayout = @"ConfigViewController.bsml")]
-    [ViewDefinition("DesktopStatView.Views.ViewControllers.ConfigViewController.bsml")]
+    [ViewDefinition("OverlayMod.Views.ViewControllers.ConfigViewController.bsml")]
     internal class ConfigViewController : BSMLAutomaticViewController
     {
         #region Combo

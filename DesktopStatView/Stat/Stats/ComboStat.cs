@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
-namespace DesktopStatView.Stat.Stats
+namespace OverlayMod.Stat.Stats
 {
     internal class ComboStat : IStat, IInitializable, IDisposable
     {

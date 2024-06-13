@@ -2,7 +2,7 @@
 using IPA.Config.Stores;
 
 [assembly: InternalsVisibleTo(GeneratedStore.AssemblyVisibilityTarget)]
-namespace DesktopStatView.Configuration
+namespace OverlayMod.Configuration
 {
     internal class PluginConfig
     {
@@ -12,7 +12,7 @@ namespace DesktopStatView.Configuration
         /// <summary>
         /// This is called whenever BSIPA reads the config from disk (including when file changes are detected).
         /// </summary>
-        public virtual void OnReload()
+        public virtual void OnReload() 
         {
             // Do stuff after config is read from disk.
         }

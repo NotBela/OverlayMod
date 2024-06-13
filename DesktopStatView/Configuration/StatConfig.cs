@@ -5,16 +5,16 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using DesktopStatView.Stat.Stats;
+using OverlayMod.Stat.Stats;
 using IPA.Utilities;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace DesktopStatView.Configuration
+namespace OverlayMod.Configuration
 {
     internal class StatConfig
     {
-        private static readonly string pathToConfigFolder = $"{UnityGame.InstallPath}\\UserData\\DesktopStatView\\";
+        private static readonly string pathToConfigFolder = $"{UnityGame.InstallPath}\\UserData\\OverlayMod\\";
 
         public static T? getConfigEntry<Stat, T>(string entry) where T : struct where Stat : IStat
         {
@@ -24,9 +24,9 @@ namespace DesktopStatView.Configuration
             {
                 return JObject.Parse(File.ReadAllText($"{pathToConfigFolder}{typeof(Stat)}.json"))[entry].Value<T>();
             }
-            catch(Exception e)
+            catch
             {
-                Plugin.Log.Warn($"Config {typeof(Stat)} could not be loaded: {e}");
+                Plugin.Log.Warn($"Config {typeof(Stat)} could not be loaded! Is it valid?");
                 return null;
             }
         }

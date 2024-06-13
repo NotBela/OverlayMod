@@ -1,5 +1,5 @@
 ﻿using BeatSaberMarkupLanguage;
-using DesktopStatView.Views.ViewControllers;
+using OverlayMod.Views.ViewControllers;
 using HMUI;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Zenject;
 
-namespace DesktopStatView.Vews.FlowControllers
+namespace OverlayMod.Vews.FlowControllers
 {
     internal class ConfigFlowController : HMUI.FlowCoordinator
     {
@@ -25,7 +25,7 @@ namespace DesktopStatView.Vews.FlowControllers
         protected override void DidActivate(bool firstActivation, bool addedToHierarchy, bool screenSystemEnabling)
         {
             showBackButton = true;
-            this.SetTitle("DesktopStatView");
+            this.SetTitle("OverlayMod");
             ProvideInitialViewControllers(_viewController);
         }
 

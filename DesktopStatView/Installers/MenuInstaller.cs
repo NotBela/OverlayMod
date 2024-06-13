@@ -1,6 +1,6 @@
-﻿using DesktopStatView.Vews.FlowControllers;
-using DesktopStatView.Views;
-using DesktopStatView.Views.ViewControllers;
+﻿using OverlayMod.Vews.FlowControllers;
+using OverlayMod.Views;
+using OverlayMod.Views.ViewControllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Zenject;
 
-namespace DesktopStatView.Installers
+namespace OverlayMod.Installers
 {
     internal class MenuInstaller : Installer<MenuInstaller>
     {

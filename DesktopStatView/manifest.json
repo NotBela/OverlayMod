@@ -1,7 +1,7 @@
 ﻿{
   "$schema": "https://raw.githubusercontent.com/bsmg/BSIPA-MetadataFileSchema/master/Schema.json",
-  "id": "DesktopStatView",
-  "name": "DesktopStatView",
+  "id": "OverlayMod",
+  "name": "OverlayMod",
   "author": "",
   "version": "0.0.1",
   "description": "",

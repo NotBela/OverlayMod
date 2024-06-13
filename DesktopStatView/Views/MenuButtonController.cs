@@ -1,6 +1,6 @@
 ﻿using BeatSaberMarkupLanguage;
 using BeatSaberMarkupLanguage.MenuButtons;
-using DesktopStatView.Vews.FlowControllers;
+using OverlayMod.Vews.FlowControllers;
 using HMUI;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Zenject;
 
-namespace DesktopStatView.Views
+namespace OverlayMod.Views
 {
     internal class MenuButtonController : IInitializable, IDisposable
     {
@@ -22,7 +22,7 @@ namespace DesktopStatView.Views
         {
             _flowController = flowController;
             _parent = parent;
-            _menuButton = new MenuButton("DesktopStatView", string.Empty, buttonClicked);
+            _menuButton = new MenuButton("OverlayMod", string.Empty, buttonClicked);
         }
 
         

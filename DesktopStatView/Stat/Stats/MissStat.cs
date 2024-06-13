@@ -8,7 +8,7 @@ using UnityEngine;
 using TMPro;
 using System.Runtime.CompilerServices;
 
-namespace DesktopStatView.Stat.Stats
+namespace OverlayMod.Stat.Stats
 {
     internal class MissStat : IStat, IInitializable, IDisposable
     {

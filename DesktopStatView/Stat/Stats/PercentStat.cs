@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Zenject;
 using UnityEngine;
 
-namespace DesktopStatView.Stat.Stats
+namespace OverlayMod.Stat.Stats
 {
     internal class PercentStat : IStat, IInitializable, IDisposable
     {

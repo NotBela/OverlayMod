@@ -1,5 +1,5 @@
-﻿using DesktopStatView.Stat;
-using DesktopStatView.Stat.Stats;
+﻿using OverlayMod.Stat;
+using OverlayMod.Stat.Stats;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Zenject;
 
-namespace DesktopStatView.Installers
+namespace OverlayMod.Installers
 {
     internal class GameInstaller : Installer<GameInstaller>
     {

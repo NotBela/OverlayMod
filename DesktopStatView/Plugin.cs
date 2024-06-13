@@ -1,4 +1,4 @@
-﻿using DesktopStatView.Installers;
+﻿using OverlayMod.Installers;
 using IPA;
 using IPA.Config;
 using IPA.Config.Stores;
@@ -11,7 +11,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using IPALogger = IPA.Logging.Logger;
 
-namespace DesktopStatView
+namespace OverlayMod
 {
     [Plugin(RuntimeOptions.SingleStartInit)]
     public class Plugin

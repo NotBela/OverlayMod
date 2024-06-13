@@ -1,4 +1,4 @@
-﻿using DesktopStatView.Configuration;
+﻿using OverlayMod.Configuration;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace DesktopStatView.Stat.Stats
+namespace OverlayMod.Stat.Stats
 {
     internal abstract class IStat
     {
