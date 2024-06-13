@@ -15,11 +15,11 @@ namespace DesktopStatView.Stat.Stats
 
         public PercentStat(CanvasController controller) : base(controller) 
         {
-            this.counterName = "Percent";
 
-            this.defaultSize = 80;
-            this.text.text = "100.00";
-            this.defaultPosition = new Vector2(-700, -450);
+            defaultSize = 80;
+            text.text = "100.00";
+            defaultPosition = new Vector2(-700, -450);
+            defaultEnabled = true;
 
             textObject.GetComponent<RectTransform>().sizeDelta = new Vector2(400, 200);
             this.textObject.transform.localPosition = position;

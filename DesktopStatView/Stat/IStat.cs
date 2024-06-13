@@ -13,24 +13,23 @@ namespace DesktopStatView.Stat.Stats
 {
     internal abstract class IStat
     {
-        [JsonIgnore] public TextMeshProUGUI text;
+        public TextMeshProUGUI text;
+        public GameObject textObject;
+
         public bool enabled;
-        [JsonIgnore] public GameObject textObject;
-        [JsonIgnore] public string counterName;
-        [JsonIgnore] public StatConfig config;
         public Vector2 position;
         public int size;
 
-        [JsonIgnore] internal Vector2 defaultPosition;
-        [JsonIgnore] internal int defaultSize;
+        public static Vector2 defaultPosition { get; internal set; }
+        public static int defaultSize { get; protected set; }
+        public static bool defaultEnabled { get; protected set; }
+
 
         public readonly CanvasController _canvasController;
 
         public IStat(CanvasController _canvasController)
         {
             this._canvasController = _canvasController;
-
-            config = new StatConfig(this);
 
             textObject = new GameObject();
 
@@ -42,10 +41,10 @@ namespace DesktopStatView.Stat.Stats
         {
             // using ?? operator doesnt work apparently
             // this sucks
-            bool? configEnabled = config.getConfigEntry<bool>("enabled");
-            Vector2? configPosition = config.getConfigEntry<Vector2>("position");
-            int? configSize = config.getConfigEntry<int>("size");
-
+            // bool? configEnabled = // implement when config done
+            // Vector2? configPosition = // implement when config done
+            // int? configSize = // implement when config done
+            /*
             if (configEnabled == null)
                 enabled = true;
             else
@@ -63,6 +62,7 @@ namespace DesktopStatView.Stat.Stats
 
             this.textObject.transform.localPosition = position;
             this.text.fontSize = size;
+            */
         }
     }
 }

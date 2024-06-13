@@ -1,8 +1,26 @@
 ﻿<bg xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' 
 	xsi:schemaLocation='https://monkeymanboy.github.io/BSML-Docs/ https://raw.githubusercontent.com/monkeymanboy/BSML-Docs/gh-pages/BSMLSchema.xsd'
 	>
-	<horizontal horizontal-fit="PreferredSize" >
-		<text text='Message:' />
-		<text text="~YourTextProperty" />
+	<horizontal horizontal-fit="PreferredSize">
+		<vertical>
+			<text text="Stat Settings" font-size="10"/>
+			<vertical bg="round-rect-panel">
+				<tab-selector tab-tag="settingsTab"/>
+			</vertical>
+
+			<horizontal>
+				<tab tags="settingsTab" tab-name="Percent">
+					<vertical pad="10" child-align="UpperCenter" child-control-height="false">
+						<bool-setting apply-on-change="true" text="Enabled" value="percentEnabled"/>
+					</vertical>
+				</tab>
+				<tab tags="settingsTab" tab-name="Combo">
+					<vertical>
+						<bool-setting apply-on-change="true" text="Enabled" value="comboEnabled"/>
+					</vertical>
+				</tab>
+			</horizontal>
+			
+		</vertical>
 	</horizontal>
 </bg>

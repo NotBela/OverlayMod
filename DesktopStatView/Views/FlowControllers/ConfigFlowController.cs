@@ -1,5 +1,5 @@
 ﻿using BeatSaberMarkupLanguage;
-using DesktopStatView.Vews.ViewControllers;
+using DesktopStatView.Views.ViewControllers;
 using HMUI;
 using System;
 using System.Collections.Generic;

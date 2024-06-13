@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Zenject;
 
-namespace DesktopStatView.Vews
+namespace DesktopStatView.Views
 {
     internal class MenuButtonController : IInitializable, IDisposable
     {

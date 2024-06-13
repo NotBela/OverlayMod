@@ -2,38 +2,47 @@
 using BeatSaberMarkupLanguage.Attributes;
 using BeatSaberMarkupLanguage.Components;
 using BeatSaberMarkupLanguage.ViewControllers;
+using DesktopStatView.Stat.Stats;
 using System;
 using System.Collections.Generic;
 using Zenject;
 
 
-namespace DesktopStatView.Vews.ViewControllers
+namespace DesktopStatView.Views.ViewControllers
 {
     [HotReload(RelativePathToLayout = @"ConfigViewController.bsml")]
-    [ViewDefinition("DesktopStatView.Vews.ViewControllers.ConfigViewController.bsml")]
-    internal class ConfigViewController : BSMLAutomaticViewController, IInitializable
+    [ViewDefinition("DesktopStatView.Views.ViewControllers.ConfigViewController.bsml")]
+    internal class ConfigViewController : BSMLAutomaticViewController
     {
-        private string yourTextField = "Hello World";
-        public string YourTextProperty
+        #region Combo
+        [UIValue("comboEnabled")]
+        private bool comboEnabled
         {
-            get { return yourTextField; }
+            get
+            {
+                var comboEnabled = Configuration.StatConfig.getConfigEntry<ComboStat, bool>("enabled");
+                return comboEnabled ?? ComboStat.defaultEnabled;
+            }
             set
             {
-                if (yourTextField == value) return;
-                yourTextField = value;
-                NotifyPropertyChanged();
+                Configuration.StatConfig.setConfigEntry<ComboStat>("enabled", value);
             }
         }
+        #endregion Combo
 
-        public void Initialize()
+        #region percent
+        [UIValue("percentEnabled")]
+        private bool percentEnabled
         {
-            Plugin.Log.Info("hi");
+            get
+            {
+                return Configuration.StatConfig.getConfigEntry<PercentStat, bool>("enabled") ?? PercentStat.defaultEnabled;
+            }
+            set
+            {
+                Configuration.StatConfig.setConfigEntry<PercentStat>("enabled", value);
+            }
         }
-
-        [UIAction("#post-parse")]
-        internal void PostParse()
-        {
-            // Code to run after BSML finishes
-        }
+        #endregion percent
     }
 }

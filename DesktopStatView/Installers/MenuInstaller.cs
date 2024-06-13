@@ -1,6 +1,6 @@
-﻿using DesktopStatView.Vews;
-using DesktopStatView.Vews.FlowControllers;
-using DesktopStatView.Vews.ViewControllers;
+﻿using DesktopStatView.Vews.FlowControllers;
+using DesktopStatView.Views;
+using DesktopStatView.Views.ViewControllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;

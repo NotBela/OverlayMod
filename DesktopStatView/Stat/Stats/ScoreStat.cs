@@ -14,11 +14,11 @@ namespace DesktopStatView.Stat.Stats
 
         public ScoreStat(CanvasController controller) : base(controller)
         {
-            this.counterName = "Score";
 
-            this.text.text = "0";
-            this.defaultSize = 60;
-            this.defaultPosition = new Vector2(-350, -300);
+            text.text = "0";
+            defaultSize = 60;
+            defaultPosition = new Vector2(-350, -300);
+            defaultEnabled = true;
 
             setTextParams();
         }

@@ -14,40 +14,42 @@ namespace DesktopStatView.Configuration
 {
     internal class StatConfig
     {
-        private readonly IStat stat;
+        private static readonly string pathToConfigFolder = $"{UnityGame.InstallPath}\\UserData\\DesktopStatView\\";
 
-        private JObject config;
-        private static readonly string pathToConfigFolder = Path.Combine(UnityGame.InstallPath, "\\UserData\\DesktopStatView\\");
-
-        public StatConfig(IStat stat)
+        public static T? getConfigEntry<Stat, T>(string entry) where T : struct where Stat : IStat
         {
-            this.stat = stat;
+            if (!Directory.Exists(pathToConfigFolder) || !File.Exists($"{pathToConfigFolder}{typeof(Stat)}.json")) return null;
 
-            if (!File.Exists(Path.Combine(pathToConfigFolder, $"{stat.counterName}.json")))
-                config = new JObject();
-
-            else config = JsonConvert.DeserializeObject<JObject>(File.ReadAllText(Path.Combine(pathToConfigFolder, $"{stat.counterName}.json")));
-        }
-
-        public void setConfigEntry<T>(string entry, T value) where T : struct
-        {
-            config.SetProperty(entry, value);
-
-            File.WriteAllText(Path.Combine(pathToConfigFolder, stat.counterName), JsonConvert.SerializeObject(config));
-        }
-
-        public T? getConfigEntry<T>(string nameOfEntry) where T : struct
-        {
             try
             {
-                T? returnObj = config.GetValue(nameOfEntry).Value<T>();
-                return returnObj;
+                return JObject.Parse(File.ReadAllText($"{pathToConfigFolder}{typeof(Stat)}.json"))[entry].Value<T>();
+            }
+            catch(Exception e)
+            {
+                Plugin.Log.Warn($"Config {typeof(Stat)} could not be loaded: {e}");
+                return null;
+            }
+        }
+
+        public static void setConfigEntry<Stat>(string entry, object value) where Stat : IStat
+        {
+            Directory.CreateDirectory(pathToConfigFolder);
+
+            JObject config;
+
+            try
+            {
+                config = JObject.Parse(File.ReadAllText($"{pathToConfigFolder}{typeof(Stat)}.json"));
             }
             catch
             {
-                return null;
+                config = new JObject();
             }
-            
+
+            if (config.ContainsKey(entry)) config[entry] = JToken.FromObject(value);
+            else config.Add(entry, JToken.FromObject(value));
+
+            File.WriteAllText($"{pathToConfigFolder}{typeof(Stat)}.json", JsonConvert.SerializeObject(config));
         }
     }
 }
