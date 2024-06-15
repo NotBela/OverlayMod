@@ -20,7 +20,7 @@ namespace OverlayMod.Stat.Stats
 
             this.text.text = "0";
             defaultSize = 60;
-            defaultPosition = new Vector2(-500, -300);
+            defaultPosition = new Vector2(Screen.width / 2, Screen.height / 2);
             defaultEnabled = false;
 
             this.textObject.transform.localPosition = position;

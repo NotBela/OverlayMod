@@ -25,8 +25,8 @@ namespace OverlayMod.Stat.Stats
             missedAmt = 0;
 
             this.text.text = $"{missedAmt}";
-            defaultSize = 60;
-            defaultPosition = new Vector2(100, 0);
+            defaultSize = 40;
+            defaultPosition = new Vector2(400, 100);
             defaultEnabled = true;
 
             this.textObject.transform.localPosition = position;

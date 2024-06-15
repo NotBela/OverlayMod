@@ -19,8 +19,8 @@ namespace OverlayMod.Stat.Stats
         {
 
             text.text = "0";
-            defaultSize = 60;
-            defaultPosition = new Vector2(960, 540); // new Vector2(-350, -300);
+            defaultSize = 40;
+            defaultPosition = new Vector2(250, 75);
             defaultEnabled = true;
 
             setTextParams();

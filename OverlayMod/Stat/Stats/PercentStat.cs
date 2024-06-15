@@ -19,9 +19,9 @@ namespace OverlayMod.Stat.Stats
         public PercentStat(CanvasController controller) : base(controller) 
         {
 
-            defaultSize = 80;
+            defaultSize = 70;
             text.text = "100.00";
-            defaultPosition = new Vector2(-700, -450);
+            defaultPosition = new Vector2(250, 150);
             defaultEnabled = true;
 
             textObject.GetComponent<RectTransform>().sizeDelta = new Vector2(400, 200);
