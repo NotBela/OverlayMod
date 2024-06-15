@@ -25,8 +25,6 @@ namespace OverlayMod.Views
             _menuButton = new MenuButton("OverlayMod", string.Empty, buttonClicked);
         }
 
-        
-
         private void buttonClicked() => _parent.PresentFlowCoordinator(_flowController);
 
         public void Initialize()

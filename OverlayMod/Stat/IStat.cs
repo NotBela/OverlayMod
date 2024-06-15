@@ -11,6 +11,7 @@ using Zenject;
 using System.Runtime.CompilerServices;
 using System.CodeDom;
 using System.Diagnostics.PerformanceData;
+using JetBrains.Annotations;
 
 namespace OverlayMod.Stat.Stats
 {
@@ -33,7 +34,7 @@ namespace OverlayMod.Stat.Stats
         public Vector2 position;
         public int size;
 
-        public static Vector2 defaultPosition { get; internal set; }
+        public static Vector2 defaultPosition { get; protected set; }
         public static int defaultSize { get; protected set; }
         public static bool defaultEnabled { get; protected set; }
 
@@ -53,8 +54,12 @@ namespace OverlayMod.Stat.Stats
         protected void setTextParams()
         {
             this.textObject.SetActive(StatConfig.getConfigEntry<bool>(enumType, "enabled") ?? defaultEnabled);
-            this.textObject.transform.localPosition = StatConfig.getConfigEntry<Vector2>(enumType, "position") ?? defaultPosition;
             this.text.fontSize = StatConfig.getConfigEntry<int>(enumType, "size") ?? defaultSize;
+
+            float textPosX = StatConfig.getConfigEntry<float>(enumType, "posX") ?? (-Screen.width / 2) + defaultPosition.x;
+            float textPosY = StatConfig.getConfigEntry<float>(enumType, "posY") ?? (-Screen.height / 2) + defaultPosition.y;
+
+            this.textObject.transform.localPosition = new Vector2(textPosX, textPosY);
         }
     }
 }
