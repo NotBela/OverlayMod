@@ -58,8 +58,8 @@ namespace OverlayMod.Stat.Stats
             this.text.fontSize = StatConfig.getConfigEntry<int>(enumType, "size") ?? defaultSize;
             this.text.alignment = TextAlignmentOptions.Center;
 
-            float textPosX = StatConfig.getConfigEntry<float>(enumType, "posX") ?? (-Screen.width / 2) + defaultPosition.x;
-            float textPosY = StatConfig.getConfigEntry<float>(enumType, "posY") ?? (-Screen.height / 2) + defaultPosition.y;
+            float textPosX = (-Screen.width / 2) + (StatConfig.getConfigEntry<float>(enumType, "posX") ?? defaultPosition.x);
+            float textPosY = (-Screen.height / 2) + (StatConfig.getConfigEntry<float>(enumType, "posY") ?? defaultPosition.y);
 
             this.textObject.transform.localPosition = new Vector2(textPosX, textPosY);
         }

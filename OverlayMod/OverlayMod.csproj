@@ -139,9 +139,7 @@
   <ItemGroup>
     <None Include="Directory.Build.props" Condition="Exists('Directory.Build.props')" />
     <None Include="OverlayMod.csproj.user" Condition="Exists('OverlayMod.csproj.user')" />
-    <EmbeddedResource Include="Views\ViewControllers\ConfigViewController.bsml">
-      <DependentUpon>ConfigViewController.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ViewControllers\ConfigViewController.bsml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="BeatSaberModdingTools.Tasks">

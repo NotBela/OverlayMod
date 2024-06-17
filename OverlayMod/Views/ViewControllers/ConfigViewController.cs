@@ -11,7 +11,6 @@ using Zenject;
 
 namespace OverlayMod.Views.ViewControllers
 {
-    [HotReload(RelativePathToLayout = @"ConfigViewController.bsml")]
     [ViewDefinition("OverlayMod.Views.ViewControllers.ConfigViewController.bsml")]
     internal class ConfigViewController : BSMLAutomaticViewController
     {
@@ -69,7 +68,6 @@ namespace OverlayMod.Views.ViewControllers
         }
 
         #endregion miss
-
 
     }
 }

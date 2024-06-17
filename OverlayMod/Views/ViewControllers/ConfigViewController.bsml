@@ -3,31 +3,32 @@
 	>
 	<horizontal horizontal-fit="PreferredSize">
 		<vertical>
-			<text text="Stat Settings" font-size="10"/>
-			<vertical bg="round-rect-panel">
-				<tab-selector tab-tag="settingsTab"/>
-			</vertical>
+			<vertical pad-top="-50">
+				<text align="Center" pad-top="40" text="Stat Settings" font-size="10"/>
+				<vertical>
+					<tab-selector tab-tag="settingsTab"/>
+				</vertical>
 
-			<horizontal>
-				<tab tags="settingsTab" tab-name="Percent">
-					<vertical pad="10" child-align="UpperCenter" child-control-height="false">
-						<bool-setting apply-on-change="true" text="Enabled" value="percentEnabled"/>
-					</vertical>
-				</tab>
-				<tab tags="settingsTab" tab-name="Combo">
-					<vertical pad="10" child-align="UpperCenter" child-control-height="false">
-						<bool-setting apply-on-change="true" text="Enabled" value="comboEnabled"/>
-					</vertical>
-				</tab>
-				<tab tags="settingsTab" tab-name="Miss">
-					<vertical pad="10" child-align="UpperCenter" child-control-height="false">
-						<bool-setting apply-on-change="true" text="Enabled" value="missEnabled"/>
-						<bool-setting apply-on-change="true" text="Red Miss Text" value="redMissText"/>
-						<bool-setting apply-on-change="true" text="Hide During Full Combo" value="hideWhileFc" />
-					</vertical>
-				</tab>
-			</horizontal>
-			
+				<horizontal>
+					<tab tags="settingsTab" tab-name="Percent">
+						<vertical child-align="UpperCenter" child-control-height="false">
+							<bool-setting apply-on-change="true" text="Enabled" value="percentEnabled"/>
+						</vertical>
+					</tab>
+					<tab tags="settingsTab" tab-name="Combo">
+						<vertical child-align="UpperCenter" child-control-height="false">
+							<bool-setting apply-on-change="true" text="Enabled" value="comboEnabled"/>
+						</vertical>
+					</tab>
+					<tab tags="settingsTab" tab-name="Miss">
+						<vertical child-align="UpperCenter" child-control-height="false">
+							<bool-setting apply-on-change="true" text="Enabled" value="missEnabled"/>
+							<bool-setting apply-on-change="true" text="Red Miss Text" value="redMissText"/>
+							<bool-setting apply-on-change="true" text="Hide During Full Combo" value="hideWhileFc" />
+						</vertical>
+					</tab>
+				</horizontal>
+			</vertical>
 		</vertical>
 	</horizontal>
 </bg>
