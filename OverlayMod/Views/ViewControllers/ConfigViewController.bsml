@@ -15,8 +15,15 @@
 					</vertical>
 				</tab>
 				<tab tags="settingsTab" tab-name="Combo">
-					<vertical>
+					<vertical pad="10" child-align="UpperCenter" child-control-height="false">
 						<bool-setting apply-on-change="true" text="Enabled" value="comboEnabled"/>
+					</vertical>
+				</tab>
+				<tab tags="settingsTab" tab-name="Miss">
+					<vertical pad="10" child-align="UpperCenter" child-control-height="false">
+						<bool-setting apply-on-change="true" text="Enabled" value="missEnabled"/>
+						<bool-setting apply-on-change="true" text="Red Miss Text" value="redMissText"/>
+						<bool-setting apply-on-change="true" text="Hide During Full Combo" value="hideWhileFc" />
 					</vertical>
 				</tab>
 			</horizontal>

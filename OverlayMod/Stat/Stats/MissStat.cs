@@ -18,14 +18,12 @@ namespace OverlayMod.Stat.Stats
         private int missedAmt;
         public bool hideUntilMissed
         {
-            get => StatConfig.getConfigEntry<bool>(this.enumType, "hideUntilMissed") ?? true;
-            set => StatConfig.setConfigEntry(this.enumType, "hideUntilMissed", value);
+            get => StatConfig.getConfigEntry<bool>(this.enumType, "hideWhileFc") ?? true;
         }
 
         public bool redMissCounter
         {
-            get => StatConfig.getConfigEntry<bool>(this.enumType, "redMissCounter") ?? false;
-            set => StatConfig.setConfigEntry(this.enumType, "redMissCounter", value); 
+            get => StatConfig.getConfigEntry<bool>(this.enumType, "redMissText") ?? true;
         }
 
         public override StatTypes enumType => StatTypes.MissStat;

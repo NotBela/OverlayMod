@@ -45,5 +45,31 @@ namespace OverlayMod.Views.ViewControllers
             }
         }
         #endregion percent
+
+        #region miss
+        [UIValue("missEnabled")]
+        private bool missEnabled
+        {
+            get => StatConfig.getConfigEntry<bool>(IStat.StatTypes.MissStat, "enabled") ?? true;
+            set => StatConfig.setConfigEntry(IStat.StatTypes.MissStat, "enabled", value);
+        }
+
+        [UIValue("redMissText")]
+        private bool redMissText
+        {
+            get => StatConfig.getConfigEntry<bool>(IStat.StatTypes.MissStat, "redMissText") ?? true;
+            set => StatConfig.setConfigEntry(IStat.StatTypes.MissStat, "redMissText", value);
+        }
+
+        [UIValue("hideWhileFc")]
+        private bool hideWhileFc
+        {
+            get => StatConfig.getConfigEntry<bool>(IStat.StatTypes.MissStat, "hideWhileFc") ?? true;
+            set => StatConfig.setConfigEntry(IStat.StatTypes.MissStat, "hideWhileFc", value);
+        }
+
+        #endregion miss
+
+
     }
 }
