@@ -34,9 +34,9 @@ namespace OverlayMod.Stat.Stats
         public Vector2 position;
         public int size;
 
-        public static Vector2 defaultPosition { get; protected set; }
-        public static int defaultSize { get; protected set; }
-        public static bool defaultEnabled { get; protected set; }
+        public Vector2 defaultPosition { get; protected set; }
+        public int defaultSize { get; protected set; }
+        public bool defaultEnabled { get; protected set; }
 
 
         public readonly CanvasController _canvasController;
@@ -53,7 +53,8 @@ namespace OverlayMod.Stat.Stats
 
         protected void setTextParams()
         {
-            this.textObject.SetActive(StatConfig.getConfigEntry<bool>(enumType, "enabled") ?? defaultEnabled);
+            this.enabled = StatConfig.getConfigEntry<bool>(enumType, "enabled") ?? defaultEnabled;
+            this.textObject.SetActive(this.enabled);
             this.text.fontSize = StatConfig.getConfigEntry<int>(enumType, "size") ?? defaultSize;
             this.text.alignment = TextAlignmentOptions.Center;
 

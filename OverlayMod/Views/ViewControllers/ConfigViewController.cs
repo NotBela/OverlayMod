@@ -21,8 +21,8 @@ namespace OverlayMod.Views.ViewControllers
         {
             get
             {
-                var comboEnabled = Configuration.StatConfig.getConfigEntry<bool>(IStat.StatTypes.ComboStat, "enabled");
-                return comboEnabled ?? ComboStat.defaultEnabled;
+                var comboEnabled = StatConfig.getConfigEntry<bool>(IStat.StatTypes.ComboStat, "enabled");
+                return comboEnabled ?? false;
             }
             set
             {
@@ -37,7 +37,7 @@ namespace OverlayMod.Views.ViewControllers
         {
             get
             {
-                return Configuration.StatConfig.getConfigEntry<bool>(IStat.StatTypes.PercentStat, "enabled") ?? PercentStat.defaultEnabled;
+                return Configuration.StatConfig.getConfigEntry<bool>(IStat.StatTypes.PercentStat, "enabled") ?? true;
             }
             set
             {

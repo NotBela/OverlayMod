@@ -16,6 +16,17 @@ namespace OverlayMod.Stat.Stats
         [Inject] private readonly BeatmapObjectManager _beatmapObjectManager;
 
         private int missedAmt;
+        public bool hideUntilMissed
+        {
+            get => StatConfig.getConfigEntry<bool>(this.enumType, "hideUntilMissed") ?? true;
+            set => StatConfig.setConfigEntry(this.enumType, "hideUntilMissed", value);
+        }
+
+        public bool redMissCounter
+        {
+            get => StatConfig.getConfigEntry<bool>(this.enumType, "redMissCounter") ?? false;
+            set => StatConfig.setConfigEntry(this.enumType, "redMissCounter", value); 
+        }
 
         public override StatTypes enumType => StatTypes.MissStat;
 
@@ -24,7 +35,10 @@ namespace OverlayMod.Stat.Stats
 
             missedAmt = 0;
 
-            this.text.text = $"{missedAmt}";
+            this.text.text = $"x{missedAmt}";
+
+            if (redMissCounter) this.text.color = Color.red;
+
             defaultSize = 40;
             defaultPosition = new Vector2(400, 100);
             defaultEnabled = true;
@@ -33,6 +47,9 @@ namespace OverlayMod.Stat.Stats
             this.text.fontSize = size;
 
             setTextParams();
+
+            if (hideUntilMissed)
+                this.textObject.SetActive(false);
         }
 
         public void Initialize()
@@ -47,10 +64,12 @@ namespace OverlayMod.Stat.Stats
 
         private void Update(NoteController controller)
         {
+            this.textObject.SetActive(this.enabled);
+            Plugin.Log.Info($"{this.enabled}");
             if (controller.name == "BombNote(Clone)") return;
 
             missedAmt++;
-            this.text.text = $"{missedAmt}";
+            this.text.text = $"x{missedAmt}";
         }
     }
 }
