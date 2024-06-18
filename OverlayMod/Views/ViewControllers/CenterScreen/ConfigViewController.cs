@@ -9,9 +9,9 @@ using System.Collections.Generic;
 using Zenject;
 
 
-namespace OverlayMod.Views.ViewControllers
+namespace OverlayMod.Views.ViewControllers.CenterScreen
 {
-    [ViewDefinition("OverlayMod.Views.ViewControllers.ConfigViewController.bsml")]
+    [ViewDefinition("OverlayMod.Views.ViewControllers.CenterScreen.ConfigViewController.bsml")]
     internal class ConfigViewController : BSMLAutomaticViewController
     {
         #region Combo
@@ -67,7 +67,7 @@ namespace OverlayMod.Views.ViewControllers
             set => StatConfig.setConfigEntry(IStat.StatTypes.MissStat, "hideWhileFc", value);
         }
 
-        #endregion miss
+        #endregion miss 
 
     }
 }

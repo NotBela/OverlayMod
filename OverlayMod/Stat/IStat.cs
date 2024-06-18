@@ -43,6 +43,8 @@ namespace OverlayMod.Stat.Stats
 
         public IStat(CanvasController _canvasController)
         {
+            if (!PluginConfig.Instance.globalEnable) return;
+
             this._canvasController = _canvasController;
 
             textObject = new GameObject();

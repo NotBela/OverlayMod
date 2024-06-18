@@ -15,8 +15,6 @@ namespace OverlayMod.Stat
 
         public CanvasController()
         {
-            
-
             canvasGameObj = new GameObject();
             canvas = canvasGameObj.AddComponent<Canvas>();
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;

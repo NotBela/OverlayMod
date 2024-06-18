@@ -131,7 +131,8 @@
     <Compile Include="Stat\Stats\ScoreStat.cs" />
     <Compile Include="Views\FlowControllers\ConfigFlowController.cs" />
     <Compile Include="Views\MenuButtonController.cs" />
-    <Compile Include="Views\ViewControllers\ConfigViewController.cs" />
+    <Compile Include="Views\ViewControllers\CenterScreen\ConfigViewController.cs" />
+    <Compile Include="Views\ViewControllers\LeftScreen\GlobalSettingsViewController.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="manifest.json" />
@@ -139,7 +140,8 @@
   <ItemGroup>
     <None Include="Directory.Build.props" Condition="Exists('Directory.Build.props')" />
     <None Include="OverlayMod.csproj.user" Condition="Exists('OverlayMod.csproj.user')" />
-    <EmbeddedResource Include="Views\ViewControllers\ConfigViewController.bsml" />
+    <EmbeddedResource Include="Views\ViewControllers\CenterScreen\ConfigViewController.bsml" />
+    <EmbeddedResource Include="Views\ViewControllers\LeftScreen\GlobalSettingsViewController.bsml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="BeatSaberModdingTools.Tasks">
@@ -148,5 +150,6 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
