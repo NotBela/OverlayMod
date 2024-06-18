@@ -19,6 +19,9 @@ namespace OverlayMod
         internal static Plugin Instance { get; private set; }
         internal static IPALogger Log { get; private set; }
 
+        public static float scaleX { get => (float)Screen.width / 1920; }
+        public static float scaleY { get => (float)Screen.height / 1080; }
+
         [Init]
         public void Init(IPALogger logger, Config conf, Zenjector zenject)
         {

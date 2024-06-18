@@ -55,11 +55,13 @@ namespace OverlayMod.Stat.Stats
         {
             this.enabled = StatConfig.getConfigEntry<bool>(enumType, "enabled") ?? defaultEnabled;
             this.textObject.SetActive(this.enabled);
-            this.text.fontSize = StatConfig.getConfigEntry<int>(enumType, "size") ?? defaultSize;
+            this.text.fontSize = (StatConfig.getConfigEntry<int>(enumType, "size") ?? defaultSize) * Plugin.scaleX;
             this.text.alignment = TextAlignmentOptions.Center;
 
-            float textPosX = (-Screen.width / 2) + (StatConfig.getConfigEntry<float>(enumType, "posX") ?? defaultPosition.x);
-            float textPosY = (-Screen.height / 2) + (StatConfig.getConfigEntry<float>(enumType, "posY") ?? defaultPosition.y);
+            Plugin.Log.Info($"{Plugin.scaleX}, {Plugin.scaleY}");
+
+            float textPosX = (-Screen.width / 2) + ((StatConfig.getConfigEntry<float>(enumType, "posX") ?? defaultPosition.x) * Plugin.scaleY);
+            float textPosY = (-Screen.height / 2) + ((StatConfig.getConfigEntry<float>(enumType, "posY") ?? defaultPosition.y) * Plugin.scaleY);
 
             this.textObject.transform.localPosition = new Vector2(textPosX, textPosY);
         }
