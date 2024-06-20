@@ -9,7 +9,7 @@ using Zenject;
 
 namespace OverlayMod.Stat
 {
-    internal class CanvasController : IInitializable
+    internal class CanvasController
     {
         public GameObject canvasGameObj;
         public Canvas canvas;
@@ -23,11 +23,6 @@ namespace OverlayMod.Stat
             canvas.name = "OverlayMod";
 
             canvasGameObj.SetActive(PluginConfig.Instance.globalEnable);
-        }
-
-        public void Initialize()
-        {
-            Plugin.Log.Info("hi");
         }
     }
 }
