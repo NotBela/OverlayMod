@@ -12,19 +12,19 @@
 				<horizontal>
 					<tab tags="settingsTab" tab-name="Percent">
 						<vertical child-align="UpperCenter" child-control-height="false">
-							<bool-setting apply-on-change="true" text="Enabled" value="percentEnabled"/>
+							<bool-setting bind-value="true" apply-on-change="true" text="Enabled" value="percentEnabled"/>
 						</vertical>
 					</tab>
 					<tab tags="settingsTab" tab-name="Combo">
 						<vertical child-align="UpperCenter" child-control-height="false">
-							<bool-setting apply-on-change="true" text="Enabled" value="comboEnabled"/>
+							<bool-setting bind-value="true" apply-on-change="true" text="Enabled" value="comboEnabled"/>
 						</vertical>
 					</tab>
 					<tab tags="settingsTab" tab-name="Miss">
 						<vertical child-align="UpperCenter" child-control-height="false">
-							<bool-setting apply-on-change="true" text="Enabled" value="missEnabled"/>
-							<bool-setting apply-on-change="true" text="Red Miss Text" value="redMissText"/>
-							<bool-setting apply-on-change="true" text="Hide During Full Combo" value="hideWhileFc" />
+							<bool-setting bind-value="true" apply-on-change="true" text="Enabled" value="missEnabled"/>
+							<bool-setting bind-value="true" apply-on-change="true" text="Red Miss Text" value="redMissText"/>
+							<bool-setting bind-value="true" apply-on-change="true" text="Hide During Full Combo" value="hideWhileFc" />
 						</vertical>
 					</tab>
 				</horizontal>

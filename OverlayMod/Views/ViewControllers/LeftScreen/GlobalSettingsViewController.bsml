@@ -4,10 +4,11 @@
 	<horizontal>
 		<vertical>
 			<vertical pad='10'>
-				<text text='Global Settings'/>
+				<text text='Global Settings' font-size='10'/>
 			</vertical>
 
 			<bool-setting text='Enable All' value='globalEnable' apply-on-change='true'/>
+			<button id='resetAllButton' text='Reset To Default' on-click='resetAllButtonOnClick'/>
 		</vertical>
 	</horizontal>
 

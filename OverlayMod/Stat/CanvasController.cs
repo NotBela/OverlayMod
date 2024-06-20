@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OverlayMod.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,8 @@ namespace OverlayMod.Stat
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
 
             canvas.name = "OverlayMod";
+
+            canvasGameObj.SetActive(PluginConfig.Instance.globalEnable);
         }
 
         public void Initialize()

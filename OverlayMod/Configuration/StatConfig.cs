@@ -12,9 +12,16 @@ using Newtonsoft.Json.Linq;
 
 namespace OverlayMod.Configuration
 {
-    internal class StatConfig
+    internal static class StatConfig
     {
         private static readonly string pathToConfigFolder = $"{UnityGame.InstallPath}\\UserData\\OverlayMod\\";
+
+        public static void clearConfig()
+        {
+            if (!Directory.Exists(pathToConfigFolder)) return;
+
+            Directory.Delete(pathToConfigFolder, true);
+        }
 
         public static T? getConfigEntry<T>(IStat.StatTypes stat, string entry) where T : struct
         {

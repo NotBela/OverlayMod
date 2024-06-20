@@ -25,8 +25,6 @@ namespace OverlayMod.Stat.Stats
             defaultEnabled = true;
 
             textObject.GetComponent<RectTransform>().sizeDelta = new Vector2(400, 200);
-            this.textObject.transform.localPosition = position;
-            this.text.fontSize = size;
 
             setTextParams();
         }

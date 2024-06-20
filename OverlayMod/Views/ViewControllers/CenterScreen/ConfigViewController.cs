@@ -1,12 +1,14 @@
 ﻿using BeatSaberMarkupLanguage;
 using BeatSaberMarkupLanguage.Attributes;
 using BeatSaberMarkupLanguage.Components;
+using BeatSaberMarkupLanguage.Notify;
 using BeatSaberMarkupLanguage.ViewControllers;
 using OverlayMod.Configuration;
 using OverlayMod.Stat.Stats;
 using System;
 using System.Collections.Generic;
 using Zenject;
+using System.ComponentModel;
 
 
 namespace OverlayMod.Views.ViewControllers.CenterScreen
@@ -14,6 +16,7 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
     [ViewDefinition("OverlayMod.Views.ViewControllers.CenterScreen.ConfigViewController.bsml")]
     internal class ConfigViewController : BSMLAutomaticViewController
     {
+
         #region Combo
         [UIValue("comboEnabled")]
         private bool comboEnabled
@@ -68,6 +71,11 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
         }
 
         #endregion miss 
+
+        public void notifyPropertyChanged()
+        {
+            // implement
+        }
 
     }
 }
