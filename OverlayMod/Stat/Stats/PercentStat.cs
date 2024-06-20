@@ -16,7 +16,7 @@ namespace OverlayMod.Stat.Stats
 
         public override StatTypes enumType => StatTypes.PercentStat;
 
-        public PercentStat(CanvasController controller) : base(controller) 
+        public PercentStat(CanvasController controller) : base(controller)
         {
 
             defaultSize = 70;

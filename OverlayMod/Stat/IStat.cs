@@ -37,6 +37,7 @@ namespace OverlayMod.Stat.Stats
         public Vector2 defaultPosition { get; protected set; }
         public int defaultSize { get; protected set; }
         public bool defaultEnabled { get; protected set; }
+        public TextAlignmentOptions? optionalAllignmentOverride { get; protected set; } = null;
 
 
         public readonly CanvasController _canvasController;
@@ -56,7 +57,7 @@ namespace OverlayMod.Stat.Stats
             this.enabled = StatConfig.getConfigEntry<bool>(enumType, "enabled") ?? defaultEnabled;
             this.textObject.SetActive(this.enabled);
             this.text.fontSize = (StatConfig.getConfigEntry<int>(enumType, "size") ?? defaultSize) * ((Plugin.scaleX + Plugin.scaleY) / 2); // last part averages the difference in text size incase the display ratio isnt 16:9
-            this.text.alignment = TextAlignmentOptions.Center;
+            this.text.alignment = optionalAllignmentOverride ?? TextAlignmentOptions.Center;
 
             float textPosX = (-Screen.width / 2) + ((StatConfig.getConfigEntry<float>(enumType, "posX") ?? defaultPosition.x) * Plugin.scaleX);
             float textPosY = (-Screen.height / 2) + ((StatConfig.getConfigEntry<float>(enumType, "posY") ?? defaultPosition.y) * Plugin.scaleY);

@@ -62,9 +62,9 @@ namespace OverlayMod.Stat.Stats
 
         private void Update(NoteController controller)
         {
-            this.textObject.SetActive(this.enabled);
-            Plugin.Log.Info($"{this.enabled}");
             if (controller.name == "BombNote(Clone)") return;
+
+            this.textObject.SetActive(this.enabled);
 
             missedAmt++;
             this.text.text = $"x{missedAmt}";
