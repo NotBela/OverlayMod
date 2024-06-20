@@ -20,7 +20,7 @@ namespace OverlayMod.Stat.Stats
 
             text.text = "0";
             defaultSize = 40;
-            defaultPosition = new Vector2(250, 75);
+            defaultPosition = new Vector2(275, 75);
             defaultEnabled = true;
 
             this.optionalAllignmentOverride = TMPro.TextAlignmentOptions.Left;
