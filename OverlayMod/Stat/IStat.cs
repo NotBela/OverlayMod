@@ -55,12 +55,10 @@ namespace OverlayMod.Stat.Stats
         {
             this.enabled = StatConfig.getConfigEntry<bool>(enumType, "enabled") ?? defaultEnabled;
             this.textObject.SetActive(this.enabled);
-            this.text.fontSize = (StatConfig.getConfigEntry<int>(enumType, "size") ?? defaultSize) * Plugin.scaleX;
+            this.text.fontSize = (StatConfig.getConfigEntry<int>(enumType, "size") ?? defaultSize) * ((Plugin.scaleX + Plugin.scaleY) / 2); // last part averages the difference in text size incase the display ratio isnt 16:9
             this.text.alignment = TextAlignmentOptions.Center;
 
-            Plugin.Log.Info($"{Plugin.scaleX}, {Plugin.scaleY}");
-
-            float textPosX = (-Screen.width / 2) + ((StatConfig.getConfigEntry<float>(enumType, "posX") ?? defaultPosition.x) * Plugin.scaleY);
+            float textPosX = (-Screen.width / 2) + ((StatConfig.getConfigEntry<float>(enumType, "posX") ?? defaultPosition.x) * Plugin.scaleX);
             float textPosY = (-Screen.height / 2) + ((StatConfig.getConfigEntry<float>(enumType, "posY") ?? defaultPosition.y) * Plugin.scaleY);
 
             this.textObject.transform.localPosition = new Vector2(textPosX, textPosY);
