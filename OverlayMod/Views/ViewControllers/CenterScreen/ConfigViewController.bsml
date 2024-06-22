@@ -3,13 +3,13 @@
 	>
 	<horizontal horizontal-fit="PreferredSize">
 		<vertical>
-			<vertical pad-top="-50">
-				<text align="Center" pad-top="40" text="Stat Settings" font-size="10"/>
+			<vertical pref-height="90">
+				<text align="Center" text="Stat Settings" font-size="10"/>
 				<vertical>
 					<tab-selector tab-tag="settingsTab"/>
 				</vertical>
 
-				<horizontal>
+				<horizontal pref-height="50">
 					<tab tags="settingsTab" tab-name="Percent">
 						<vertical child-align="UpperCenter" child-control-height="false">
 							<bool-setting bind-value="true" apply-on-change="true" text="Enabled" value="percentEnabled"/>
