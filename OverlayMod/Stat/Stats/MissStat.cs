@@ -41,9 +41,6 @@ namespace OverlayMod.Stat.Stats
             defaultPosition = new Vector2(400, 100);
             defaultEnabled = true;
 
-            this.textObject.transform.localPosition = position;
-            this.text.fontSize = size;
-
             setTextParams();
 
             if (hideUntilMissed)
