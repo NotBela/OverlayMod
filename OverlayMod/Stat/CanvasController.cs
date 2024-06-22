@@ -9,12 +9,12 @@ using Zenject;
 
 namespace OverlayMod.Stat
 {
-    internal class CanvasController
+    internal class CanvasController : IInitializable
     {
         public GameObject canvasGameObj;
         public Canvas canvas;
 
-        public CanvasController()
+        public void Initialize()
         {
             canvasGameObj = new GameObject();
             canvas = canvasGameObj.AddComponent<Canvas>();

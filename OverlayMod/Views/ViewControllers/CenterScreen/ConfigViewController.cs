@@ -24,38 +24,31 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
 
         #region Combo
         [UIValue("comboEnabled")]
-        private bool comboEnabled
+        private bool comboEnabled 
         {
-            get
-            {
-                var comboEnabled = StatConfig.getConfigEntry<bool>(IStat.StatTypes.ComboStat, "enabled");
-                return comboEnabled ?? false;
-            }
-            set
-            {
-                Configuration.StatConfig.setConfigEntry(IStat.StatTypes.ComboStat, "enabled", value);
-            }
+            get => ComboStat.Instance.enabled;
+            set => ComboStat.Instance.enabled = value;
         }
 
         [UIValue("comboHeightValue")]
         private int comboHeightValue
         {
-            get => StatConfig.getConfigEntry<int>(IStat.StatTypes.ComboStat, "posY") ?? Screen.height / 2;
-            set => StatConfig.setConfigEntry(IStat.StatTypes.ComboStat, "posY", value);
+            get => ComboStat.Instance.posY;
+            set => ComboStat.Instance.posY = value;
         }
 
         [UIValue("comboWidthValue")]
         private int comboWidthValue
         {
-            get => StatConfig.getConfigEntry<int>(IStat.StatTypes.ComboStat, "posX") ?? Screen.width / 2;
-            set => StatConfig.setConfigEntry(IStat.StatTypes.ComboStat, "posX", value);
+            get => ComboStat.Instance.posY;
+            set => ComboStat.Instance.posY = value;
         }
 
         [UIValue("comboSize")]
         private float comboSize
         {
-            get => StatConfig.getConfigEntry<float>(IStat.StatTypes.ComboStat, "size") ?? 60;
-            set => StatConfig.setConfigEntry(IStat.StatTypes.ComboStat, "size", value);
+            get => ComboStat.Instance.size;
+            set => ComboStat.Instance.size = (int) value;
         }
 
         #endregion Combo
@@ -64,35 +57,29 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
         [UIValue("percentEnabled")]
         private bool percentEnabled
         {
-            get
-            {
-                return Configuration.StatConfig.getConfigEntry<bool>(IStat.StatTypes.PercentStat, "enabled") ?? true;
-            }
-            set
-            {
-                Configuration.StatConfig.setConfigEntry(IStat.StatTypes.PercentStat, "enabled", value);
-            }
+            get => PercentStat.Instance.enabled;
+            set => PercentStat.Instance.enabled = value;
         }
 
         [UIValue("percentHeightValue")]
         private int percentHeightValue
         {
-            get => StatConfig.getConfigEntry<int>(IStat.StatTypes.PercentStat, "posY") ?? 250;
-            set => StatConfig.setConfigEntry(IStat.StatTypes.PercentStat, "posY", value);
+            get => PercentStat.Instance.posY;
+            set => PercentStat.Instance.posY = (int)value;
         }
 
         [UIValue("percentWidthValue")]
         private int percentWidthValue
         {
-            get => StatConfig.getConfigEntry<int>(IStat.StatTypes.PercentStat, "posX") ?? 150;
-            set => StatConfig.setConfigEntry(IStat.StatTypes.PercentStat, "posX", value);
+            get => PercentStat.Instance.posX; 
+            set => PercentStat.Instance.posX = (int)value;
         }
 
         [UIValue("percentSize")]
         private float percentSize
         {
-            get => StatConfig.getConfigEntry<float>(IStat.StatTypes.PercentStat, "size") ?? 70;
-            set => StatConfig.setConfigEntry(IStat.StatTypes.PercentStat, "size", value);
+            get => PercentStat.Instance.posX;
+            set => PercentStat.Instance.posX = (int)value;
         }
         #endregion percent
 
@@ -100,43 +87,43 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
         [UIValue("missEnabled")]
         private bool missEnabled
         {
-            get => StatConfig.getConfigEntry<bool>(IStat.StatTypes.MissStat, "enabled") ?? true;
-            set => StatConfig.setConfigEntry(IStat.StatTypes.MissStat, "enabled", value);
+            get => MissStat.Instance.enabled;
+            set => MissStat.Instance.enabled = value;
         }
 
         [UIValue("redMissText")]
         private bool redMissText
         {
-            get => StatConfig.getConfigEntry<bool>(IStat.StatTypes.MissStat, "redMissText") ?? true;
-            set => StatConfig.setConfigEntry(IStat.StatTypes.MissStat, "redMissText", value);
+            get => MissStat.Instance.redMissCounter;
+            set => MissStat.Instance.redMissCounter = value;
         }
 
         [UIValue("hideWhileFc")]
         private bool hideWhileFc
         {
-            get => StatConfig.getConfigEntry<bool>(IStat.StatTypes.MissStat, "hideWhileFc") ?? true;
-            set => StatConfig.setConfigEntry(IStat.StatTypes.MissStat, "hideWhileFc", value);
+            get => MissStat.Instance.hideUntilMissed;
+            set => MissStat.Instance.hideUntilMissed = value;
         }
 
         [UIValue("missHeightValue")]
         private int missHeightValue
         {
-            get => StatConfig.getConfigEntry<int>(IStat.StatTypes.MissStat, "posY") ?? 100;
-            set => StatConfig.setConfigEntry(IStat.StatTypes.MissStat, "posY", value);
+            get => MissStat.Instance.posY;
+            set => MissStat.Instance.posY = value;
         }
 
         [UIValue("missWidthValue")]
         private int missWidthValue
         {
-            get => StatConfig.getConfigEntry<int>(IStat.StatTypes.MissStat, "posX") ?? 400;
-            set => StatConfig.setConfigEntry(IStat.StatTypes.MissStat, "posX", value);
+            get => MissStat.Instance.posX;
+            set => MissStat.Instance.posX = value;
         }
 
         [UIValue("missSize")]
         private float missSize
         {
-            get => StatConfig.getConfigEntry<float>(IStat.StatTypes.MissStat, "size") ?? 40;
-            set => StatConfig.setConfigEntry(IStat.StatTypes.MissStat, "size", value);
+            get => MissStat.Instance.size;
+            set => MissStat.Instance.size = (int) value;
         }
 
         #endregion miss 

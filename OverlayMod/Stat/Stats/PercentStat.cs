@@ -16,25 +16,40 @@ namespace OverlayMod.Stat.Stats
 
         public override StatTypes enumType => StatTypes.PercentStat;
 
-        public PercentStat(CanvasController controller) : base(controller)
+        public override int posX 
         {
+            get => StatConfig.getConfigEntry<int>(enumType, "posX") ?? 250;
+            set => StatConfig.setConfigEntry(enumType, "posX", value);
+        }
+        public override int posY
+        {
+            get => StatConfig.getConfigEntry<int>(enumType, "posY") ?? 150;
+            set => StatConfig.setConfigEntry(enumType, "posY", value);
+        }
+        public override int size
+        {
+            get => StatConfig.getConfigEntry<int>(enumType, "size") ?? 70;
+            set => StatConfig.setConfigEntry(enumType, "size", value);
+        }
+        public override bool enabled
+        {
+            get => StatConfig.getConfigEntry<bool>(enumType, "enabled") ?? true;
+            set => StatConfig.setConfigEntry(enumType, "enabled", value);
+        }
 
-            defaultSize = 70;
-            text.text = "100.00";
-            defaultPosition = new Vector2(250, 150);
-            defaultEnabled = true;
+        public static PercentStat Instance { get; } = new PercentStat();
+
+        public override void Initialize()
+        {
+            base.Initialize();
+
+            _relativeScoreCounter.relativeScoreOrImmediateRankDidChangeEvent += UpdateText;
 
             textObject.GetComponent<RectTransform>().sizeDelta = new Vector2(1000, 200);
-
-            setTextParams();
+            setTextParams("100.00");
         }
 
-        public void Initialize()
-        {
-            _relativeScoreCounter.relativeScoreOrImmediateRankDidChangeEvent += updateText;
-        }
-
-        private void updateText()
+        private void UpdateText()
         {
             float percent = ((float) _scoreController.modifiedScore / _scoreController.immediateMaxPossibleModifiedScore) * 100;
 
@@ -50,7 +65,7 @@ namespace OverlayMod.Stat.Stats
 
         public void Dispose()
         {
-            _relativeScoreCounter.relativeScoreOrImmediateRankDidChangeEvent -= updateText;
+            _relativeScoreCounter.relativeScoreOrImmediateRankDidChangeEvent -= UpdateText;
         }
     }
 }

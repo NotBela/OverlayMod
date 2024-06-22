@@ -28,7 +28,7 @@ namespace OverlayMod
         {
             Instance = this;
             Log = logger;
-            Configuration.PluginConfig.Instance = conf.Generated<Configuration.PluginConfig>();
+            PluginConfig.Instance = conf.Generated<Configuration.PluginConfig>();
             zenject.Install<GameInstaller>(Location.GameCore);
             zenject.Install<MenuInstaller>(Location.Menu);
         }

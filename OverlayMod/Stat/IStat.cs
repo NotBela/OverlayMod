@@ -15,10 +15,12 @@ using JetBrains.Annotations;
 
 namespace OverlayMod.Stat.Stats
 {
-    internal abstract class IStat
+    internal abstract class IStat : IInitializable
     {
-        public TextMeshProUGUI text;
-        public GameObject textObject;
+        protected CanvasController _canvasController;
+
+        protected TextMeshProUGUI text;
+        protected GameObject textObject;
 
         public enum StatTypes
         {
@@ -30,37 +32,35 @@ namespace OverlayMod.Stat.Stats
 
         public abstract StatTypes enumType { get; }
 
-        public bool enabled;
-        public Vector2 position;
-        public int size;
+        public abstract int posX { get; set; }
+        public abstract int posY { get; set; }
+        public abstract int size { get; set; }
+        public abstract bool enabled { get; set; }
+        public virtual TextAlignmentOptions? optionalAllignmentOverride { get; } = null;
 
-        public Vector2 defaultPosition { get; protected set; }
-        public int defaultSize { get; protected set; }
-        public bool defaultEnabled { get; protected set; }
-        public TextAlignmentOptions? optionalAllignmentOverride { get; protected set; } = null;
-
-
-        public readonly CanvasController _canvasController;
-
-        public IStat(CanvasController _canvasController)
+        [Inject]
+        public void Inject(CanvasController canvasController)
         {
-            this._canvasController = _canvasController;
+            this._canvasController = canvasController;
+        }
 
+        public virtual void Initialize()
+        {
             textObject = new GameObject();
-
             textObject.transform.parent = _canvasController.canvasGameObj.transform;
             text = textObject.AddComponent<TextMeshProUGUI>();
         }
 
-        protected void setTextParams()
+        protected void setTextParams(string defaultText)
         {
-            this.enabled = StatConfig.getConfigEntry<bool>(enumType, "enabled") ?? defaultEnabled;
-            this.textObject.SetActive(this.enabled);
-            this.text.fontSize = (StatConfig.getConfigEntry<float>(enumType, "size") ?? defaultSize) * ((Plugin.scaleX + Plugin.scaleY) / 2); // last part averages the difference in text size incase the display ratio isnt 16:9
+            this.text.text = defaultText;
+
+            this.textObject.SetActive(enabled);
+            this.text.fontSize = size * ((Plugin.scaleX + Plugin.scaleY) / 2); // last part averages the difference in text size incase the display ratio isnt 16:9
             this.text.alignment = optionalAllignmentOverride ?? TextAlignmentOptions.Center;
 
-            float textPosX = (-Screen.width / 2) + ((StatConfig.getConfigEntry<float>(enumType, "posX") ?? defaultPosition.x) * Plugin.scaleX);
-            float textPosY = (-Screen.height / 2) + ((StatConfig.getConfigEntry<float>(enumType, "posY") ?? defaultPosition.y) * Plugin.scaleY);
+            float textPosX = (-Screen.width / 2) + (posX * Plugin.scaleX);
+            float textPosY = (-Screen.height / 2) + (posY * Plugin.scaleY);
 
             this.textObject.transform.localPosition = new Vector2(textPosX, textPosY);
         }
