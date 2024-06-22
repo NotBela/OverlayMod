@@ -24,7 +24,7 @@ namespace OverlayMod.Stat.Stats
             defaultPosition = new Vector2(250, 150);
             defaultEnabled = true;
 
-            textObject.GetComponent<RectTransform>().sizeDelta = new Vector2(400, 200);
+            textObject.GetComponent<RectTransform>().sizeDelta = new Vector2(1000, 200);
 
             setTextParams();
         }
