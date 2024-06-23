@@ -22,12 +22,12 @@ namespace OverlayMod.Stat.Stats
         }
         public override int posY
         {
-            get => StatConfig.getConfigEntry<int>(enumType, "posY") ?? Screen.width / 2;
+            get => StatConfig.getConfigEntry<int>(enumType, "posY") ?? Screen.height / 2;
             set => StatConfig.setConfigEntry(enumType, "posY", value);
         }
         public override int size
         {
-            get => StatConfig.getConfigEntry<int>(enumType, "size") ?? Screen.width / 2;
+            get => StatConfig.getConfigEntry<int>(enumType, "size") ?? 40;
             set => StatConfig.setConfigEntry(enumType, "size", value);
         }
         public override bool enabled
