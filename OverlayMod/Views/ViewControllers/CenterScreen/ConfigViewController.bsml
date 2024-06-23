@@ -26,6 +26,14 @@
 							<increment-setting value="comboSize" bind-value="true" text="Size" min="10" max="200" increment="5" integer-only="true" apply-on-change="true"/>
 						</vertical>
 					</tab>
+					<tab tags="settingsTab" tab-name="Score">
+						<vertical child-align="UpperCenter" child-control-height="false">
+							<bool-setting bind-value="true" apply-on-change="true" text="Enabled" value="scoreEnabled"/>
+							<slider-setting value="scoreWidthValue" bind-value="true" text="Width" min="0" max="~maxWidth" integer-only="true" increment="1" show-buttons="true" apply-on-change="true"/>
+							<slider-setting value="scoreHeightValue" bind-value="true" text="Height" min="0" max="~maxHeight" integer-only="true" increment="1" show-buttons="true" apply-on-change="true"/>
+							<increment-setting value="scoreSize" bind-value="true" text="Size" min="10" max="200" increment="5" integer-only="true" apply-on-change="true"/>
+						</vertical>
+					</tab>
 					<tab tags="settingsTab" tab-name="Miss">
 						<vertical child-align="UpperCenter" child-control-height="false">
 							<bool-setting bind-value="true" apply-on-change="true" text="Enabled" value="missEnabled"/>

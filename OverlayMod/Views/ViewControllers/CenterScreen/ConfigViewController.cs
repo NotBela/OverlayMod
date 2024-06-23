@@ -128,6 +128,36 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
 
         #endregion miss 
 
+        #region score
+        [UIValue("scoreEnabled")]
+        private bool scoreEnabled
+        {
+            get => ScoreStat.Instance.enabled;
+            set => ScoreStat.Instance.enabled = value;
+        }
+
+        [UIValue("scoreWidthValue")]
+        private int scoreWidthValue
+        {
+            get => ScoreStat.Instance.posX;
+            set => ScoreStat.Instance.posX = value;
+        }
+
+        [UIValue("scoreHeightValue")]
+        private int scoreHeightValue
+        {
+            get => ScoreStat.Instance.posY; 
+            set => ScoreStat.Instance.posY = value;
+        }
+
+        [UIValue("scoreSize")]
+        private float scoreSize
+        {
+            get => ScoreStat.Instance.size;
+            set => ScoreStat.Instance.size = (int) value;
+        }
+        #endregion score
+
         public void notifyPropertyChanged()
         {
             // implement
