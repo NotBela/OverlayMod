@@ -36,7 +36,7 @@ namespace OverlayMod.Stat.Stats
         public abstract int posY { get; set; }
         public abstract int size { get; set; }
         public abstract bool enabled { get; set; }
-        public virtual TextAlignmentOptions? optionalAllignmentOverride { get; } = null;
+        public virtual TextAlignmentOptions? optionalAllignmentOverride { get; }
 
         [Inject]
         public void Inject(CanvasController canvasController)

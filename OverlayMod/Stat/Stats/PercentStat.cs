@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Zenject;
 using UnityEngine;
 using OverlayMod.Configuration;
+using TMPro;
 
 namespace OverlayMod.Stat.Stats
 {
@@ -18,7 +19,7 @@ namespace OverlayMod.Stat.Stats
 
         public override int posX 
         {
-            get => StatConfig.getConfigEntry<int>(enumType, "posX") ?? 250;
+            get => StatConfig.getConfigEntry<int>(enumType, "posX") ?? 275;
             set => StatConfig.setConfigEntry(enumType, "posX", value);
         }
         public override int posY
@@ -37,6 +38,8 @@ namespace OverlayMod.Stat.Stats
             set => StatConfig.setConfigEntry(enumType, "enabled", value);
         }
 
+        public override TextAlignmentOptions? optionalAllignmentOverride => TextAlignmentOptions.Left;
+
         public static PercentStat Instance { get; } = new PercentStat();
 
         public override void Initialize()
@@ -44,8 +47,6 @@ namespace OverlayMod.Stat.Stats
             base.Initialize();
 
             _relativeScoreCounter.relativeScoreOrImmediateRankDidChangeEvent += UpdateText;
-
-            textObject.GetComponent<RectTransform>().sizeDelta = new Vector2(1000, 200);
             setTextParams("100.00");
         }
 
