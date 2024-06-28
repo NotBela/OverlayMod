@@ -158,6 +158,45 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
         }
         #endregion score
 
+        #region energy
+
+        [UIValue("energyEnabled")]
+        private bool energyEnabled
+        {
+            get => EnergyStat.Instance.enabled;
+            set => EnergyStat.Instance.enabled = value;
+        }
+
+        [UIValue("energyWidthValue")]
+        private int energyWidthValue
+        {
+            get => EnergyStat.Instance.posX;
+            set => EnergyStat.Instance.posX = value;
+        }
+
+        [UIValue("energyHeightValue")]
+        private int energyHeightValue
+        {
+            get => EnergyStat.Instance.posY;
+            set => EnergyStat.Instance.posY= value;
+        }
+
+        [UIValue("energySize")]
+        private float energySize
+        {
+            get => EnergyStat.Instance.size;
+            set => EnergyStat.Instance.size = value;
+        }
+
+        [UIValue("redBarOnLowEnergy")]
+        private bool redBarOnLowEnergy
+        {
+            get => EnergyStat.Instance.changeBarColorOnLowEnergy;
+            set => EnergyStat.Instance.changeBarColorOnLowEnergy = value;
+        }
+
+        #endregion energy
+
         public void notifyPropertyChanged()
         {
             // implement

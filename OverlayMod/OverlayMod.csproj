@@ -45,10 +45,18 @@
       <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="BS_Utils">
+      <HintPath>$(BeatSaberDir)\Plugins\BS_Utils.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>$(BeatSaberDir)\Libs\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="PlatformUserModel">
+      <HintPath>..\..\..\..\BSManager\BSInstances\1.34.2\Beat Saber_Data\Managed\PlatformUserModel.dll</HintPath>
     </Reference>
     <Reference Include="SiraUtil">
       <HintPath>$(BeatSaberDir)\Plugins\SiraUtil.dll</HintPath>
@@ -126,6 +134,7 @@
     <Compile Include="Stat\CanvasController.cs" />
     <Compile Include="Stat\IStat.cs" />
     <Compile Include="Stat\Stats\ComboStat.cs" />
+    <Compile Include="Stat\Stats\EnergyStat.cs" />
     <Compile Include="Stat\Stats\MissStat.cs" />
     <Compile Include="Stat\Stats\PercentStat.cs" />
     <Compile Include="Stat\Stats\ScoreStat.cs" />
@@ -150,6 +159,5 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

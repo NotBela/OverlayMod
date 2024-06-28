@@ -44,6 +44,15 @@
 							<bool-setting bind-value="true" apply-on-change="true" text="Hide During Full Combo" value="hideWhileFc" />
 						</vertical>
 					</tab>
+					<tab tags="settingsTab" tab-name="Energy">
+						<vertical child-align="UpperCenter" child-control-height="false">
+							<bool-setting bind-value="true" apply-on-change="true" text="Enabled" value="energyEnabled"/>
+							<slider-setting value="energyWidthValue" bind-value="true" text="Width" min="0" max="~maxWidth" integer-only="true" increment="1" show-buttons="true" apply-on-change="true"/>
+							<slider-setting value="energyHeightValue" bind-value="true" text="Height" min="0" max="~maxHeight" integer-only="true" increment="1" show-buttons="true" apply-on-change="true"/>
+							<increment-setting value="energySize" bind-value="true" text="Size" min="0.50" max="2" increment="0.1" integer-only="false" apply-on-change="true"/>
+							<bool-setting bind-value="true" apply-on-change="true" text="Change Bar Color When Energy Is Low" value="redBarOnLowEnergy"/>
+						</vertical>
+					</tab>
 				</horizontal>
 			</vertical>
 		</vertical>

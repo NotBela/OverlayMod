@@ -19,6 +19,7 @@ namespace OverlayMod.Installers
             Container.BindInterfacesAndSelfTo<ComboStat>().AsSingle();
             Container.BindInterfacesAndSelfTo<ScoreStat>().AsSingle();
             Container.BindInterfacesAndSelfTo<PercentStat>().AsSingle();
+            Container.BindInterfacesAndSelfTo<EnergyStat>().AsSingle();
         }
     }
 }

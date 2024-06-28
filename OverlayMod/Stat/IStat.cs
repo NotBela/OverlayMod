@@ -19,22 +19,23 @@ namespace OverlayMod.Stat.Stats
     {
         protected CanvasController _canvasController;
 
-        protected TextMeshProUGUI text;
-        protected GameObject textObject;
+        public TextMeshProUGUI text;
+        public GameObject textObject;
 
         public enum StatTypes
         {
             PercentStat,
             ComboStat,
             ScoreStat,
-            MissStat
+            MissStat,
+            EnergyStat
         }
 
         public abstract StatTypes enumType { get; }
 
         public abstract int posX { get; set; }
         public abstract int posY { get; set; }
-        public abstract int size { get; set; }
+        public abstract float size { get; set; }
         public abstract bool enabled { get; set; }
         public virtual TextAlignmentOptions? optionalAllignmentOverride { get; }
 
@@ -51,7 +52,7 @@ namespace OverlayMod.Stat.Stats
             text = textObject.AddComponent<TextMeshProUGUI>();
         }
 
-        protected void setTextParams(string defaultText)
+        protected virtual void setTextParams(string defaultText)
         {
             this.text.text = defaultText;
 
@@ -59,10 +60,15 @@ namespace OverlayMod.Stat.Stats
             this.text.fontSize = size * ((Plugin.scaleX + Plugin.scaleY) / 2); // last part averages the difference in text size incase the display ratio isnt 16:9
             this.text.alignment = optionalAllignmentOverride ?? TextAlignmentOptions.Center;
 
+            this.textObject.transform.localPosition = getNormalizedPosition(posX, posY);
+        }
+
+        protected Vector2 getNormalizedPosition(float posX, float posY)
+        {
             float textPosX = (-Screen.width / 2) + (posX * Plugin.scaleX);
             float textPosY = (-Screen.height / 2) + (posY * Plugin.scaleY);
 
-            this.textObject.transform.localPosition = new Vector2(textPosX, textPosY);
+            return new Vector2(textPosX, textPosY);
         }
     }
 }

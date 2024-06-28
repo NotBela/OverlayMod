@@ -25,9 +25,9 @@ namespace OverlayMod.Stat.Stats
             get => StatConfig.getConfigEntry<int>(enumType, "posY") ?? Screen.height / 2;
             set => StatConfig.setConfigEntry(enumType, "posY", value);
         }
-        public override int size
+        public override float size
         {
-            get => StatConfig.getConfigEntry<int>(enumType, "size") ?? 40;
+            get => StatConfig.getConfigEntry<float>(enumType, "size") ?? 40;
             set => StatConfig.setConfigEntry(enumType, "size", value);
         }
         public override bool enabled
