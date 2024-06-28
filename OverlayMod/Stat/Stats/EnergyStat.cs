@@ -72,7 +72,7 @@ namespace OverlayMod.Stat.Stats
         {
             var transform = barObject.GetComponent<RectTransform>();
 
-            transform.sizeDelta = new Vector2(energyPercentage * maxEnergySize, height);
+            transform.sizeDelta = new Vector2((energyPercentage * maxEnergySize) - 4, height - 4);
             transform.localPosition = new Vector2(this.getNormalizedPosition(posX, posY).x - ((maxEnergySize - (energyPercentage * maxEnergySize)) * (size * Plugin.scaleX) / 2), this.getNormalizedPosition(posX, posY).y);
 
             if (energyPercentage < .15 && changeBarColorOnLowEnergy)
