@@ -50,6 +50,11 @@
       <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="GameplayCore">
+      <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\GameplayCore.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>$(BeatSaberDir)\Libs\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
@@ -137,6 +142,7 @@
     <Compile Include="Stat\Stats\EnergyStat.cs" />
     <Compile Include="Stat\Stats\MissStat.cs" />
     <Compile Include="Stat\Stats\PercentStat.cs" />
+    <Compile Include="Stat\Stats\RankStat.cs" />
     <Compile Include="Stat\Stats\ScoreStat.cs" />
     <Compile Include="Views\FlowControllers\ConfigFlowController.cs" />
     <Compile Include="Views\MenuButtonController.cs" />

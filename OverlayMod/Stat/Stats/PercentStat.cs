@@ -52,16 +52,7 @@ namespace OverlayMod.Stat.Stats
 
         private void UpdateText()
         {
-            float percent = ((float) _scoreController.modifiedScore / _scoreController.immediateMaxPossibleModifiedScore) * 100;
-
-            // really fucking dumb fix
-            if (percent.ToString() == "NaN")
-            {
-                this.text.text = "100.00";
-                return;
-            }
-
-            this.text.text = $"{percent.ToString("0.00")}";
+            this.text.text = $"{(_relativeScoreCounter.relativeScore * 100).ToString("0.00")}";
         }
 
         public void Dispose()

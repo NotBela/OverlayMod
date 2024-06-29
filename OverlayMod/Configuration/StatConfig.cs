@@ -9,6 +9,7 @@ using OverlayMod.Stat.Stats;
 using IPA.Utilities;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.CodeDom;
 
 namespace OverlayMod.Configuration
 {
@@ -33,7 +34,6 @@ namespace OverlayMod.Configuration
             }
             catch
             {
-                Plugin.Log.Warn($"Config {stat} could not be loaded! Is it valid?");
                 return null;
             }
         }
@@ -56,7 +56,10 @@ namespace OverlayMod.Configuration
             if (config.ContainsKey(entry)) config[entry] = JToken.FromObject(value);
             else config.Add(entry, JToken.FromObject(value));
 
-            File.WriteAllText($"{pathToConfigFolder}{stat}.json", JsonConvert.SerializeObject(config));
+            File.WriteAllText($"{pathToConfigFolder}{stat}.json", JsonConvert.SerializeObject(config, Formatting.Indented, new JsonSerializerSettings
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Serialize,
+            }));
         }
     }
 }

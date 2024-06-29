@@ -53,6 +53,14 @@
 							<bool-setting bind-value="true" apply-on-change="true" text="Change Bar Color When Energy Is Low" value="redBarOnLowEnergy"/>
 						</vertical>
 					</tab>
+					<tab tags="settingsTab" tab-name="Rank">
+						<vertical child-align="UpperCenter" child-control-height="false">
+							<bool-setting bind-value="true" apply-on-change="true" text="Enabled" value="rankEnabled"/>
+							<slider-setting value="rankWidthValue" bind-value="true" text="Width" min="0" max="~maxWidth" integer-only="true" increment="1" show-buttons="true" apply-on-change="true"/>
+							<slider-setting value="rankHeightValue" bind-value="true" text="Height" min="0" max="~maxHeight" integer-only="true" increment="1" show-buttons="true" apply-on-change="true"/>
+							<increment-setting value="rankSize" bind-value="true" text="Size" min="10" max="200" increment="5" integer-only="true" apply-on-change="true"/>
+						</vertical>
+					</tab>
 				</horizontal>
 			</vertical>
 		</vertical>

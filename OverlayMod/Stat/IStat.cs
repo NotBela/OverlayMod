@@ -28,7 +28,8 @@ namespace OverlayMod.Stat.Stats
             ComboStat,
             ScoreStat,
             MissStat,
-            EnergyStat
+            EnergyStat,
+            RankStat
         }
 
         public abstract StatTypes enumType { get; }

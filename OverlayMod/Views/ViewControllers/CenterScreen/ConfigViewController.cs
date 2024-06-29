@@ -11,6 +11,8 @@ using Zenject;
 using System.ComponentModel;
 using UnityEngine;
 using System.Xml.Schema;
+using System.Runtime.InteropServices;
+using BeatSaberMarkupLanguage.Parser;
 
 
 namespace OverlayMod.Views.ViewControllers.CenterScreen
@@ -196,6 +198,110 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
         }
 
         #endregion energy
+
+        #region rank
+
+        [UIValue("rankEnabled")]
+        private bool rankEnabled
+        {
+            get => RankStat.Instance.enabled;
+            set => RankStat.Instance.enabled = value;
+        }
+
+        [UIValue("rankWidthValue")]
+        private int rankWidthValue
+        {
+            get => RankStat.Instance.posX;
+            set => RankStat.Instance.posX = value;
+        }
+
+        [UIValue("rankHeightValue")]
+        private int rankHeightValue
+        {
+            get => RankStat.Instance.posY;
+            set => RankStat.Instance.posY = value;
+        }
+
+        [UIValue("rankSize")]
+        private float rankSize
+        {
+            get => RankStat.Instance.size;
+            set => RankStat.Instance.size = value;
+        }
+
+        //[UIValue("changeRankColor")]
+        //private bool changeRankColor
+        //{
+        //    get => RankStat.Instance.changeRankColor; 
+        //    set => RankStat.Instance.changeRankColor = value;
+        //}
+
+        //[UIAction("changeColorsButtonOnClick")]
+        //private void changeColorsButtonOnClick()
+        //{
+        //    parserParams.EmitEvent("colorsModalShow");
+        //}
+
+        //#region color settings modal
+
+        //[UIValue("SSColorValue")]
+        //private Color SSColorValue
+        //{
+        //    get => RankStat.Instance.SSColor.getColorAsUnityColor();
+        //    set => RankStat.Instance.SSColor = new RankColor(value);
+        //}
+
+        //[UIValue("SColorValue")]
+        //private Color SColorValue
+        //{
+        //    get => RankStat.Instance.SColor.getColorAsUnityColor();
+        //    set => RankStat.Instance.SColor = new RankColor(value);
+        //}
+
+        //[UIValue("AColorValue")]
+        //private Color AColorValue
+        //{
+        //    get => RankStat.Instance.AColor.getColorAsUnityColor(); 
+        //    set => RankStat.Instance.AColor = new RankColor(value);
+        //}
+
+        //[UIValue("BColorValue")]
+        //private Color BColorValue
+        //{
+        //    get => RankStat.Instance.BColor.getColorAsUnityColor(); 
+        //    set => RankStat.Instance.BColor = new RankColor(value);
+        //}
+
+        //[UIValue("CColorValue")]
+        //private Color CColorValue
+        //{
+        //    get => RankStat.Instance.CColor.getColorAsUnityColor(); set => RankStat.Instance.CColor = new RankColor(value);
+        //}
+
+        //[UIValue("DColorValue")]
+        //private Color DColorValue
+        //{
+        //    get => RankStat.Instance.DColor.getColorAsUnityColor(); set => RankStat.Instance.DColor = new RankColor(value);
+        //}
+
+        //[UIValue("EColorValue")]
+        //private Color EColorValue
+        //{
+        //    get => RankStat.Instance.EColor.getColorAsUnityColor(); 
+        //    set => RankStat.Instance.EColor = new RankColor(value);
+        //}
+
+        //[UIAction("closeButtonOnClick")]
+        //private void closeButtonOnClick()
+        //{
+        //    parserParams.EmitEvent("colorsModalHide");
+        //}
+
+        //#endregion
+
+        #endregion rank
+
+        [UIParams] private BSMLParserParams parserParams;
 
         public void notifyPropertyChanged()
         {
