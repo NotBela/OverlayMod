@@ -1,6 +1,7 @@
 ﻿using BeatSaberMarkupLanguage;
 using BeatSaberMarkupLanguage.Attributes;
 using BeatSaberMarkupLanguage.Components;
+using BeatSaberMarkupLanguage.Tags;
 using BeatSaberMarkupLanguage.ViewControllers;
 using OverlayMod.Configuration;
 using OverlayMod.Views.ViewControllers.CenterScreen;
@@ -16,15 +17,13 @@ namespace OverlayMod.Views.ViewControllers.LeftScreen
     internal class GlobalSettingsViewController : BSMLAutomaticViewController
     {
         [Inject] private readonly ConfigViewController _otherViewController;
+
         [UIValue("globalEnable")]
         private bool globalEnable
         {
             get => PluginConfig.Instance.globalEnable;
             set => PluginConfig.Instance.globalEnable = value;
         }
-
-        [UIComponent("resetAllButton")]
-        private Button resetAllButton;
 
         [UIAction("resetAllButtonOnClick")]
         private void resetAllButtonOnClick()

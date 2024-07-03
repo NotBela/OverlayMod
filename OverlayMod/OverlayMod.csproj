@@ -40,6 +40,11 @@
     <DisableZipRelease>True</DisableZipRelease>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BeatmapCore">
+      <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\BeatmapCore.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="BSML">
       <HintPath>$(BeatSaberDir)\Plugins\BSML.dll</HintPath>
       <Private>False</Private>
@@ -62,6 +67,11 @@
     </Reference>
     <Reference Include="PlatformUserModel">
       <HintPath>..\..\..\..\BSManager\BSInstances\1.34.2\Beat Saber_Data\Managed\PlatformUserModel.dll</HintPath>
+    </Reference>
+    <Reference Include="ScoreSaber">
+      <HintPath>$(BeatSaberDir)\Plugins\ScoreSaber.dll</HintPath>
+      <Private>False</Private>
+      <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="SiraUtil">
       <HintPath>$(BeatSaberDir)\Plugins\SiraUtil.dll</HintPath>

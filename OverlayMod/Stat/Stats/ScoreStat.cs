@@ -10,13 +10,13 @@ using Zenject;
 
 namespace OverlayMod.Stat.Stats
 {
-    internal class ScoreStat : IStat, IInitializable, IDisposable
+    internal class ScoreStat : IStat, IDisposable
     {
         [Inject] private readonly ScoreController _scoreController;
 
         public override StatTypes enumType => StatTypes.ScoreStat;
 
-        public override TextAlignmentOptions? optionalAllignmentOverride => TMPro.TextAlignmentOptions.Left;
+        public override TextAlignmentOptions? optionalAllignmentOverride => TextAlignmentOptions.Left;
 
         public override int posX { 
             get => StatConfig.getConfigEntry<int>(enumType, "posX") ?? 275; 
@@ -40,10 +40,8 @@ namespace OverlayMod.Stat.Stats
 
         public static ScoreStat Instance { get; } = new ScoreStat();
 
-        public override void Initialize()
+        protected override void CreateStat()
         {
-            base.Initialize();
-
             _scoreController.scoreDidChangeEvent += UpdateText;
 
             setTextParams("0");

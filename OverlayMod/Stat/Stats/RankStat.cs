@@ -9,7 +9,7 @@ using Zenject;
 
 namespace OverlayMod.Stat.Stats
 {
-    internal class RankStat : IStat, IInitializable, IDisposable
+    internal class RankStat : IStat, IDisposable
     {
         [Inject] private readonly RelativeScoreAndImmediateRankCounter _relativeScore;
 
@@ -17,7 +17,7 @@ namespace OverlayMod.Stat.Stats
 
         public override bool enabled
         {
-            get => StatConfig.getConfigEntry<bool>(enumType, "enabled") ?? true;
+            get => StatConfig.getConfigEntry<bool>(enumType, "enabled") ?? false;
             set => StatConfig.setConfigEntry(enumType, "enabled", value);
         }
         public override int posX 
@@ -38,9 +38,8 @@ namespace OverlayMod.Stat.Stats
 
         public static RankStat Instance = new RankStat();
 
-        public override void Initialize()
+        protected override void CreateStat()
         {
-            base.Initialize();
             setTextParams($"{_relativeScore.immediateRank.ToString()}");
             _relativeScore.relativeScoreOrImmediateRankDidChangeEvent += Update;
         }

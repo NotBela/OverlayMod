@@ -9,7 +9,7 @@ using Zenject;
 
 namespace OverlayMod.Stat.Stats
 {
-    internal class ComboStat : IStat, IInitializable, IDisposable
+    internal class ComboStat : IStat, IDisposable
     {
         [Inject] private readonly ComboController _comboController;
 
@@ -38,10 +38,8 @@ namespace OverlayMod.Stat.Stats
 
         public static ComboStat Instance { get; } = new ComboStat();
 
-        public override void Initialize()
+        protected override void CreateStat()
         {
-            base.Initialize();
-
             _comboController.comboDidChangeEvent += UpdateText;
 
             setTextParams("0");

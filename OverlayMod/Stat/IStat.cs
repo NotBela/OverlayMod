@@ -46,12 +46,16 @@ namespace OverlayMod.Stat.Stats
             this._canvasController = canvasController;
         }
 
-        public virtual void Initialize()
+        public void Initialize()
         {
             textObject = new GameObject();
             textObject.transform.parent = _canvasController.canvasGameObj.transform;
             text = textObject.AddComponent<TextMeshProUGUI>();
+
+            CreateStat();
         }
+
+        protected abstract void CreateStat();
 
         protected virtual void setTextParams(string defaultText)
         {

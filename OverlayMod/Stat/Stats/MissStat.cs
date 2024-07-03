@@ -11,7 +11,7 @@ using OverlayMod.Configuration;
 
 namespace OverlayMod.Stat.Stats
 {
-    internal class MissStat : IStat, IInitializable, IDisposable
+    internal class MissStat : IStat, IDisposable
     {
         [Inject] private readonly BeatmapObjectManager _beatmapObjectManager;
 
@@ -52,11 +52,10 @@ namespace OverlayMod.Stat.Stats
 
         public static MissStat Instance { get; } = new MissStat();
 
-        public override void Initialize()
+        protected override void CreateStat()
         {
-            base.Initialize();
-
-            _beatmapObjectManager.noteWasMissedEvent += UpdateText;
+            _beatmapObjectManager.noteWasMissedEvent += UpdateTextOnMiss;
+            _beatmapObjectManager.noteWasCutEvent += UpdateTextOnBadCut;
 
             missedAmt = 0;
             if (redMissCounter) this.text.color = Color.red;
@@ -67,12 +66,22 @@ namespace OverlayMod.Stat.Stats
                 this.textObject.SetActive(false);
         }
 
-        public void Dispose()
+        private void UpdateTextOnBadCut(NoteController noteController, in NoteCutInfo noteCutInfo)
         {
-            _beatmapObjectManager.noteWasMissedEvent -= UpdateText;
+            if (!noteCutInfo.allIsOK && noteController.noteData.colorType != ColorType.None)
+            {
+                missedAmt++;
+                this.text.text = $"x{missedAmt}";
+            }
         }
 
-        private void UpdateText(NoteController controller)
+        public void Dispose()
+        {
+            _beatmapObjectManager.noteWasMissedEvent -= UpdateTextOnMiss;
+            _beatmapObjectManager.noteWasCutEvent -= UpdateTextOnBadCut;
+        }
+
+        private void UpdateTextOnMiss(NoteController controller)
         {
             if (controller.name == "BombNote(Clone)") return;
 

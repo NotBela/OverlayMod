@@ -10,7 +10,7 @@ using TMPro;
 
 namespace OverlayMod.Stat.Stats
 {
-    internal class PercentStat : IStat, IInitializable, IDisposable
+    internal class PercentStat : IStat, IDisposable
     {
         [Inject] private readonly RelativeScoreAndImmediateRankCounter _relativeScoreCounter;
         [Inject] private readonly ScoreController _scoreController;
@@ -42,10 +42,8 @@ namespace OverlayMod.Stat.Stats
 
         public static PercentStat Instance { get; } = new PercentStat();
 
-        public override void Initialize()
+        protected override void CreateStat()
         {
-            base.Initialize();
-
             _relativeScoreCounter.relativeScoreOrImmediateRankDidChangeEvent += UpdateText;
             setTextParams("100.00");
         }
