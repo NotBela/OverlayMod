@@ -41,7 +41,7 @@ namespace OverlayMod.Stat.Stats
         public virtual TextAlignmentOptions? optionalAllignmentOverride { get; }
 
         [Inject]
-        public void Inject(CanvasController canvasController)
+        public void Construct(CanvasController canvasController)
         {
             this._canvasController = canvasController;
         }
