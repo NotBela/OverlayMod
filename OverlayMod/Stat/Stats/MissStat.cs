@@ -70,6 +70,7 @@ namespace OverlayMod.Stat.Stats
         {
             if (!noteCutInfo.allIsOK && noteController.noteData.colorType != ColorType.None)
             {
+                this.textObject.SetActive(enabled);
                 missedAmt++;
                 this.text.text = $"x{missedAmt}";
             }
