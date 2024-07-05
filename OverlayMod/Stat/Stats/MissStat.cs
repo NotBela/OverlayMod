@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Zenject;
+﻿using OverlayMod.Configuration;
+using System;
 using UnityEngine;
-using TMPro;
-using System.Runtime.CompilerServices;
-using OverlayMod.Configuration;
+using Zenject;
 
 namespace OverlayMod.Stat.Stats
 {
@@ -30,7 +24,8 @@ namespace OverlayMod.Stat.Stats
 
         public override StatTypes enumType => StatTypes.MissStat;
 
-        public override int posY {
+        public override int posY
+        {
             get => StatConfig.getConfigEntry<int>(enumType, "posY") ?? 100;
             set => StatConfig.setConfigEntry(enumType, "posY", value);
         }
@@ -44,7 +39,7 @@ namespace OverlayMod.Stat.Stats
             get => StatConfig.getConfigEntry<float>(enumType, "size") ?? 40;
             set => StatConfig.setConfigEntry(enumType, "size", value);
         }
-        public override bool enabled 
+        public override bool enabled
         {
             get => StatConfig.getConfigEntry<bool>(enumType, "enabled") ?? true;
             set => StatConfig.setConfigEntry(enumType, "enabled", value);
@@ -68,12 +63,10 @@ namespace OverlayMod.Stat.Stats
 
         private void UpdateTextOnBadCut(NoteController noteController, in NoteCutInfo noteCutInfo)
         {
-            if (!noteCutInfo.allIsOK && noteController.noteData.colorType != ColorType.None)
-            {
-                this.textObject.SetActive(enabled);
-                missedAmt++;
-                this.text.text = $"x{missedAmt}";
-            }
+            if (noteCutInfo.allIsOK || noteController.noteData.colorType == ColorType.None) return;
+
+            this.textObject.SetActive(enabled);
+            this.text.text = $"x{++missedAmt}";
         }
 
         public void Dispose()
@@ -84,12 +77,11 @@ namespace OverlayMod.Stat.Stats
 
         private void UpdateTextOnMiss(NoteController controller)
         {
-            if (controller.name == "BombNote(Clone)") return;
+            if (controller.noteData.colorType == ColorType.None) return;
 
             this.textObject.SetActive(enabled);
 
-            missedAmt++;
-            this.text.text = $"x{missedAmt}";
+            this.text.text = $"x{++missedAmt}";
         }
     }
 }

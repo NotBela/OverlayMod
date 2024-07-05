@@ -1,6 +1,7 @@
 ﻿using BeatSaberMarkupLanguage;
 using BeatSaberMarkupLanguage.Attributes;
 using BeatSaberMarkupLanguage.Components;
+using BeatSaberMarkupLanguage.Parser;
 using BeatSaberMarkupLanguage.Tags;
 using BeatSaberMarkupLanguage.ViewControllers;
 using OverlayMod.Configuration;
@@ -18,6 +19,8 @@ namespace OverlayMod.Views.ViewControllers.LeftScreen
     {
         [Inject] private readonly ConfigViewController _otherViewController;
 
+        [UIParams] private BSMLParserParams parserParams;
+
         [UIValue("globalEnable")]
         private bool globalEnable
         {
@@ -28,8 +31,28 @@ namespace OverlayMod.Views.ViewControllers.LeftScreen
         [UIAction("resetAllButtonOnClick")]
         private void resetAllButtonOnClick()
         {
+            parserParams.EmitEvent("resetSettingsModalShow");
+        }
+
+        [UIAction("resetSettingsDeny")]
+        private void resetButtonDeny()
+        {
+            parserParams.EmitEvent("resetSettingsModalHide");
+        }
+
+        [UIAction("resetSettingsConfirm")]
+        private void resetSettingsConfirm()
+        {
+            parserParams.EmitEvent("resetSettingsModalHide");
             StatConfig.clearConfig();
             _otherViewController.notifyPropertyChanged();
+            parserParams.EmitEvent("resetSettingsModalCompletedShow");
+        }
+
+        [UIAction("resetSettingsModalCompletedOkButton")]
+        private void resetSettingsModalCompletedOkButton()
+        {
+            parserParams.EmitEvent("resetSettingsModalCompletedHide");
         }
     }
 }
