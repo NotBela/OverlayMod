@@ -1,18 +1,6 @@
-﻿using OverlayMod.Configuration;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using Zenject;
-using System.Runtime.CompilerServices;
-using System.CodeDom;
-using System.Diagnostics.PerformanceData;
-using JetBrains.Annotations;
-using UnityEngine.UI;
 
 namespace OverlayMod.Stat.Stats
 {
@@ -20,21 +8,8 @@ namespace OverlayMod.Stat.Stats
     {
         protected CanvasController _canvasController;
 
-        public TextMeshProUGUI text;
-        public GameObject textObject;
-
-        public enum StatTypes
-        {
-            PercentStat,
-            ComboStat,
-            ScoreStat,
-            MissStat,
-            EnergyStat,
-            RankStat
-        }
-
-        public abstract StatTypes enumType { get; }
-
+        protected TextMeshProUGUI text;
+        protected GameObject textObject;
         public abstract int posX { get; set; }
         public abstract int posY { get; set; }
         public abstract float size { get; set; }

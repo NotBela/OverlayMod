@@ -13,9 +13,19 @@ using System.CodeDom;
 
 namespace OverlayMod.Configuration
 {
-    internal static class StatConfig
+    internal class StatConfig
     {
         private static readonly string pathToConfigFolder = $"{UnityGame.InstallPath}\\UserData\\OverlayMod\\";
+
+        private IStat stat;
+
+        private string name;
+
+        public StatConfig(IStat stat, string name)
+        {
+            this.stat = stat;
+            this.name = name;
+        }
 
         public static void clearConfig()
         {
@@ -24,13 +34,13 @@ namespace OverlayMod.Configuration
             Directory.Delete(pathToConfigFolder, true);
         }
 
-        public static T? getConfigEntry<T>(IStat.StatTypes stat, string entry) where T : struct
+        public T? getConfigEntry<T>(string entry) where T : struct
         {
-            if (!Directory.Exists(pathToConfigFolder) || !File.Exists($"{pathToConfigFolder}{stat}.json")) return null;
-
             try
             {
-                return JObject.Parse(File.ReadAllText($"{pathToConfigFolder}{stat}.json"))[entry].Value<T>();
+                if (!Directory.Exists(pathToConfigFolder) || !File.Exists($"{pathToConfigFolder}{name}.json")) return null;
+
+                return JObject.Parse(File.ReadAllText($"{pathToConfigFolder}{name}.json"))[entry].Value<T>();
             }
             catch
             {
@@ -38,28 +48,20 @@ namespace OverlayMod.Configuration
             }
         }
 
-        public static void setConfigEntry(IStat.StatTypes stat, string entry, object value)
+        public void setConfigEntry(string entry, object value)
         {
-            Directory.CreateDirectory(pathToConfigFolder);
+            JObject config = getConfigIfExistsOrNewConfig($"{pathToConfigFolder}{name}.json");
 
-            JObject config;
+            config[entry] = JToken.FromObject(value);
 
-            try
-            {
-                config = JObject.Parse(File.ReadAllText($"{pathToConfigFolder}{stat}.json"));
-            }
-            catch
-            {
-                config = new JObject();
-            }
+            File.WriteAllText($"{pathToConfigFolder}{name}.json", JsonConvert.SerializeObject(config));
+        }
 
-            if (config.ContainsKey(entry)) config[entry] = JToken.FromObject(value);
-            else config.Add(entry, JToken.FromObject(value));
-
-            File.WriteAllText($"{pathToConfigFolder}{stat}.json", JsonConvert.SerializeObject(config, Formatting.Indented, new JsonSerializerSettings
-            {
-                ReferenceLoopHandling = ReferenceLoopHandling.Serialize,
-            }));
+        private JObject getConfigIfExistsOrNewConfig(string path)
+        {
+            if (Directory.Exists(pathToConfigFolder) && File.Exists(path))
+                return JObject.Parse(File.ReadAllText(path));
+            return new JObject();
         }
     }
 }

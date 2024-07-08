@@ -13,38 +13,38 @@ namespace OverlayMod.Stat.Stats
 {
     internal class EnergyStat : IStat, IDisposable
     {
-        public override StatTypes enumType => StatTypes.EnergyStat;
-
         private GameObject barObject;
         private Image bar;
 
         private GameObject backgroundObject;
         private Image background;
 
+        public StatConfig config = new StatConfig(Instance, "EnergyStat");
+
         public override int posX
         {
-            get => StatConfig.getConfigEntry<int>(enumType, "posX") ?? 300;
-            set => StatConfig.setConfigEntry(enumType, "posX", value);
+            get => config.getConfigEntry<int>("posX") ?? 300;
+            set => config.setConfigEntry("posX", value);
         }
         public override int posY
         {
-            get => StatConfig.getConfigEntry<int>(enumType, "posY") ?? 1000;
-            set => StatConfig.setConfigEntry(enumType, "posY", value);
+            get => config.getConfigEntry<int>("posY") ?? 1000;
+            set => config.setConfigEntry("posY", value);
         }
         public override float size
         {
-            get => StatConfig.getConfigEntry<float>(enumType, "size") ?? 1;
-            set => StatConfig.setConfigEntry(enumType, "size", value);
+            get => config.getConfigEntry<float>("size") ?? 1;
+            set => config.setConfigEntry("size", value);
         }
         public override bool enabled
         {
-            get => StatConfig.getConfigEntry<bool>(enumType, "enabled") ?? false;
-            set => StatConfig.setConfigEntry(enumType, "enabled", value);
+            get => config.getConfigEntry<bool>("enabled") ?? false;
+            set => config.setConfigEntry("enabled", value);
         }
         public bool changeBarColorOnLowEnergy
         {
-            get => StatConfig.getConfigEntry<bool>(enumType, "changeBarColorOnLowEnergy") ?? false;
-            set => StatConfig.setConfigEntry(enumType, "changeBarColorOnLowEnergy", value);
+            get => config.getConfigEntry<bool>("changeBarColorOnLowEnergy") ?? false;
+            set => config.setConfigEntry("changeBarColorOnLowEnergy", value);
         }
 
         public static EnergyStat Instance = new EnergyStat();

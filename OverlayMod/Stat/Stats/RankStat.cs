@@ -13,27 +13,27 @@ namespace OverlayMod.Stat.Stats
     {
         [Inject] private readonly RelativeScoreAndImmediateRankCounter _relativeScore;
 
-        public override StatTypes enumType => StatTypes.RankStat;
+        public StatConfig config = new StatConfig(Instance, "RankStat");
 
         public override bool enabled
         {
-            get => StatConfig.getConfigEntry<bool>(enumType, "enabled") ?? false;
-            set => StatConfig.setConfigEntry(enumType, "enabled", value);
+            get => config.getConfigEntry<bool>("enabled") ?? false;
+            set => config.setConfigEntry("enabled", value);
         }
         public override int posX 
         { 
-            get => StatConfig.getConfigEntry<int>(enumType, "posX") ?? Screen.width / 2; 
-            set => StatConfig.setConfigEntry(enumType, "posX", value); 
+            get => config.getConfigEntry<int>("posX") ?? Screen.width / 2; 
+            set => config.setConfigEntry("posX", value); 
         }
         public override int posY 
         { 
-            get => StatConfig.getConfigEntry<int>(enumType, "posY") ?? Screen.height / 2; 
-            set => StatConfig.setConfigEntry(enumType, "posY", value); 
+            get => config.getConfigEntry<int>("posY") ?? Screen.height / 2; 
+            set => config.setConfigEntry("posY", value); 
         }
         public override float size
         { 
-            get => StatConfig.getConfigEntry<float>(enumType, "size") ?? 100;
-            set => StatConfig.setConfigEntry(enumType, "size", value); 
+            get => config.getConfigEntry<float>("size") ?? 100;
+            set => config.setConfigEntry("size", value); 
         }
 
         public static RankStat Instance = new RankStat();

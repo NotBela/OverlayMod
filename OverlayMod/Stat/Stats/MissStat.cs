@@ -10,39 +10,40 @@ namespace OverlayMod.Stat.Stats
         [Inject] private readonly BeatmapObjectManager _beatmapObjectManager;
 
         private int missedAmt;
+
+        public StatConfig config = new StatConfig(Instance, "MissStat");
+
         public bool hideUntilMissed
         {
-            get => StatConfig.getConfigEntry<bool>(this.enumType, "hideWhileFc") ?? true;
-            set => StatConfig.setConfigEntry(enumType, "hideUntilMissed", value);
+            get => config.getConfigEntry<bool>("hideWhileFc") ?? true;
+            set => config.setConfigEntry("hideUntilMissed", value);
         }
 
         public bool redMissCounter
         {
-            get => StatConfig.getConfigEntry<bool>(this.enumType, "redMissText") ?? true;
-            set => StatConfig.setConfigEntry(enumType, "redMissText", value);
+            get => config.getConfigEntry<bool>("redMissText") ?? true;
+            set => config.setConfigEntry("redMissText", value);
         }
-
-        public override StatTypes enumType => StatTypes.MissStat;
 
         public override int posY
         {
-            get => StatConfig.getConfigEntry<int>(enumType, "posY") ?? 100;
-            set => StatConfig.setConfigEntry(enumType, "posY", value);
+            get => config.getConfigEntry<int>("posY") ?? 100;
+            set => config.setConfigEntry("posY", value);
         }
         public override int posX
         {
-            get => StatConfig.getConfigEntry<int>(enumType, "posX") ?? 400;
-            set => StatConfig.setConfigEntry(enumType, "size", value);
+            get => config.getConfigEntry<int>("posX") ?? 400;
+            set => config.setConfigEntry("size", value);
         }
         public override float size
         {
-            get => StatConfig.getConfigEntry<float>(enumType, "size") ?? 40;
-            set => StatConfig.setConfigEntry(enumType, "size", value);
+            get => config.getConfigEntry<float>("size") ?? 40;
+            set => config.setConfigEntry("size", value);
         }
         public override bool enabled
         {
-            get => StatConfig.getConfigEntry<bool>(enumType, "enabled") ?? true;
-            set => StatConfig.setConfigEntry(enumType, "enabled", value);
+            get => config.getConfigEntry<bool>("enabled") ?? true;
+            set => config.setConfigEntry("enabled", value);
         }
 
         public static MissStat Instance { get; } = new MissStat();

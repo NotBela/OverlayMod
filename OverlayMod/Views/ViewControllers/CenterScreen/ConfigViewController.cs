@@ -13,6 +13,7 @@ using UnityEngine;
 using System.Xml.Schema;
 using System.Runtime.InteropServices;
 using BeatSaberMarkupLanguage.Parser;
+using IPA.Loader;
 
 
 namespace OverlayMod.Views.ViewControllers.CenterScreen
@@ -20,7 +21,6 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
     [ViewDefinition("OverlayMod.Views.ViewControllers.CenterScreen.ConfigViewController.bsml")]
     internal class ConfigViewController : BSMLAutomaticViewController
     {
-
         [UIValue("maxHeight")] private int maxHeight => Screen.height;
         [UIValue("maxWidth")] private int maxWidth => Screen.width;
 

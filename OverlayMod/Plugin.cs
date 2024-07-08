@@ -11,6 +11,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using IPALogger = IPA.Logging.Logger;
 using OverlayMod.Configuration;
+using OverlayMod.Stat.Stats;
 
 namespace OverlayMod
 {
