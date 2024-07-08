@@ -80,8 +80,8 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
         [UIValue("percentSize")]
         private float percentSize
         {
-            get => PercentStat.Instance.posX;
-            set => PercentStat.Instance.posX = (int)value;
+            get => PercentStat.Instance.size;
+            set => PercentStat.Instance.size = (int)value;
         }
         #endregion percent
 

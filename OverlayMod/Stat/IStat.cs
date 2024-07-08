@@ -12,6 +12,7 @@ using System.Runtime.CompilerServices;
 using System.CodeDom;
 using System.Diagnostics.PerformanceData;
 using JetBrains.Annotations;
+using UnityEngine.UI;
 
 namespace OverlayMod.Stat.Stats
 {
@@ -64,6 +65,7 @@ namespace OverlayMod.Stat.Stats
             this.textObject.SetActive(enabled);
             this.text.fontSize = size * ((Plugin.scaleX + Plugin.scaleY) / 2); // last part averages the difference in text size incase the display ratio isnt 16:9
             this.text.alignment = optionalAllignmentOverride ?? TextAlignmentOptions.Center;
+            this.textObject.GetComponent<RectTransform>().sizeDelta = new Vector2(posX + size, posY);
 
             this.textObject.transform.localPosition = getNormalizedPosition(posX, posY);
         }
