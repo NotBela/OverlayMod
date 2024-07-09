@@ -45,17 +45,28 @@ namespace OverlayMod.Stat.Stats
         protected override void CreateStat()
         {
             _relativeScoreCounter.relativeScoreOrImmediateRankDidChangeEvent += UpdateText;
-            setTextParams("100.00");
+            setTextParams(100.ToString(getDecimalPrecisionTemplateString(decimalPrecision)));
         }
 
         private void UpdateText()
         {
-            this.text.text = $"{(_relativeScoreCounter.relativeScore * 100).ToString("0.00")}";
+            this.text.text = $"{(_relativeScoreCounter.relativeScore * 100).ToString(getDecimalPrecisionTemplateString(decimalPrecision))}";
         }
 
         public void Dispose()
         {
             _relativeScoreCounter.relativeScoreOrImmediateRankDidChangeEvent -= UpdateText;
+        }
+
+        private string getDecimalPrecisionTemplateString(int precision)
+        {
+            string output = "0.";
+            for (int i = 0; i < precision; i++)
+            {
+                output += "0";
+            }
+
+            return output;
         }
     }
 }

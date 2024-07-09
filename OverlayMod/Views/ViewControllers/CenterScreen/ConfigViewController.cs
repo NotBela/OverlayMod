@@ -56,21 +56,28 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
         private int percentHeightValue
         {
             get => PercentStat.Instance.posY;
-            set => PercentStat.Instance.posY = (int)value;
+            set => PercentStat.Instance.posY = value;
         }
 
         [UIValue("percentWidthValue")]
         private int percentWidthValue
         {
             get => PercentStat.Instance.posX;
-            set => PercentStat.Instance.posX = (int)value;
+            set => PercentStat.Instance.posX = value;
         }
 
         [UIValue("percentSize")]
         private float percentSize
         {
             get => PercentStat.Instance.size;
-            set => PercentStat.Instance.size = (int)value;
+            set => PercentStat.Instance.size = value;
+        }
+
+        [UIValue("percentDecimalPrecision")]
+        private int percentDecimalPrecision
+        {
+            get => PercentStat.Instance.decimalPrecision;
+            set => PercentStat.Instance.decimalPrecision = value;
         }
         #endregion percent
 
@@ -114,7 +121,7 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
         private float missSize
         {
             get => MissStat.Instance.size;
-            set => MissStat.Instance.size = (int)value;
+            set => MissStat.Instance.size = value;
         }
 
         #endregion miss 

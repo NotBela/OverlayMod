@@ -16,6 +16,7 @@
 							<slider-setting value="percentWidthValue" bind-value="true" text="Horizontal Position" min="0" max="~maxWidth" integer-only="true" increment="1" show-buttons="true" apply-on-change="true"/>
 							<slider-setting value="percentHeightValue" bind-value="true" text="Vertical Position" min="0" max="~maxHeight" integer-only="true" increment="1" show-buttons="true" apply-on-change="true"/>
 							<increment-setting value="percentSize" bind-value="true" text="Size" min="10" max="200" increment="5" integer-only="true" apply-on-change="true"/>
+							<increment-setting value="percentDecimalPrecision" bind-value="true" text="Decimal Precision" min="1" max="5" integer-only="true" apply-on-change="true"/>
 						</vertical>
 					</tab>
 					<tab tags="settingsTab" tab-name="Combo">
