@@ -10,6 +10,7 @@ namespace OverlayMod.Installers
     {
         public override void InstallBindings()
         {
+            Container.BindInterfacesAndSelfTo<GithubUpdateFetcher>().AsSingle();
             Container.BindInterfacesAndSelfTo<ConfigFlowController>().FromNewComponentOnNewGameObject().AsSingle();
 
             Container.BindInterfacesAndSelfTo<ConfigViewController>().FromNewComponentAsViewController().AsSingle();

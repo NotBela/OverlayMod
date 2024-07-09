@@ -9,6 +9,11 @@
 
 			<bool-setting text='Enable All' value='globalEnable' apply-on-change='true'/>
 			<button id='resetAllButton' text='Reset To Default' on-click='resetAllButtonOnClick'/>
+
+			<vertical pad='10'>
+				<text text='placeholder' align='Center' id='versionText' font-size='4'/>
+				<clickable-text id='updateText' align='Center' text='Waiting...' on-click='updateTextOnClick' font-size='4'/>
+			</vertical>
 		</vertical>
 	</horizontal>
 	

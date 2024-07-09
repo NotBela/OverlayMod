@@ -3,6 +3,8 @@ using BeatSaberMarkupLanguage.Parser;
 using BeatSaberMarkupLanguage.ViewControllers;
 using OverlayMod.Configuration;
 using OverlayMod.Views.ViewControllers.CenterScreen;
+using TMPro;
+using UnityEngine;
 using Zenject;
 
 
@@ -12,6 +14,7 @@ namespace OverlayMod.Views.ViewControllers.LeftScreen
     internal class GlobalSettingsViewController : BSMLAutomaticViewController
     {
         [Inject] private readonly ConfigViewController _otherViewController;
+        [Inject] private readonly GithubUpdateFetcher _githubUpdateFetcher;
 
         [UIParams] private BSMLParserParams parserParams;
 
@@ -47,6 +50,37 @@ namespace OverlayMod.Views.ViewControllers.LeftScreen
         private void resetSettingsModalCompletedOkButton()
         {
             parserParams.EmitEvent("resetSettingsModalCompletedHide");
+        }
+
+        [UIComponent("versionText")]
+        private TextMeshProUGUI versionText;
+
+        [UIComponent("updateText")]
+        private TextMeshProUGUI updateText;
+
+        [UIAction("updateTextOnClick")]
+        private void updateTextOnClick()
+        {
+            System.Diagnostics.Process.Start("https://github.com/NotBela/OverlayMod/releases");
+
+            if (updateText.text == "Mod version is up to date!") updateText.color = Color.green;
+            else updateText.color = Color.red;
+        }
+
+        [UIAction("#post-parse")]
+        private async void postParse()
+        {
+            versionText.text = $"OverlayMod v{IPA.Loader.PluginManager.GetPluginFromId("OverlayMod").HVersion}";
+
+            if (await _githubUpdateFetcher.IsModVersionUpToDateAsync())
+            {
+                updateText.text = "Mod version is up to date!";
+                updateText.color = Color.green;
+                return;
+            }
+
+            updateText.text = "Mod version is not up to date! Click here to go to the update page!";
+            updateText.color = Color.red;
         }
     }
 }

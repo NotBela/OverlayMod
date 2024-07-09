@@ -51,13 +51,13 @@
       <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="BS_Utils">
-      <HintPath>$(BeatSaberDir)\Plugins\BS_Utils.dll</HintPath>
+    <Reference Include="GameplayCore">
+      <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\GameplayCore.dll</HintPath>
       <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="GameplayCore">
-      <HintPath>$(BeatSaberDir)\Beat Saber_Data\Managed\GameplayCore.dll</HintPath>
+    <Reference Include="Hive.Versioning">
+      <HintPath>$(BeatSaberDir)\Libs\Hive.Versioning.dll</HintPath>
       <Private>False</Private>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -68,11 +68,6 @@
     </Reference>
     <Reference Include="PlatformUserModel">
       <HintPath>..\..\..\..\BSManager\BSInstances\1.34.2\Beat Saber_Data\Managed\PlatformUserModel.dll</HintPath>
-    </Reference>
-    <Reference Include="ScoreSaber">
-      <HintPath>$(BeatSaberDir)\Plugins\ScoreSaber.dll</HintPath>
-      <Private>False</Private>
-      <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="SiraUtil">
       <HintPath>$(BeatSaberDir)\Plugins\SiraUtil.dll</HintPath>
@@ -158,6 +153,7 @@
     <Compile Include="Views\FlowControllers\ConfigFlowController.cs" />
     <Compile Include="Views\MenuButtonController.cs" />
     <Compile Include="Views\ViewControllers\CenterScreen\ConfigViewController.cs" />
+    <Compile Include="Views\ViewControllers\LeftScreen\GithubUpdateFetcher.cs" />
     <Compile Include="Views\ViewControllers\LeftScreen\GlobalSettingsViewController.cs" />
   </ItemGroup>
   <ItemGroup>
