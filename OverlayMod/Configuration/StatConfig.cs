@@ -36,6 +36,7 @@ namespace OverlayMod.Configuration
 
         public T? getConfigEntry<T>(string entry) where T : struct
         {
+            Directory.CreateDirectory(pathToConfigFolder);
             try
             {
                 if (!Directory.Exists(pathToConfigFolder) || !File.Exists($"{pathToConfigFolder}{name}.json")) return null;
