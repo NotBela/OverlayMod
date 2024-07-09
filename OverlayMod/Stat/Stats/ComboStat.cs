@@ -1,9 +1,5 @@
 ﻿using OverlayMod.Configuration;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
@@ -15,10 +11,10 @@ namespace OverlayMod.Stat.Stats
 
         public StatConfig config = new StatConfig(Instance, "ComboStat");
 
-        public override int posX 
-        { 
-            get => config.getConfigEntry<int>("posX") ?? Screen.width / 2; 
-            set => config.setConfigEntry("posX", value); 
+        public override int posX
+        {
+            get => config.getConfigEntry<int>("posX") ?? Screen.width / 2;
+            set => config.setConfigEntry("posX", value);
         }
         public override int posY
         {

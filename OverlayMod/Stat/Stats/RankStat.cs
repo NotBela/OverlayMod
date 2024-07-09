@@ -1,9 +1,5 @@
 ﻿using OverlayMod.Configuration;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
@@ -20,20 +16,20 @@ namespace OverlayMod.Stat.Stats
             get => config.getConfigEntry<bool>("enabled") ?? false;
             set => config.setConfigEntry("enabled", value);
         }
-        public override int posX 
-        { 
-            get => config.getConfigEntry<int>("posX") ?? Screen.width / 2; 
-            set => config.setConfigEntry("posX", value); 
+        public override int posX
+        {
+            get => config.getConfigEntry<int>("posX") ?? Screen.width / 2;
+            set => config.setConfigEntry("posX", value);
         }
-        public override int posY 
-        { 
-            get => config.getConfigEntry<int>("posY") ?? Screen.height / 2; 
-            set => config.setConfigEntry("posY", value); 
+        public override int posY
+        {
+            get => config.getConfigEntry<int>("posY") ?? Screen.height / 2;
+            set => config.setConfigEntry("posY", value);
         }
         public override float size
-        { 
+        {
             get => config.getConfigEntry<float>("size") ?? 100;
-            set => config.setConfigEntry("size", value); 
+            set => config.setConfigEntry("size", value);
         }
 
         public static RankStat Instance = new RankStat();

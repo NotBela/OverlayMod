@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using OverlayMod.Stat.Stats;
-using IPA.Utilities;
+﻿using IPA.Utilities;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using System.CodeDom;
+using OverlayMod.Stat.Stats;
+using System.IO;
 
 namespace OverlayMod.Configuration
 {

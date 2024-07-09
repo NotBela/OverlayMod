@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Zenject;
-using UnityEngine;
-using OverlayMod.Configuration;
+﻿using OverlayMod.Configuration;
+using System;
 using TMPro;
+using Zenject;
 
 namespace OverlayMod.Stat.Stats
 {
@@ -22,7 +17,7 @@ namespace OverlayMod.Stat.Stats
             get => config.getConfigEntry<int>("decimalPrecision") ?? 2;
             set => config.setConfigEntry("decimalPrecision", value);
         }
-        public override int posX 
+        public override int posX
         {
             get => config.getConfigEntry<int>("posX") ?? 320;
             set => config.setConfigEntry("posX", value);

@@ -1,11 +1,6 @@
 ﻿using OverlayMod.Configuration;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TMPro;
-using UnityEngine;
 using Zenject;
 
 namespace OverlayMod.Stat.Stats
@@ -18,9 +13,10 @@ namespace OverlayMod.Stat.Stats
 
         public override TextAlignmentOptions? optionalAllignmentOverride => TextAlignmentOptions.Left;
 
-        public override int posX { 
-            get => config.getConfigEntry<int>("posX") ?? 275; 
-            set => config.setConfigEntry("posX", value); 
+        public override int posX
+        {
+            get => config.getConfigEntry<int>("posX") ?? 275;
+            set => config.setConfigEntry("posX", value);
         }
         public override int posY
         {

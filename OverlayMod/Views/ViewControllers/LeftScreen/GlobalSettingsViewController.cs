@@ -1,14 +1,8 @@
-﻿using BeatSaberMarkupLanguage;
-using BeatSaberMarkupLanguage.Attributes;
-using BeatSaberMarkupLanguage.Components;
+﻿using BeatSaberMarkupLanguage.Attributes;
 using BeatSaberMarkupLanguage.Parser;
-using BeatSaberMarkupLanguage.Tags;
 using BeatSaberMarkupLanguage.ViewControllers;
 using OverlayMod.Configuration;
 using OverlayMod.Views.ViewControllers.CenterScreen;
-using System;
-using System.Collections.Generic;
-using UnityEngine.UIElements;
 using Zenject;
 
 

@@ -1,10 +1,5 @@
-﻿using BeatSaberMarkupLanguage;
-using Newtonsoft.Json.Linq;
-using OverlayMod.Configuration;
+﻿using OverlayMod.Configuration;
 using System;
-using System.Collections;
-using System.Net.Http;
-using System.Security.Policy;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;

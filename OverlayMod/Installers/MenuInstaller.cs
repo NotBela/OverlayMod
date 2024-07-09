@@ -2,11 +2,6 @@
 using OverlayMod.Views;
 using OverlayMod.Views.ViewControllers.CenterScreen;
 using OverlayMod.Views.ViewControllers.LeftScreen;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Zenject;
 
 namespace OverlayMod.Installers

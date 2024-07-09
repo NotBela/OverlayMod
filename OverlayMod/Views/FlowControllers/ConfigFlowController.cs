@@ -1,13 +1,8 @@
 ﻿using BeatSaberMarkupLanguage;
-using OverlayMod.Views.ViewControllers.CenterScreen;
 using HMUI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Zenject;
+using OverlayMod.Views.ViewControllers.CenterScreen;
 using OverlayMod.Views.ViewControllers.LeftScreen;
+using Zenject;
 
 namespace OverlayMod.Vews.FlowControllers
 {

@@ -1,19 +1,8 @@
-﻿using BeatSaberMarkupLanguage;
-using BeatSaberMarkupLanguage.Attributes;
-using BeatSaberMarkupLanguage.Components;
-using BeatSaberMarkupLanguage.Notify;
-using BeatSaberMarkupLanguage.ViewControllers;
-using OverlayMod.Configuration;
-using OverlayMod.Stat.Stats;
-using System;
-using System.Collections.Generic;
-using Zenject;
-using System.ComponentModel;
-using UnityEngine;
-using System.Xml.Schema;
-using System.Runtime.InteropServices;
+﻿using BeatSaberMarkupLanguage.Attributes;
 using BeatSaberMarkupLanguage.Parser;
-using IPA.Loader;
+using BeatSaberMarkupLanguage.ViewControllers;
+using OverlayMod.Stat.Stats;
+using UnityEngine;
 
 
 namespace OverlayMod.Views.ViewControllers.CenterScreen
@@ -26,7 +15,7 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
 
         #region Combo
         [UIValue("comboEnabled")]
-        private bool comboEnabled 
+        private bool comboEnabled
         {
             get => ComboStat.Instance.enabled;
             set => ComboStat.Instance.enabled = value;
@@ -50,7 +39,7 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
         private float comboSize
         {
             get => ComboStat.Instance.size;
-            set => ComboStat.Instance.size = (int) value;
+            set => ComboStat.Instance.size = (int)value;
         }
 
         #endregion Combo
@@ -73,7 +62,7 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
         [UIValue("percentWidthValue")]
         private int percentWidthValue
         {
-            get => PercentStat.Instance.posX; 
+            get => PercentStat.Instance.posX;
             set => PercentStat.Instance.posX = (int)value;
         }
 
@@ -125,7 +114,7 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
         private float missSize
         {
             get => MissStat.Instance.size;
-            set => MissStat.Instance.size = (int) value;
+            set => MissStat.Instance.size = (int)value;
         }
 
         #endregion miss 
@@ -148,7 +137,7 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
         [UIValue("scoreHeightValue")]
         private int scoreHeightValue
         {
-            get => ScoreStat.Instance.posY; 
+            get => ScoreStat.Instance.posY;
             set => ScoreStat.Instance.posY = value;
         }
 
@@ -156,7 +145,7 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
         private float scoreSize
         {
             get => ScoreStat.Instance.size;
-            set => ScoreStat.Instance.size = (int) value;
+            set => ScoreStat.Instance.size = (int)value;
         }
         #endregion score
 
@@ -180,7 +169,7 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
         private int energyHeightValue
         {
             get => EnergyStat.Instance.posY;
-            set => EnergyStat.Instance.posY= value;
+            set => EnergyStat.Instance.posY = value;
         }
 
         [UIValue("energySize")]
