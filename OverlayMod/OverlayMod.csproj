@@ -145,8 +145,12 @@
     <Compile Include="Stat\CanvasController.cs" />
     <Compile Include="Stat\IStat.cs" />
     <Compile Include="Stat\Preview\IPreviewStat.cs" />
+    <Compile Include="Stat\Preview\PreviewStats\ComboStatPreview.cs" />
+    <Compile Include="Stat\Preview\PreviewStats\MissStatPreview.cs" />
     <Compile Include="Stat\Preview\PreviewStats\PercentStatPreview.cs" />
     <Compile Include="Stat\Preview\PreviewCanvasController.cs" />
+    <Compile Include="Stat\Preview\PreviewStats\RankStatPreview.cs" />
+    <Compile Include="Stat\Preview\PreviewStats\ScoreStatPreview.cs" />
     <Compile Include="Stat\Stats\ComboStat.cs" />
     <Compile Include="Stat\Stats\EnergyStat.cs" />
     <Compile Include="Stat\Stats\MissStat.cs" />

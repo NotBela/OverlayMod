@@ -22,7 +22,12 @@ namespace OverlayMod.Installers
             Container.BindInterfacesAndSelfTo<MenuButtonController>().AsSingle();
 
             Container.BindInterfacesAndSelfTo<PreviewCanvasController>().AsSingle();
+
             Container.BindInterfacesAndSelfTo<PercentStatPreview>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ComboStatPreview>().AsSingle();
+            Container.BindInterfacesAndSelfTo<MissStatPreview>().AsSingle();
+            Container.BindInterfacesAndSelfTo<RankStatPreview>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ScoreStatPreview>().AsSingle();
         }
     }
 }

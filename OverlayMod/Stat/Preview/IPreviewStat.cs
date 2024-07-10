@@ -23,7 +23,7 @@ namespace OverlayMod.Stat.Preview
         protected float size => parentStat.size;
 
         private GameObject textObject = new GameObject();
-        private TextMeshProUGUI textMesh;
+        protected TextMeshProUGUI textMesh;
 
         protected abstract string text { get; }
 
@@ -40,6 +40,10 @@ namespace OverlayMod.Stat.Preview
             this.textMesh.alignment = parentStat.optionalAllignmentOverride ?? TextAlignmentOptions.Center;
 
             this.textObject.GetComponent<RectTransform>().sizeDelta = new Vector2(posX + size, posY);
+
+            doExtraThings();
         }
+
+        protected virtual void doExtraThings() { return; }
     }
 }
