@@ -1,7 +1,7 @@
 # OverlayMod
 Add a highly customizable overlay with information about your current play to your desktop!
 
-⚠️ This release has a bug that causes the mod to not work on some camera2 configs and beatleader replays for all users. A fix is being worked on ⚠️
+⚠️ This release has a bug that causes the mod to not work in BeatLeader replays. A fix is being worked on ⚠️
 
 # Features
 - Add stats such as your relative score, points, miss count, and rank to your desktop screen.
