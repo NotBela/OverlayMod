@@ -1,4 +1,6 @@
-﻿using TMPro;
+﻿using System;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using Zenject;
 
@@ -10,10 +12,12 @@ namespace OverlayMod.Stat.Stats
 
         protected TextMeshProUGUI text;
         protected GameObject textObject;
+
         public abstract int posX { get; set; }
         public abstract int posY { get; set; }
         public abstract float size { get; set; }
         public abstract bool enabled { get; set; }
+        
         public virtual TextAlignmentOptions? optionalAllignmentOverride { get; }
 
         [Inject]
@@ -45,7 +49,7 @@ namespace OverlayMod.Stat.Stats
             this.textObject.transform.localPosition = getNormalizedPosition(posX, posY);
         }
 
-        protected Vector2 getNormalizedPosition(float posX, float posY)
+        public Vector2 getNormalizedPosition(float posX, float posY)
         {
             float textPosX = (-Screen.width / 2) + (posX * Plugin.scaleX);
             float textPosY = (-Screen.height / 2) + (posY * Plugin.scaleY);

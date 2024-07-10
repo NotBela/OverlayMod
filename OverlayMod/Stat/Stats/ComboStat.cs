@@ -1,5 +1,6 @@
 ﻿using OverlayMod.Configuration;
 using System;
+using TMPro;
 using UnityEngine;
 using Zenject;
 

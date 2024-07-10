@@ -1,4 +1,5 @@
 ﻿using OverlayMod.Configuration;
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -8,6 +9,8 @@ namespace OverlayMod.Stat
     {
         public GameObject canvasGameObj;
         public Canvas canvas;
+
+        public virtual bool isPreview { get; } = false;
 
         public void Initialize()
         {
@@ -21,6 +24,11 @@ namespace OverlayMod.Stat
 
             canvas.transform.SetAsLastSibling();
             canvasGameObj.transform.SetAsLastSibling();
+
+            if (isPreview)
+                canvasGameObj.SetActive(false);
+            else
+                canvasGameObj.SetActive(PluginConfig.Instance.globalEnable);
         }
     }
 }

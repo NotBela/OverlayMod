@@ -1,4 +1,7 @@
-﻿using OverlayMod.Vews.FlowControllers;
+﻿using OverlayMod.Stat;
+using OverlayMod.Stat.Preview;
+using OverlayMod.Stat.Preview.PreviewStats;
+using OverlayMod.Vews.FlowControllers;
 using OverlayMod.Views;
 using OverlayMod.Views.ViewControllers.CenterScreen;
 using OverlayMod.Views.ViewControllers.LeftScreen;
@@ -17,6 +20,9 @@ namespace OverlayMod.Installers
             Container.BindInterfacesAndSelfTo<GlobalSettingsViewController>().FromNewComponentAsViewController().AsSingle();
 
             Container.BindInterfacesAndSelfTo<MenuButtonController>().AsSingle();
+
+            Container.BindInterfacesAndSelfTo<PreviewCanvasController>().AsSingle();
+            Container.BindInterfacesAndSelfTo<PercentStatPreview>().AsSingle();
         }
     }
 }
