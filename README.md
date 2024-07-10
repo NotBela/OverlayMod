@@ -17,6 +17,7 @@ You can install OverlayMod by downloading the latest release and dropping it int
 # Incompatable with:
 - GameplayModifiersPlus
 - SliceDetails
+- PlayFirstSubmitLater
 
 If you have any issues feel free to open an issue or DM me on discord @be1a_
 
