@@ -20,7 +20,6 @@
 	<modal size-delta-x='70' size-delta-y='50' show-event='resetSettingsModalShow' hide-event='resetSettingsModalHide' click-off-closes='true' move-to-center='true'>
 		<vertical>
 			<text text='Are you sure you want to reset your settings?' align='Center'/>
-
 			<horizontal>
 				<button text='Yes' on-click='resetSettingsConfirm'/>
 				<primary-button text='No' on-click='resetSettingsDeny'/>

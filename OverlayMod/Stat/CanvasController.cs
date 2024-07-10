@@ -18,6 +18,9 @@ namespace OverlayMod.Stat
             canvas.name = "OverlayMod";
 
             canvasGameObj.SetActive(PluginConfig.Instance.globalEnable);
+
+            canvas.transform.SetAsLastSibling();
+            canvasGameObj.transform.SetAsLastSibling();
         }
     }
 }

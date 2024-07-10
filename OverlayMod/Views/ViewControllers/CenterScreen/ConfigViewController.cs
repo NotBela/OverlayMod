@@ -31,15 +31,15 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
         [UIValue("comboWidthValue")]
         private int comboWidthValue
         {
-            get => ComboStat.Instance.posY;
-            set => ComboStat.Instance.posY = value;
+            get => ComboStat.Instance.posX;
+            set => ComboStat.Instance.posX = value;
         }
 
         [UIValue("comboSize")]
         private float comboSize
         {
             get => ComboStat.Instance.size;
-            set => ComboStat.Instance.size = (int)value;
+            set => ComboStat.Instance.size = value;
         }
 
         #endregion Combo
