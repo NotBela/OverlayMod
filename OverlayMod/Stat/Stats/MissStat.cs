@@ -16,7 +16,7 @@ namespace OverlayMod.Stat.Stats
         public bool hideUntilMissed
         {
             get => config.getConfigEntry<bool>("hideWhileFc") ?? true;
-            set => config.setConfigEntry("hideUntilMissed", value);
+            set => config.setConfigEntry("hideWhileFc", value);
         }
 
         public bool redMissCounter
@@ -58,8 +58,7 @@ namespace OverlayMod.Stat.Stats
 
             setTextParams($"x{missedAmt}");
 
-            if (hideUntilMissed)
-                this.textObject.SetActive(false);
+            this.textObject.SetActive(!hideUntilMissed);
         }
 
         private void UpdateTextOnBadCut(NoteController noteController, in NoteCutInfo noteCutInfo)
