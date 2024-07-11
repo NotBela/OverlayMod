@@ -27,8 +27,8 @@ namespace OverlayMod.Stat
 
             canvasGameObj.SetActive(PluginConfig.Instance.globalEnable);
 
-            canvas.transform.SetAsLastSibling();
-            canvasGameObj.transform.SetAsLastSibling();
+            canvas.overrideSorting = true;
+            canvas.sortingOrder = 1;
 
             if (isPreview)
                 canvasGameObj.SetActive(false);
