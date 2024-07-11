@@ -1,8 +1,6 @@
 # OverlayMod
 Add a highly customizable overlay with information about your current play to your desktop!
 
-⚠️ This release has a bug that causes the mod to not work in BeatLeader replays. A fix is being worked on ⚠️
-
 # Features
 - Add stats such as your relative score, points, miss count, and rank to your desktop screen.
 - Easy to use customization GUI
@@ -13,11 +11,6 @@ OverlayMod is enabled by default. Settings can be changed through a menu button 
 
 # Installation
 You can install OverlayMod by downloading the latest release and dropping it into your mods folder. Currently, only 1.29.1 is supported. Requires BSIPA, BSML, and SiraUtil!
-
-# Incompatable with:
-- GameplayModifiersPlus
-- SliceDetails
-- PlayFirstSubmitLater
 
 If you have any issues feel free to open an issue or DM me on discord @be1a_
 
