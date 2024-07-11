@@ -14,7 +14,10 @@ OverlayMod is enabled by default. Settings can be changed through a menu button 
 # Installation
 You can install OverlayMod by downloading the latest release and dropping it into your mods folder. Currently, only 1.29.1 is supported. Requires BSIPA, BSML, and SiraUtil!
 
-
+# Incompatable with:
+- GameplayModifiersPlus
+- SliceDetails
+- PlayFirstSubmitLater
 
 If you have any issues feel free to open an issue or DM me on discord @be1a_
 
