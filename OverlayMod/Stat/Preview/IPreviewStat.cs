@@ -1,20 +1,18 @@
 ﻿using OverlayMod.Stat.Stats;
+using OverlayMod.Views.ViewControllers.CenterScreen;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using Zenject;
 
 namespace OverlayMod.Stat.Preview
 {
-    internal abstract class IPreviewStat : IInitializable
+    internal abstract class IPreviewStat : IInitializable, INotifyPropertyChanged
     {
         [Inject] private PreviewCanvasController _canvasController;
- 
+
         protected abstract IStat parentStat { get; }
 
         protected bool enabled => parentStat.enabled;
@@ -45,5 +43,24 @@ namespace OverlayMod.Stat.Preview
         }
 
         protected virtual void doExtraThings() { return; }
+
+        #region notifypropertychanged garbage
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public void notifyPropertyChanged()
+        {
+            foreach (var property in this.GetType().GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance))
+            {
+                NotifyPropertyChanged(property.Name);
+            }
+        }
+
+        #endregion
     }
 }

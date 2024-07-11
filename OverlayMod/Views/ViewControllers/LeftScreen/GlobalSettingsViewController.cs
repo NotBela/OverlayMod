@@ -2,6 +2,7 @@
 using BeatSaberMarkupLanguage.Parser;
 using BeatSaberMarkupLanguage.ViewControllers;
 using OverlayMod.Configuration;
+using OverlayMod.Stat.Preview;
 using OverlayMod.Views.ViewControllers.CenterScreen;
 using TMPro;
 using UnityEngine;
@@ -15,6 +16,8 @@ namespace OverlayMod.Views.ViewControllers.LeftScreen
     {
         [Inject] private readonly ConfigViewController _otherViewController;
         [Inject] private readonly GithubUpdateFetcher _githubUpdateFetcher;
+
+        [Inject] private readonly PreviewCanvasController _previewCanvasController;
 
         [UIParams] private BSMLParserParams parserParams;
 
@@ -43,6 +46,7 @@ namespace OverlayMod.Views.ViewControllers.LeftScreen
             parserParams.EmitEvent("resetSettingsModalHide");
             StatConfig.clearConfig();
             _otherViewController.notifyPropertyChanged();
+            _previewCanvasController.updateStats();
             parserParams.EmitEvent("resetSettingsModalCompletedShow");
         }
 

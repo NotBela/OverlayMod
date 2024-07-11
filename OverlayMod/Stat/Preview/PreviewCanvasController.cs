@@ -1,4 +1,5 @@
 ﻿using OverlayMod.Configuration;
+using OverlayMod.Stat.Preview.PreviewStats;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,20 @@ namespace OverlayMod.Stat.Preview
     internal class PreviewCanvasController : CanvasController
     {
         public override bool isPreview => true;
+
+        [Inject] private readonly ComboStatPreview _previewCombo;
+        [Inject] private readonly MissStatPreview _missStatPreview;
+        [Inject] private readonly PercentStatPreview _percentStatPreview;
+        [Inject] private readonly RankStatPreview _rankStatPreview;
+        [Inject] private readonly ScoreStatPreview _scoreStatPreview;
+
+        public void updateStats()
+        {
+            _previewCombo.notifyPropertyChanged();
+            _missStatPreview.notifyPropertyChanged();
+            _percentStatPreview.notifyPropertyChanged();
+            _scoreStatPreview.notifyPropertyChanged();
+            _rankStatPreview.notifyPropertyChanged();
+        }
     }
 }
