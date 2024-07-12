@@ -14,15 +14,22 @@ namespace OverlayMod.Stat.Preview.PreviewStats
 
         protected override string text => getPercentDecimalPrecision();
 
+        public override void Update()
+        {
+            base.Update();
+
+            this.textMesh.text = text;
+        }
+
         private string getPercentDecimalPrecision()
         {
-            string precision = "0.";
+            string output = "0.";
             for (int i = 0; i < PercentStat.Instance.decimalPrecision; i++)
             {
-                precision += "0";
+                output += "0";
             }
 
-            return 100.ToString(precision);
+            return 100.ToString(output);
         }
     }
 }

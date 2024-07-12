@@ -1,8 +1,10 @@
 ﻿using BeatSaberMarkupLanguage.Attributes;
 using BeatSaberMarkupLanguage.Parser;
 using BeatSaberMarkupLanguage.ViewControllers;
+using OverlayMod.Stat.Preview;
 using OverlayMod.Stat.Stats;
 using UnityEngine;
+using Zenject;
 
 
 namespace OverlayMod.Views.ViewControllers.CenterScreen
@@ -13,33 +15,35 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
         [UIValue("maxHeight")] private int maxHeight => Screen.height;
         [UIValue("maxWidth")] private int maxWidth => Screen.width;
 
+        [Inject] private readonly PreviewCanvasController _previewCanvasController;
+
         #region Combo
         [UIValue("comboEnabled")]
         private bool comboEnabled
         {
             get => ComboStat.Instance.enabled;
-            set => ComboStat.Instance.enabled = value;
+            set { ComboStat.Instance.enabled = value; _previewCanvasController.updateStats(); }
         }
 
         [UIValue("comboHeightValue")]
         private int comboHeightValue
         {
             get => ComboStat.Instance.posY;
-            set => ComboStat.Instance.posY = value;
+            set { ComboStat.Instance.posY = value; _previewCanvasController.updateStats(); }
         }
 
         [UIValue("comboWidthValue")]
         private int comboWidthValue
         {
             get => ComboStat.Instance.posX;
-            set => ComboStat.Instance.posX = value;
+            set { ComboStat.Instance.posX = value; _previewCanvasController.updateStats(); }
         }
 
         [UIValue("comboSize")]
         private float comboSize
         {
             get => ComboStat.Instance.size;
-            set => ComboStat.Instance.size = value;
+            set { ComboStat.Instance.size = value; _previewCanvasController.updateStats(); }
         }
 
         #endregion Combo
@@ -49,35 +53,35 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
         private bool percentEnabled
         {
             get => PercentStat.Instance.enabled;
-            set => PercentStat.Instance.enabled = value;
+            set { PercentStat.Instance.enabled = value; _previewCanvasController.updateStats(); }
         }
 
         [UIValue("percentHeightValue")]
         private int percentHeightValue
         {
             get => PercentStat.Instance.posY;
-            set => PercentStat.Instance.posY = value;
+            set { PercentStat.Instance.posY = value; _previewCanvasController.updateStats(); }
         }
 
         [UIValue("percentWidthValue")]
         private int percentWidthValue
         {
             get => PercentStat.Instance.posX;
-            set => PercentStat.Instance.posX = value;
+            set { PercentStat.Instance.posX = value; _previewCanvasController.updateStats(); }
         }
 
         [UIValue("percentSize")]
         private float percentSize
         {
             get => PercentStat.Instance.size;
-            set => PercentStat.Instance.size = value;
+            set { PercentStat.Instance.size = value; _previewCanvasController.updateStats(); }
         }
 
         [UIValue("percentDecimalPrecision")]
         private int percentDecimalPrecision
         {
             get => PercentStat.Instance.decimalPrecision;
-            set => PercentStat.Instance.decimalPrecision = value;
+            set { PercentStat.Instance.decimalPrecision = value; _previewCanvasController.updateStats(); }
         }
         #endregion percent
 
@@ -86,14 +90,14 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
         private bool missEnabled
         {
             get => MissStat.Instance.enabled;
-            set => MissStat.Instance.enabled = value;
+            set { MissStat.Instance.enabled = value; _previewCanvasController.updateStats(); }
         }
 
         [UIValue("redMissText")]
         private bool redMissText
         {
             get => MissStat.Instance.redMissCounter;
-            set => MissStat.Instance.redMissCounter = value;
+            set { MissStat.Instance.redMissCounter = value; _previewCanvasController.updateStats(); }
         }
 
         [UIValue("hideWhileFc")]
@@ -107,21 +111,25 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
         private int missHeightValue
         {
             get => MissStat.Instance.posY;
-            set => MissStat.Instance.posY = value;
+            set { MissStat.Instance.posY = value; _previewCanvasController.updateStats(); }
         }
 
         [UIValue("missWidthValue")]
         private int missWidthValue
         {
             get => MissStat.Instance.posX;
-            set => MissStat.Instance.posX = value;
+            set { MissStat.Instance.posX = value; _previewCanvasController.updateStats(); }
         }
 
         [UIValue("missSize")]
         private float missSize
         {
             get => MissStat.Instance.size;
-            set => MissStat.Instance.size = value;
+            set
+            {
+                MissStat.Instance.size = value;
+                _previewCanvasController.updateStats();
+            }
         }
 
         #endregion miss 
@@ -131,28 +139,28 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
         private bool scoreEnabled
         {
             get => ScoreStat.Instance.enabled;
-            set => ScoreStat.Instance.enabled = value;
+            set { ScoreStat.Instance.enabled = value; _previewCanvasController.updateStats(); }
         }
 
         [UIValue("scoreWidthValue")]
         private int scoreWidthValue
         {
             get => ScoreStat.Instance.posX;
-            set => ScoreStat.Instance.posX = value;
+            set { ScoreStat.Instance.posX = value; _previewCanvasController.updateStats(); }
         }
 
         [UIValue("scoreHeightValue")]
         private int scoreHeightValue
         {
             get => ScoreStat.Instance.posY;
-            set => ScoreStat.Instance.posY = value;
+            set { ScoreStat.Instance.posY = value; _previewCanvasController.updateStats(); }
         }
 
         [UIValue("scoreSize")]
         private float scoreSize
         {
             get => ScoreStat.Instance.size;
-            set => ScoreStat.Instance.size = (int)value;
+            set { ScoreStat.Instance.size = value; _previewCanvasController.updateStats(); }
         }
         #endregion score
 
@@ -201,28 +209,28 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
         private bool rankEnabled
         {
             get => RankStat.Instance.enabled;
-            set => RankStat.Instance.enabled = value;
+            set { RankStat.Instance.enabled = value; _previewCanvasController.updateStats(); }
         }
 
         [UIValue("rankWidthValue")]
         private int rankWidthValue
         {
             get => RankStat.Instance.posX;
-            set => RankStat.Instance.posX = value;
+            set { RankStat.Instance.posX = value; _previewCanvasController.updateStats(); }
         }
 
         [UIValue("rankHeightValue")]
         private int rankHeightValue
         {
             get => RankStat.Instance.posY;
-            set => RankStat.Instance.posY = value;
+            set { RankStat.Instance.posY = value; _previewCanvasController.updateStats(); }
         }
 
         [UIValue("rankSize")]
         private float rankSize
         {
             get => RankStat.Instance.size;
-            set => RankStat.Instance.size = value;
+            set { RankStat.Instance.size = value; _previewCanvasController.updateStats(); }
         }
 
         #endregion rank
@@ -231,7 +239,11 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
 
         public void notifyPropertyChanged()
         {
-            foreach (var property in typeof(ConfigViewController).GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance))
+            foreach (var property in typeof(ConfigViewController).GetProperties(
+                System.Reflection.BindingFlags.Public | 
+                System.Reflection.BindingFlags.NonPublic | 
+                System.Reflection.BindingFlags.Instance
+                ))
             {
                 NotifyPropertyChanged(property.Name);
             }

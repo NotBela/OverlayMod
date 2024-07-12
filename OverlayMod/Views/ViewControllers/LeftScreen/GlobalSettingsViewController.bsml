@@ -8,6 +8,7 @@
 			</vertical>
 
 			<bool-setting text='Enable All' value='globalEnable' apply-on-change='true'/>
+			<bool-setting text='Disable when Zen Mode is enabled?' value='zenModeDisable' apply-on-change='true'/>
 			<button id='resetAllButton' text='Reset To Default' on-click='resetAllButtonOnClick'/>
 
 			<vertical pad='10'>

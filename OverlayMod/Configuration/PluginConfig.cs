@@ -8,5 +8,6 @@ namespace OverlayMod.Configuration
     {
         public static PluginConfig Instance { get; set; }
         public virtual bool globalEnable { get; set; } = true;
+        public virtual bool zenModeDisable { get; set; } = true;
     }
 }

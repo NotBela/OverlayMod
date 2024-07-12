@@ -9,7 +9,7 @@ using Zenject;
 
 namespace OverlayMod.Stat.Preview
 {
-    internal abstract class IPreviewStat : IInitializable, INotifyPropertyChanged
+    internal abstract class IPreviewStat : IInitializable
     {
         [Inject] private PreviewCanvasController _canvasController;
 
@@ -32,12 +32,13 @@ namespace OverlayMod.Stat.Preview
             textMesh = textObject.AddComponent<TextMeshProUGUI>();
 
             this.textMesh.text = text;
-            this.textMesh.fontSize = size * ((Plugin.scaleX + Plugin.scaleY) / 2);
-            this.textObject.transform.localPosition = parentStat.getNormalizedPosition(posX, posY);
-            this.textObject.SetActive(enabled);
-            this.textMesh.alignment = parentStat.optionalAllignmentOverride ?? TextAlignmentOptions.Center;
 
+            this.textObject.SetActive(enabled);
+            this.textMesh.fontSize = size * ((Plugin.scaleX + Plugin.scaleY) / 2); // last part averages the difference in text size incase the display ratio isnt 16:9
+            this.textMesh.alignment = parentStat.optionalAllignmentOverride ?? TextAlignmentOptions.Center;
             this.textMesh.enableWordWrapping = false;
+
+            this.textObject.GetComponent<RectTransform>().localPosition = parentStat.getNormalizedPosition(posX, posY);
 
             doExtraThings();
         }
@@ -46,21 +47,12 @@ namespace OverlayMod.Stat.Preview
 
         #region notifypropertychanged garbage
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        public virtual void Update()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            this.textMesh.fontSize = size * ((Plugin.scaleX + Plugin.scaleY) / 2);
+            this.textObject.transform.localPosition = parentStat.getNormalizedPosition(posX, posY);
+            this.textObject.SetActive(enabled);
         }
-
-        public void update()
-        {
-            foreach (var property in this.GetType().GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance))
-            {
-                NotifyPropertyChanged(property.Name);
-            }
-        }
-
         #endregion
     }
 }

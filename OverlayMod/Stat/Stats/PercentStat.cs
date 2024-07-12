@@ -58,6 +58,7 @@ namespace OverlayMod.Stat.Stats
             _relativeScoreCounter.relativeScoreOrImmediateRankDidChangeEvent -= UpdateText;
         }
 
+        // wtf was i thinking when i named this method LMAO
         private string getDecimalPrecisionTemplateString(int precision)
         {
             string output = "0.";

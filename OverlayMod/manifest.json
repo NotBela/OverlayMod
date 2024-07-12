@@ -3,7 +3,7 @@
   "id": "OverlayMod",
   "name": "OverlayMod",
   "author": "Bela",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Add a highly customizable overlay with information about your current play to your desktop!",
   "gameVersion": "1.29.1",
   "dependsOn": {

@@ -17,6 +17,8 @@ namespace OverlayMod.Stat
 
         public virtual bool isPreview { get; } = false;
 
+        [InjectOptional] private readonly GameplayModifiers _gameplayModifiers;
+
         public void Initialize()
         {
             canvasGameObj = new GameObject();
@@ -34,6 +36,10 @@ namespace OverlayMod.Stat
                 canvasGameObj.SetActive(false);
             else
                 canvasGameObj.SetActive(PluginConfig.Instance.globalEnable);
+
+            if (!PluginConfig.Instance.zenModeDisable) return;
+
+            if (_gameplayModifiers != null && _gameplayModifiers.zenMode) canvasGameObj.SetActive(false);
         }
     }
 }

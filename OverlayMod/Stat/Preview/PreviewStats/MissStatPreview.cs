@@ -19,6 +19,19 @@ namespace OverlayMod.Stat.Preview.PreviewStats
 
         protected override string text => "x1";
 
+        public override void Update()
+        {
+            base.Update();
+
+            if (redMissCounter)
+            {
+                this.textMesh.color = Color.red;
+                return;
+            }
+
+            this.textMesh.color = Color.white;
+        }
+
         protected override void doExtraThings()
         {
             if (redMissCounter)

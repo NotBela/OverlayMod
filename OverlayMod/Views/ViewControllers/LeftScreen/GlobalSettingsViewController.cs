@@ -3,6 +3,7 @@ using BeatSaberMarkupLanguage.Parser;
 using BeatSaberMarkupLanguage.ViewControllers;
 using OverlayMod.Configuration;
 using OverlayMod.Stat.Preview;
+using OverlayMod.Stat.Preview.PreviewStats;
 using OverlayMod.Views.ViewControllers.CenterScreen;
 using TMPro;
 using UnityEngine;
@@ -20,6 +21,13 @@ namespace OverlayMod.Views.ViewControllers.LeftScreen
         [Inject] private readonly PreviewCanvasController _previewCanvasController;
 
         [UIParams] private BSMLParserParams parserParams;
+
+        [UIValue("zenModeDisable")]
+        private bool zenModeDisable
+        {
+            get => PluginConfig.Instance.zenModeDisable;
+            set => PluginConfig.Instance.zenModeDisable = value;
+        }
 
         [UIValue("globalEnable")]
         private bool globalEnable
