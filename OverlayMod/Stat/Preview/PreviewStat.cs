@@ -9,7 +9,7 @@ using Zenject;
 
 namespace OverlayMod.Stat.Preview
 {
-    internal abstract class IPreviewStat : IInitializable
+    internal abstract class PreviewStat : IInitializable
     {
         [Inject] private PreviewCanvasController _canvasController;
 

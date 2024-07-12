@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OverlayMod.Stat.Preview.PreviewStats
 {
-    internal class ComboStatPreview : IPreviewStat
+    internal class ComboStatPreview : PreviewStat
     {
         protected override Stats.Stat parentStat => ComboStat.Instance;
 

@@ -149,7 +149,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stat\CanvasController.cs" />
     <Compile Include="Stat\Stat.cs" />
-    <Compile Include="Stat\Preview\IPreviewStat.cs" />
+    <Compile Include="Stat\Preview\PreviewStat.cs" />
     <Compile Include="Stat\Preview\PreviewStats\ComboStatPreview.cs" />
     <Compile Include="Stat\Preview\PreviewStats\MissStatPreview.cs" />
     <Compile Include="Stat\Preview\PreviewStats\PercentStatPreview.cs" />

@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace OverlayMod.Stat.Preview.PreviewStats
 {
-    internal class MissStatPreview : IPreviewStat
+    internal class MissStatPreview : PreviewStat
     {
         protected override Stats.Stat parentStat => MissStat.Instance;
 

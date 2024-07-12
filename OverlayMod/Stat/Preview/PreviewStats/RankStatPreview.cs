@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OverlayMod.Stat.Preview.PreviewStats
 {
-    internal class RankStatPreview : IPreviewStat
+    internal class RankStatPreview : PreviewStat
     {
         protected override Stats.Stat parentStat => RankStat.Instance;
 

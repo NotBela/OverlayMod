@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OverlayMod.Stat.Preview.PreviewStats
 {
-    internal class PercentStatPreview : IPreviewStat
+    internal class PercentStatPreview : PreviewStat
     {
         protected override Stats.Stat parentStat => PercentStat.Instance;
 
