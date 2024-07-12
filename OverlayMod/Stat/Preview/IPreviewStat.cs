@@ -37,7 +37,7 @@ namespace OverlayMod.Stat.Preview
             this.textObject.SetActive(enabled);
             this.textMesh.alignment = parentStat.optionalAllignmentOverride ?? TextAlignmentOptions.Center;
 
-            this.textObject.GetComponent<RectTransform>().sizeDelta = new Vector2(posX + size, posY);
+            this.textMesh.enableWordWrapping = false;
 
             doExtraThings();
         }
