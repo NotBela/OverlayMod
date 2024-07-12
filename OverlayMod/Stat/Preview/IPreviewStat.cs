@@ -33,12 +33,13 @@ namespace OverlayMod.Stat.Preview
 
             this.textMesh.text = text;
 
-            this.textObject.SetActive(enabled);
-            this.textMesh.fontSize = size * ((Plugin.scaleX + Plugin.scaleY) / 2); // last part averages the difference in text size incase the display ratio isnt 16:9
+            // bottom two lines not necessary because of update()
+
+            // this.textObject.SetActive(enabled);
+            // this.textMesh.fontSize = size * ((Plugin.scaleX + Plugin.scaleY) / 2); // last part averages the difference in text size incase the display ratio isnt 16:9
             this.textMesh.alignment = parentStat.optionalAllignmentOverride ?? TextAlignmentOptions.Center;
             this.textMesh.enableWordWrapping = false;
-
-            this.textObject.GetComponent<RectTransform>().localPosition = parentStat.getNormalizedPosition(posX, posY);
+            Update();
 
             doExtraThings();
         }
@@ -50,7 +51,7 @@ namespace OverlayMod.Stat.Preview
         public virtual void Update()
         {
             this.textMesh.fontSize = size * ((Plugin.scaleX + Plugin.scaleY) / 2);
-            this.textObject.transform.localPosition = parentStat.getNormalizedPosition(posX, posY);
+            this.textObject.transform.localPosition = parentStat.getNormalizedPosition(posX - 50, posY);
             this.textObject.SetActive(enabled);
         }
         #endregion
