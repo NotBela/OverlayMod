@@ -22,14 +22,8 @@ namespace OverlayMod.Views
 
         private void buttonClicked() => _parent.PresentFlowCoordinator(_flowController);
 
-        public void Initialize()
-        {
-            MenuButtons.instance.RegisterButton(_menuButton);
-        }
+        public void Initialize() => MenuButtons.instance.RegisterButton(_menuButton);
 
-        public void Dispose()
-        {
-            MenuButtons.instance.UnregisterButton(_menuButton);
-        }
+        public void Dispose() => MenuButtons.instance.UnregisterButton(_menuButton);
     }
 }

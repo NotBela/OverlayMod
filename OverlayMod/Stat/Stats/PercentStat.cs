@@ -19,7 +19,7 @@ namespace OverlayMod.Stat.Stats
         }
         public override int posX
         {
-            get => config.getConfigEntry<int>("posX") ?? 320;
+            get => config.getConfigEntry<int>("posX") ?? 275;
             set => config.setConfigEntry("posX", value);
         }
         public override int posY

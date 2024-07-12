@@ -22,11 +22,11 @@ namespace OverlayMod.Stat.Preview
 
         public void updateStats()
         {
-            _previewCombo.notifyPropertyChanged();
-            _missStatPreview.notifyPropertyChanged();
-            _percentStatPreview.notifyPropertyChanged();
-            _scoreStatPreview.notifyPropertyChanged();
-            _rankStatPreview.notifyPropertyChanged();
+            _previewCombo.update();
+            _missStatPreview.update();
+            _percentStatPreview.update();
+            _scoreStatPreview.update();
+            _rankStatPreview.update();
         }
     }
 }
