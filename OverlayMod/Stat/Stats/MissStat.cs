@@ -32,7 +32,7 @@ namespace OverlayMod.Stat.Stats
         }
         public override int posX
         {
-            get => config.getConfigEntry<int>("posX") ?? 400;
+            get => config.getConfigEntry<int>("posX") ?? 500;
             set => config.setConfigEntry("posX", value);
         }
         public override float size

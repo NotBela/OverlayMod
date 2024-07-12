@@ -18,12 +18,12 @@ namespace OverlayMod.Stat.Stats
         }
         public override int posX
         {
-            get => config.getConfigEntry<int>("posX") ?? Screen.width / 2;
+            get => config.getConfigEntry<int>("posX") ?? 275;
             set => config.setConfigEntry("posX", value);
         }
         public override int posY
         {
-            get => config.getConfigEntry<int>("posY") ?? Screen.height / 2;
+            get => config.getConfigEntry<int>("posY") ?? 275;
             set => config.setConfigEntry("posY", value);
         }
         public override float size

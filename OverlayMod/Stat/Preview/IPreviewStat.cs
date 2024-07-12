@@ -57,8 +57,6 @@ namespace OverlayMod.Stat.Preview
         {
             foreach (var property in this.GetType().GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance))
             {
-                if (property.Name == "parentStat" || property.Name == "text") continue;
-                Plugin.Log.Info(property.Name);
                 NotifyPropertyChanged(property.Name);
             }
         }
