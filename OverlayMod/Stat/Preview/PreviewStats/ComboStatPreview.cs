@@ -9,7 +9,7 @@ namespace OverlayMod.Stat.Preview.PreviewStats
 {
     internal class ComboStatPreview : IPreviewStat
     {
-        protected override IStat parentStat => ComboStat.Instance;
+        protected override Stats.Stat parentStat => ComboStat.Instance;
 
         protected override string text => "123";
     }

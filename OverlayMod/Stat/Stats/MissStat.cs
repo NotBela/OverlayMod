@@ -5,7 +5,7 @@ using Zenject;
 
 namespace OverlayMod.Stat.Stats
 {
-    internal class MissStat : IStat, IDisposable
+    internal class MissStat : Stat, IDisposable
     {
         [Inject] private readonly BeatmapObjectManager _beatmapObjectManager;
 

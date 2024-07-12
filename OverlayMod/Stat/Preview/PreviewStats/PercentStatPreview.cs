@@ -10,7 +10,7 @@ namespace OverlayMod.Stat.Preview.PreviewStats
 {
     internal class PercentStatPreview : IPreviewStat
     {
-        protected override IStat parentStat => PercentStat.Instance;
+        protected override Stats.Stat parentStat => PercentStat.Instance;
 
         protected override string text => getPercentDecimalPrecision();
 

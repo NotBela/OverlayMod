@@ -13,7 +13,7 @@ namespace OverlayMod.Stat.Preview
     {
         [Inject] private PreviewCanvasController _canvasController;
 
-        protected abstract IStat parentStat { get; }
+        protected abstract Stats.Stat parentStat { get; }
 
         protected bool enabled => parentStat.enabled;
         protected int posX => parentStat.posX;
@@ -47,7 +47,6 @@ namespace OverlayMod.Stat.Preview
         protected virtual void doExtraThings() { return; }
 
         #region notifypropertychanged garbage
-
         public virtual void Update()
         {
             this.textMesh.fontSize = size * ((Plugin.scaleX + Plugin.scaleY) / 2);

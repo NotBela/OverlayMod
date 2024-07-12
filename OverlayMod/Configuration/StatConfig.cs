@@ -10,11 +10,11 @@ namespace OverlayMod.Configuration
     {
         private static readonly string pathToConfigFolder = $"{UnityGame.InstallPath}\\UserData\\OverlayMod\\";
 
-        private IStat stat;
+        private Stat.Stats.Stat stat;
 
         private string name;
 
-        public StatConfig(IStat stat, string name)
+        public StatConfig(Stat.Stats.Stat stat, string name)
         {
             this.stat = stat;
             this.name = name;

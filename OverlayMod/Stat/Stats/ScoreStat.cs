@@ -5,7 +5,7 @@ using Zenject;
 
 namespace OverlayMod.Stat.Stats
 {
-    internal class ScoreStat : IStat, IDisposable
+    internal class ScoreStat : Stat, IDisposable
     {
         [Inject] private readonly ScoreController _scoreController;
 

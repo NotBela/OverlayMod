@@ -1,46 +1,61 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 namespace OverlayMod.Stat.Stats
 {
-    internal abstract class Stat : IInitializable, IDisposable
+    internal abstract class Stat : IInitializable
     {
-        public Vector2 position;
-        public TextMeshProUGUI text;
-        public bool enabled;
-        public GameObject textObject;
+        protected CanvasController _canvasController;
 
-        public static OverlayModCanvasController controller = new OverlayModCanvasController();
+        protected TextMeshProUGUI text;
+        protected GameObject textObject;
 
-        public Stat()
+        public abstract int posX { get; set; }
+        public abstract int posY { get; set; }
+        public abstract float size { get; set; }
+        public abstract bool enabled { get; set; }
+        
+        public virtual TextAlignmentOptions? optionalAllignmentOverride { get; }
+
+        [Inject]
+        public void Construct(CanvasController canvasController)
         {
-            textObject = new GameObject();
-
-            textObject.transform.parent = controller.canvasObject.transform;
-
-            text = textObject.AddComponent<TextMeshProUGUI>();
-
-            enabled = true;
-
-            RectTransform rectTransform = textObject.GetComponent<RectTransform>();
-            rectTransform.localPosition = Vector3.zero;
-            rectTransform.sizeDelta = position;
+            this._canvasController = canvasController;
         }
 
         public void Initialize()
         {
-            controller = new OverlayModCanvasController();
+            textObject = new GameObject();
+            textObject.transform.parent = _canvasController.canvasGameObj.transform;
+            text = textObject.AddComponent<TextMeshProUGUI>();
+
+            CreateStat();
         }
 
-        public void Dispose()
+        protected abstract void CreateStat();
+
+        protected virtual void setTextParams(string defaultText)
         {
-            controller = null;
+            this.text.text = defaultText;
+
+            this.textObject.SetActive(enabled);
+            this.text.fontSize = size * ((Plugin.scaleX + Plugin.scaleY) / 2); // last part averages the difference in text size incase the display ratio isnt 16:9
+            this.text.alignment = optionalAllignmentOverride ?? TextAlignmentOptions.Center;
+            this.text.enableWordWrapping = false;
+
+            this.textObject.GetComponent<RectTransform>().localPosition = getNormalizedPosition(posX, posY);
+        }
+
+        public Vector2 getNormalizedPosition(float posX, float posY)
+        {
+            float textPosX = (-Screen.width / 2) + (posX * Plugin.scaleX);
+            float textPosY = (-Screen.height / 2) + (posY * Plugin.scaleY);
+
+            return new Vector2(textPosX, textPosY);
         }
     }
 }

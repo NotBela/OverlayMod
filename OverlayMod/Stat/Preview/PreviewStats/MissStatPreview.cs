@@ -10,7 +10,7 @@ namespace OverlayMod.Stat.Preview.PreviewStats
 {
     internal class MissStatPreview : IPreviewStat
     {
-        protected override IStat parentStat => MissStat.Instance;
+        protected override Stats.Stat parentStat => MissStat.Instance;
 
         private bool redMissCounter
         {

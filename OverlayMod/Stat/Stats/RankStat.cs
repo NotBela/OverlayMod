@@ -5,7 +5,7 @@ using Zenject;
 
 namespace OverlayMod.Stat.Stats
 {
-    internal class RankStat : IStat, IDisposable
+    internal class RankStat : Stat, IDisposable
     {
         [Inject] private readonly RelativeScoreAndImmediateRankCounter _relativeScore;
 

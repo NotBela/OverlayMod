@@ -9,7 +9,7 @@ namespace OverlayMod.Stat.Preview.PreviewStats
 {
     internal class ScoreStatPreview : IPreviewStat
     {
-        protected override IStat parentStat => ScoreStat.Instance;
+        protected override Stats.Stat parentStat => ScoreStat.Instance;
 
         protected override string text => "1000000";
     }

@@ -6,7 +6,7 @@ using Zenject;
 
 namespace OverlayMod.Stat.Stats
 {
-    internal class EnergyStat : IStat, IDisposable
+    internal class EnergyStat : Stat, IDisposable
     {
         private GameObject barObject;
         private Image bar;

@@ -5,7 +5,7 @@ using Zenject;
 
 namespace OverlayMod.Stat.Stats
 {
-    internal class PercentStat : IStat, IDisposable
+    internal class PercentStat : Stat, IDisposable
     {
         [Inject] private readonly RelativeScoreAndImmediateRankCounter _relativeScoreCounter;
         [Inject] private readonly ScoreController _scoreController;

@@ -6,7 +6,7 @@ using Zenject;
 
 namespace OverlayMod.Stat.Stats
 {
-    internal class ComboStat : IStat, IDisposable
+    internal class ComboStat : Stat, IDisposable
     {
         [Inject] private readonly ComboController _comboController;
 
