@@ -1,6 +1,7 @@
 ﻿using OverlayMod.Configuration;
 using System;
 using TMPro;
+using UnityEngine;
 using Zenject;
 
 namespace OverlayMod.Stat.Stats
@@ -34,12 +35,18 @@ namespace OverlayMod.Stat.Stats
             set => config.setConfigEntry("enabled", value);
         }
 
+        public override Color color
+        {
+            get => config.getConfigEntry<Color>("color") ?? Color.white;
+            set => config.setConfigEntry("color", value);
+        }
+
         public static ScoreStat Instance { get; } = new ScoreStat();
 
         protected override void CreateStat()
         {
             _scoreController.scoreDidChangeEvent += UpdateText;
-
+            base.text.color = color;
             setTextParams("0");
         }
 

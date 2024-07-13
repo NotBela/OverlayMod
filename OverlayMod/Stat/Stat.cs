@@ -21,6 +21,10 @@ namespace OverlayMod.Stat.Stats
         public abstract float size { get; set; }
         public abstract bool enabled { get; set; }
 
+
+        public abstract Color color { get; set; }
+        
+
         public CultureInfo decimalFormat
         {
             get

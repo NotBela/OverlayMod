@@ -18,13 +18,13 @@ namespace OverlayMod.Stat.Stats
             get => config.getConfigEntry<bool>("hideWhileFc") ?? true;
             set => config.setConfigEntry("hideWhileFc", value);
         }
-
+        /*
         public bool redMissCounter
         {
             get => config.getConfigEntry<bool>("redMissText") ?? true;
             set => config.setConfigEntry("redMissText", value);
         }
-
+        */
         public override int posY
         {
             get => config.getConfigEntry<int>("posY") ?? 100;
@@ -46,6 +46,12 @@ namespace OverlayMod.Stat.Stats
             set => config.setConfigEntry("enabled", value);
         }
 
+        public override Color color
+        {
+            get => config.getConfigEntry<Color>("color") ?? Color.white;
+            set => config.setConfigEntry("color", value);
+        }
+
         public static MissStat Instance { get; } = new MissStat();
 
         protected override void CreateStat()
@@ -54,7 +60,8 @@ namespace OverlayMod.Stat.Stats
             _beatmapObjectManager.noteWasCutEvent += UpdateTextOnBadCut;
 
             missedAmt = 0;
-            if (redMissCounter) this.text.color = Color.red;
+            base.text.color = color;
+            //if (redMissCounter) base.text.color = Color.red;
 
             setTextParams($"x{missedAmt}");
 
