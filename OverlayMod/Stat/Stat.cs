@@ -1,5 +1,7 @@
-﻿using System;
+﻿using OverlayMod.Configuration;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,8 +21,20 @@ namespace OverlayMod.Stat.Stats
         public abstract float size { get; set; }
         public abstract bool enabled { get; set; }
 
+
         public abstract Color color { get; set; }
         
+
+        public CultureInfo decimalFormat
+        {
+            get
+            {
+                if (PluginConfig.Instance.prefDecimalFormatting == PluginConfig.decimalFormat.Reigonal)
+                    return CultureInfo.CurrentCulture;
+                return CultureInfo.InvariantCulture;
+            }
+        }
+
         public virtual TextAlignmentOptions? optionalAllignmentOverride { get; }
 
         [Inject]

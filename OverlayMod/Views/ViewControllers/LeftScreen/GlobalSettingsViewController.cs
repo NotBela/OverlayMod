@@ -5,6 +5,7 @@ using OverlayMod.Configuration;
 using OverlayMod.Stat.Preview;
 using OverlayMod.Stat.Preview.PreviewStats;
 using OverlayMod.Views.ViewControllers.CenterScreen;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -21,6 +22,25 @@ namespace OverlayMod.Views.ViewControllers.LeftScreen
         [Inject] private readonly PreviewCanvasController _previewCanvasController;
 
         [UIParams] private BSMLParserParams parserParams;
+
+
+        [UIValue("decimalFormatValue")]
+        private object decimalFormatValue
+        {
+            get => nameof(PluginConfig.Instance.prefDecimalFormatting);
+            set
+            {
+                if ((string)value == nameof(PluginConfig.decimalFormat.Reigonal))
+                    PluginConfig.Instance.prefDecimalFormatting = PluginConfig.decimalFormat.Reigonal;
+                else
+                    PluginConfig.Instance.prefDecimalFormatting = PluginConfig.decimalFormat.Unified;
+
+                _previewCanvasController.updateStats();
+            }
+        }
+
+        [UIValue("decimalFormatOptions")]
+        private List<object> decimalFormatOptions = new List<object>() { nameof(PluginConfig.decimalFormat.Reigonal), nameof(PluginConfig.decimalFormat.Unified) };
 
         [UIValue("zenModeDisable")]
         private bool zenModeDisable
