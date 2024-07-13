@@ -12,7 +12,7 @@ namespace OverlayMod.Configuration
         public virtual bool globalEnable { get; set; } = true;
         public virtual bool zenModeDisable { get; set; } = true;
 
-        public virtual decimalFormat prefDecimalFormatting { get; set; } = decimalFormat.Reigonal;
+        public virtual decimalFormat prefDecimalFormatting { get; set; } = decimalFormat.Unified;
 
         public enum decimalFormat
         {

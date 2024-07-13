@@ -23,25 +23,6 @@ namespace OverlayMod.Views.ViewControllers.LeftScreen
 
         [UIParams] private BSMLParserParams parserParams;
 
-
-        [UIValue("decimalFormatValue")]
-        private object decimalFormatValue
-        {
-            get => nameof(PluginConfig.Instance.prefDecimalFormatting);
-            set
-            {
-                if ((string)value == nameof(PluginConfig.decimalFormat.Reigonal))
-                    PluginConfig.Instance.prefDecimalFormatting = PluginConfig.decimalFormat.Reigonal;
-                else
-                    PluginConfig.Instance.prefDecimalFormatting = PluginConfig.decimalFormat.Unified;
-
-                _previewCanvasController.updateStats();
-            }
-        }
-
-        [UIValue("decimalFormatOptions")]
-        private List<object> decimalFormatOptions = new List<object>() { nameof(PluginConfig.decimalFormat.Reigonal), nameof(PluginConfig.decimalFormat.Unified) };
-
         [UIValue("zenModeDisable")]
         private bool zenModeDisable
         {
