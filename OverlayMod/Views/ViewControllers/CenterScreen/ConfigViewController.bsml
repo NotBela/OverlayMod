@@ -17,6 +17,7 @@
 							<slider-setting value="percentHeightValue" bind-value="true" text="Vertical Position" min="0" max="~maxHeight" integer-only="true" increment="1" show-buttons="true" apply-on-change="true"/>
 							<increment-setting value="percentSize" bind-value="true" text="Size" min="10" max="200" increment="5" integer-only="true" apply-on-change="true"/>
 							<increment-setting value="percentDecimalPrecision" bind-value="true" text="Decimal Precision" min="1" max="5" integer-only="true" apply-on-change="true"/>
+							<color-setting value="percentColor" bind-value="true" text="Color" apply-on-change="true"/>
 						</vertical>
 					</tab>
 					<tab tags="settingsTab" tab-name="Combo">
@@ -25,6 +26,7 @@
 							<slider-setting value="comboWidthValue" bind-value="true" text="Horizontal Position" min="0" max="~maxWidth" integer-only="true" increment="1" show-buttons="true" apply-on-change="true"/>
 							<slider-setting value="comboHeightValue" bind-value="true" text="Vertical Position" min="0" max="~maxHeight" integer-only="true" increment="1" show-buttons="true" apply-on-change="true"/>
 							<increment-setting value="comboSize" bind-value="true" text="Size" min="10" max="200" increment="5" integer-only="true" apply-on-change="true"/>
+							<color-setting value="comboColor" bind-value="true" text="Color" apply-on-change="true"/>
 						</vertical>
 					</tab>
 					<tab tags="settingsTab" tab-name="Score">
@@ -33,6 +35,7 @@
 							<slider-setting value="scoreWidthValue" bind-value="true" text="Horizontal Position" min="0" max="~maxWidth" integer-only="true" increment="1" show-buttons="true" apply-on-change="true"/>
 							<slider-setting value="scoreHeightValue" bind-value="true" text="Vertical Position" min="0" max="~maxHeight" integer-only="true" increment="1" show-buttons="true" apply-on-change="true"/>
 							<increment-setting value="scoreSize" bind-value="true" text="Size" min="10" max="200" increment="5" integer-only="true" apply-on-change="true"/>
+							<color-setting value="scoreColor" bind-value="true" text="Color" apply-on-change="true"/>
 						</vertical>
 					</tab>
 					
@@ -42,8 +45,8 @@
 							<slider-setting value="missWidthValue" bind-value="true" text="Horizontal Position" min="0" max="~maxWidth" integer-only="true" increment="1" show-buttons="true" apply-on-change="true"/>
 							<slider-setting value="missHeightValue" bind-value="true" text="Vertical Position" min="0" max="~maxHeight" integer-only="true" increment="1" show-buttons="true" apply-on-change="true"/>
 							<increment-setting value="missSize" bind-value="true" text="Size" min="10" max="200" increment="5" integer-only="true" apply-on-change="true"/>
-							<bool-setting bind-value="true" apply-on-change="true" text="Red Miss Text" value="redMissText"/>
 							<bool-setting bind-value="true" apply-on-change="true" text="Hide During Full Combo" value="hideWhileFc" />
+							<color-setting value="missColor" bind-value="true" text="Color" apply-on-change="true"/>
 						</vertical>
 					</tab>
 					
@@ -53,6 +56,7 @@
 							<slider-setting value="rankWidthValue" bind-value="true" text="Horizontal Position" min="0" max="~maxWidth" integer-only="true" increment="1" show-buttons="true" apply-on-change="true"/>
 							<slider-setting value="rankHeightValue" bind-value="true" text="Vertical Position" min="0" max="~maxHeight" integer-only="true" increment="1" show-buttons="true" apply-on-change="true"/>
 							<increment-setting value="rankSize" bind-value="true" text="Size" min="10" max="200" increment="5" integer-only="true" apply-on-change="true"/>
+							<color-setting value="rankColor" bind-value="true" text="Color" apply-on-change="true"/>
 						</vertical>
 					</tab>
 				</horizontal>

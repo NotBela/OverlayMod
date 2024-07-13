@@ -18,6 +18,8 @@ namespace OverlayMod.Stat.Stats
         public abstract int posY { get; set; }
         public abstract float size { get; set; }
         public abstract bool enabled { get; set; }
+
+        public abstract Color color { get; set; }
         
         public virtual TextAlignmentOptions? optionalAllignmentOverride { get; }
 

@@ -32,10 +32,17 @@ namespace OverlayMod.Stat.Stats
             set => config.setConfigEntry("size", value);
         }
 
+        public override Color color
+        {
+            get => config.getConfigEntry<Color>("color") ?? Color.white;
+            set => config.setConfigEntry("color", value);
+        }
+
         public static RankStat Instance = new RankStat();
 
         protected override void CreateStat()
         {
+            base.text.color = color;
             setTextParams($"{_relativeScore.immediateRank.ToString()}");
             _relativeScore.relativeScoreOrImmediateRankDidChangeEvent += Update;
         }

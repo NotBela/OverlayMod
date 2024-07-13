@@ -46,6 +46,13 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
             set { ComboStat.Instance.size = value; _previewCanvasController.updateStats(); }
         }
 
+        [UIValue("comboColor")]
+        private Color comboColor
+        {
+            get => ComboStat.Instance.color;
+            set { ComboStat.Instance.color = value; _previewCanvasController.updateStats(); }
+        }
+
         #endregion Combo
 
         #region percent
@@ -83,6 +90,14 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
             get => PercentStat.Instance.decimalPrecision;
             set { PercentStat.Instance.decimalPrecision = value; _previewCanvasController.updateStats(); }
         }
+
+        [UIValue("percentColor")]
+        private Color percentColor
+        {
+            get => PercentStat.Instance.color;
+            set { PercentStat.Instance.color = value; _previewCanvasController.updateStats(); }
+        }
+
         #endregion percent
 
         #region miss
@@ -91,13 +106,6 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
         {
             get => MissStat.Instance.enabled;
             set { MissStat.Instance.enabled = value; _previewCanvasController.updateStats(); }
-        }
-
-        [UIValue("redMissText")]
-        private bool redMissText
-        {
-            get => MissStat.Instance.redMissCounter;
-            set { MissStat.Instance.redMissCounter = value; _previewCanvasController.updateStats(); }
         }
 
         [UIValue("hideWhileFc")]
@@ -132,6 +140,13 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
             }
         }
 
+        [UIValue("missColor")]
+        private Color missColor
+        {
+            get => MissStat.Instance.color;
+            set { MissStat.Instance.color = value; _previewCanvasController.updateStats(); }
+        }
+
         #endregion miss 
 
         #region score
@@ -161,6 +176,13 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
         {
             get => ScoreStat.Instance.size;
             set { ScoreStat.Instance.size = value; _previewCanvasController.updateStats(); }
+        }
+
+        [UIValue("scoreColor")]
+        private Color scoreColor
+        {
+            get => ScoreStat.Instance.color;
+            set { ScoreStat.Instance.color = value; _previewCanvasController.updateStats(); }
         }
         #endregion score
 
@@ -200,7 +222,14 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
             get => EnergyStat.Instance.changeBarColorOnLowEnergy;
             set => EnergyStat.Instance.changeBarColorOnLowEnergy = value;
         }
-
+        /*
+        [UIValue("energyColor")]
+        private Color energyColor
+        {
+            get => ScoreStat.Instance.color;
+            set { ScoreStat.Instance.color = value; _previewCanvasController.updateStats(); }
+        }
+        */
         #endregion energy
 
         #region rank
@@ -233,6 +262,12 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
             set { RankStat.Instance.size = value; _previewCanvasController.updateStats(); }
         }
 
+        [UIValue("rankColor")]
+        private Color rankColor
+        {
+            get => RankStat.Instance.color;
+            set { RankStat.Instance.color = value; _previewCanvasController.updateStats(); }
+        }
         #endregion rank
 
         [UIParams] private BSMLParserParams parserParams;

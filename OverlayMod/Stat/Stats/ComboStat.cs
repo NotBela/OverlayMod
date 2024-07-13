@@ -32,13 +32,17 @@ namespace OverlayMod.Stat.Stats
             get => config.getConfigEntry<bool>("enabled") ?? false;
             set => config.setConfigEntry("enabled", value);
         }
-
+        public override Color color { 
+            get => config.getConfigEntry<Color>("color") ?? Color.white; 
+            set => config.setConfigEntry("color", value); 
+        }
+    
         public static ComboStat Instance { get; } = new ComboStat();
 
         protected override void CreateStat()
         {
             _comboController.comboDidChangeEvent += UpdateText;
-
+            base.text.color = color;
             setTextParams("0");
         }
 

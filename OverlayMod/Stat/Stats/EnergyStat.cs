@@ -42,6 +42,12 @@ namespace OverlayMod.Stat.Stats
             set => config.setConfigEntry("changeBarColorOnLowEnergy", value);
         }
 
+        public override Color color
+        {
+            get => config.getConfigEntry<Color>("color") ?? Color.white;
+            set => config.setConfigEntry("color", value);
+        }
+
         public static EnergyStat Instance = new EnergyStat();
 
         private int maxEnergySize = 300;
@@ -52,6 +58,7 @@ namespace OverlayMod.Stat.Stats
         protected override void CreateStat()
         {
             _energyCounter.gameEnergyDidChangeEvent += Update;
+            base.text.color = color;
         }
 
         public void Dispose()
@@ -69,7 +76,7 @@ namespace OverlayMod.Stat.Stats
             if (energyPercentage < .15 && changeBarColorOnLowEnergy)
                 bar.color = Color.red;
             else
-                bar.color = Color.white;
+                bar.color = color;
         }
 
         protected override void setTextParams(string defaultText)

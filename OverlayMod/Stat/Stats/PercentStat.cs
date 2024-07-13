@@ -1,6 +1,7 @@
 ﻿using OverlayMod.Configuration;
 using System;
 using TMPro;
+using UnityEngine;
 using Zenject;
 
 namespace OverlayMod.Stat.Stats
@@ -38,6 +39,12 @@ namespace OverlayMod.Stat.Stats
             set => config.setConfigEntry("enabled", value);
         }
 
+        public override Color color
+        {
+            get => config.getConfigEntry<Color>("color") ?? Color.white;
+            set => config.setConfigEntry("color", value);
+        }
+
         public override TextAlignmentOptions? optionalAllignmentOverride => TextAlignmentOptions.Left;
 
         public static PercentStat Instance { get; } = new PercentStat();
@@ -45,6 +52,7 @@ namespace OverlayMod.Stat.Stats
         protected override void CreateStat()
         {
             _relativeScoreCounter.relativeScoreOrImmediateRankDidChangeEvent += UpdateText;
+            base.text.color = color;
             setTextParams(100.ToString(getDecimalPrecisionTemplateString(decimalPrecision)));
         }
 
