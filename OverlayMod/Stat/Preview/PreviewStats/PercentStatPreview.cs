@@ -12,24 +12,13 @@ namespace OverlayMod.Stat.Preview.PreviewStats
     {
         protected override Stats.Stat parentStat => PercentStat.Instance;
 
-        protected override string text => getPercentDecimalPrecision();
+        protected override string text => 100.ToString($"F{PercentStat.Instance.decimalPrecision}", parentStat.decimalFormat);
 
         public override void Update()
         {
             base.Update();
 
             this.textMesh.text = text;
-        }
-
-        private string getPercentDecimalPrecision()
-        {
-            string output = "0.";
-            for (int i = 0; i < PercentStat.Instance.decimalPrecision; i++)
-            {
-                output += "0";
-            }
-
-            return 100.ToString(output);
         }
     }
 }

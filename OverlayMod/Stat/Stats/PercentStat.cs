@@ -1,5 +1,6 @@
 ﻿using OverlayMod.Configuration;
 using System;
+using System.Globalization;
 using TMPro;
 using Zenject;
 
@@ -45,29 +46,17 @@ namespace OverlayMod.Stat.Stats
         protected override void CreateStat()
         {
             _relativeScoreCounter.relativeScoreOrImmediateRankDidChangeEvent += UpdateText;
-            setTextParams(100.ToString(getDecimalPrecisionTemplateString(decimalPrecision)));
+            setTextParams(100.ToString($"F{decimalPrecision}", this.decimalFormat));
         }
 
         private void UpdateText()
         {
-            this.text.text = $"{(_relativeScoreCounter.relativeScore * 100).ToString(getDecimalPrecisionTemplateString(decimalPrecision))}";
+            this.text.text = $"{(_relativeScoreCounter.relativeScore * 100).ToString($"F{PercentStat.Instance.decimalPrecision}", this.decimalFormat)}";
         }
 
         public void Dispose()
         {
             _relativeScoreCounter.relativeScoreOrImmediateRankDidChangeEvent -= UpdateText;
-        }
-
-        // wtf was i thinking when i named this method LMAO
-        private string getDecimalPrecisionTemplateString(int precision)
-        {
-            string output = "0.";
-            for (int i = 0; i < precision; i++)
-            {
-                output += "0";
-            }
-
-            return output;
         }
     }
 }

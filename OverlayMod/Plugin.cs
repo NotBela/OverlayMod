@@ -4,6 +4,7 @@ using IPA.Config.Stores;
 using OverlayMod.Configuration;
 using OverlayMod.Installers;
 using SiraUtil.Zenject;
+using System.Globalization;
 using UnityEngine;
 using IPALogger = IPA.Logging.Logger;
 
