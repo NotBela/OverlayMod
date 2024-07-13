@@ -42,7 +42,6 @@ namespace OverlayMod.Stat.Stats
         protected override void CreateStat()
         {
             _comboController.comboDidChangeEvent += UpdateText;
-            base.text.color = color;
             setTextParams("0");
         }
 

@@ -54,7 +54,6 @@ namespace OverlayMod.Stat.Stats
         {
             _relativeScoreCounter.relativeScoreOrImmediateRankDidChangeEvent += UpdateText;
 
-            base.text.color = color;
             setTextParams(100.ToString($"F{decimalPrecision}", this.decimalFormat));
 
         }

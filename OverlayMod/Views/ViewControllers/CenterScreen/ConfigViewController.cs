@@ -262,12 +262,58 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
             set { RankStat.Instance.size = value; _previewCanvasController.updateStats(); }
         }
 
-        [UIValue("rankColor")]
-        private Color rankColor
+        #region color modal
+
+        [UIAction("rankChangeColorsOnClick")]
+        private void changeRankColorsOnClick() => parserParams.EmitEvent("RankColorModalShow");
+
+        [UIAction("rankColorModalCloseOnClick")]
+        private void rankColorModalCloseOnClick() => parserParams.EmitEvent("RankColorModalHide");
+
+        [UIValue("rankSSColor")]
+        private Color rankSSColor
         {
-            get => RankStat.Instance.color;
-            set { RankStat.Instance.color = value; _previewCanvasController.updateStats(); }
+            get => RankStat.Instance.ssColor;
+            set { RankStat.Instance.ssColor = value; _previewCanvasController.updateStats(); }
         }
+
+        [UIValue("rankSColor")]
+        private Color rankSColor
+        {
+            get => RankStat.Instance.sColor;
+            set => RankStat.Instance.sColor = value;
+        }
+
+        [UIValue("rankAColor")]
+        private Color rankAColor
+        {
+            get => RankStat.Instance.aColor; set => RankStat.Instance.aColor = value;
+        }
+
+        [UIValue("rankBColor")]
+        private Color rankBColor
+        {
+            get => RankStat.Instance.bColor; set => RankStat.Instance.bColor = value;
+        }
+
+        [UIValue("rankCColor")]
+        private Color rankCColor
+        {
+            get => RankStat.Instance.cColor; set => RankStat.Instance.cColor = value;
+        }
+
+        [UIValue("rankDColor")]
+        private Color rankDColor
+        {
+            get => RankStat.Instance.dColor; set => RankStat.Instance.dColor = value;
+        }
+
+        [UIValue("rankEColor")]
+        private Color rankEColor
+        {
+            get => RankStat.Instance.eColor; set => RankStat.Instance.eColor = value;
+        }
+        #endregion color modal
         #endregion rank
 
         [UIParams] private BSMLParserParams parserParams;

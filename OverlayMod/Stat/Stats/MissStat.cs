@@ -60,7 +60,6 @@ namespace OverlayMod.Stat.Stats
             _beatmapObjectManager.noteWasCutEvent += UpdateTextOnBadCut;
 
             missedAmt = 0;
-            base.text.color = color;
             //if (redMissCounter) base.text.color = Color.red;
 
             setTextParams($"x{missedAmt}");

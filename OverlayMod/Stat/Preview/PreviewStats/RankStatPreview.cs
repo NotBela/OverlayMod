@@ -12,5 +12,12 @@ namespace OverlayMod.Stat.Preview.PreviewStats
         protected override Stats.Stat parentStat => RankStat.Instance;
 
         protected override string text => "SS";
+
+        public override void Update()
+        {
+            base.Update();
+
+            this.textMesh.color = RankStat.Instance.ssColor;
+        }
     }
 }

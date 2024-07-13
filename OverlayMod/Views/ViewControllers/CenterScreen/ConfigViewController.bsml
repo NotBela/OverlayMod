@@ -56,11 +56,24 @@
 							<slider-setting value="rankWidthValue" bind-value="true" text="Horizontal Position" min="0" max="~maxWidth" integer-only="true" increment="1" show-buttons="true" apply-on-change="true"/>
 							<slider-setting value="rankHeightValue" bind-value="true" text="Vertical Position" min="0" max="~maxHeight" integer-only="true" increment="1" show-buttons="true" apply-on-change="true"/>
 							<increment-setting value="rankSize" bind-value="true" text="Size" min="10" max="200" increment="5" integer-only="true" apply-on-change="true"/>
-							<color-setting value="rankColor" bind-value="true" text="Color" apply-on-change="true"/>
+							<button on-click="rankChangeColorsOnClick" text="Change Colors"/>
 						</vertical>
 					</tab>
 				</horizontal>
 			</vertical>
 		</vertical>
 	</horizontal>
+
+	<modal size-delta-x="100" size-delta-y="70" click-off-closes="true" move-to-center="true" hide-event="RankColorModalHide" show-event="RankColorModalShow">
+		<vertical>
+			<color-setting value="rankSSColor" bind-value="true" text="SS" apply-on-change="true"/>
+			<color-setting value="rankSColor" bind-value="true" text="S" apply-on-change="true"/>
+			<color-setting value="rankAColor" bind-value="true" text="A" apply-on-change="true"/>
+			<color-setting value="rankBColor" bind-value="true" text="B" apply-on-change="true"/>
+			<color-setting value="rankCColor" bind-value="true" text="C" apply-on-change="true"/>
+			<color-setting value="rankDColor" bind-value="true" text="D" apply-on-change="true"/>
+			<color-setting value="rankEColor" bind-value="true" text="E" apply-on-change="true"/>
+			<button text="Close" on-click="rankColorModalCloseOnClick"/>
+		</vertical>
+	</modal>
 </bg>

@@ -62,6 +62,7 @@ namespace OverlayMod.Stat.Stats
             this.text.fontSize = size * ((Plugin.scaleX + Plugin.scaleY) / 2); // last part averages the difference in text size incase the display ratio isnt 16:9
             this.text.alignment = optionalAllignmentOverride ?? TextAlignmentOptions.Center;
             this.text.enableWordWrapping = false;
+            this.text.color = color;
 
             this.textObject.GetComponent<RectTransform>().localPosition = getNormalizedPosition(posX, posY);
         }

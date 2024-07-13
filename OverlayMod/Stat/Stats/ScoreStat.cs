@@ -46,7 +46,6 @@ namespace OverlayMod.Stat.Stats
         protected override void CreateStat()
         {
             _scoreController.scoreDidChangeEvent += UpdateText;
-            base.text.color = color;
             setTextParams("0");
         }
 
