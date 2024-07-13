@@ -48,7 +48,7 @@ namespace OverlayMod.Stat.Stats
 
         public override Color color
         {
-            get => config.getConfigEntry<Color>("color") ?? Color.white;
+            get => config.getConfigEntry<Color>("color") ?? Color.red;
             set => config.setConfigEntry("color", value);
         }
 

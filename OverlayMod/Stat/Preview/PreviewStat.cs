@@ -19,6 +19,7 @@ namespace OverlayMod.Stat.Preview
         protected int posX => parentStat.posX;
         protected int posY => parentStat.posY;
         protected float size => parentStat.size;
+        protected Color color => parentStat.color;
 
         private GameObject textObject = new GameObject();
         protected TextMeshProUGUI textMesh;
@@ -49,9 +50,11 @@ namespace OverlayMod.Stat.Preview
         #region notifypropertychanged garbage
         public virtual void Update()
         {
+            this.textMesh.text = text;
             this.textMesh.fontSize = size * ((Plugin.scaleX + Plugin.scaleY) / 2);
             this.textObject.transform.localPosition = parentStat.getNormalizedPosition(posX - 50, posY);
             this.textObject.SetActive(enabled);
+            this.textMesh.color = color;
         }
         #endregion
     }
