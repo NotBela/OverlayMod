@@ -12,8 +12,8 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
     [ViewDefinition("OverlayMod.Views.ViewControllers.CenterScreen.ConfigViewController.bsml")]
     internal class ConfigViewController : BSMLAutomaticViewController
     {
-        [UIValue("maxHeight")] private int maxHeight => Screen.height;
-        [UIValue("maxWidth")] private int maxWidth => Screen.width;
+        [UIValue("maxHeight")] private int maxHeight => 1080;
+        [UIValue("maxWidth")] private int maxWidth => 1920;
 
         [Inject] private readonly PreviewCanvasController _previewCanvasController;
 
