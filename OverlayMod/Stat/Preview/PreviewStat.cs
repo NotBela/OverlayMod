@@ -52,7 +52,11 @@ namespace OverlayMod.Stat.Preview
         {
             this.textMesh.text = text;
             this.textMesh.fontSize = size * ((Plugin.scaleX + Plugin.scaleY) / 2);
-            this.textObject.transform.localPosition = parentStat.getNormalizedPosition(posX - 50, posY);
+
+            var normalPos = parentStat.getNormalizedPosition(posX, posY);
+            normalPos.x -= 50;
+
+            this.textObject.transform.localPosition = normalPos;
             this.textObject.SetActive(enabled);
             this.textMesh.color = color;
         }
