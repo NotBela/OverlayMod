@@ -8,7 +8,7 @@ namespace OverlayMod.Stat.Stats
 {
     internal class ComboStat : Stat, IDisposable
     {
-        [Inject] private readonly ComboController _comboController;
+        [Inject] private readonly IComboController _comboController;
 
         public StatConfig config = new StatConfig(Instance, "ComboStat");
 
@@ -41,6 +41,7 @@ namespace OverlayMod.Stat.Stats
 
         protected override void CreateStat()
         {
+            if (_comboController == null) return;
             _comboController.comboDidChangeEvent += UpdateText;
             setTextParams("0");
         }

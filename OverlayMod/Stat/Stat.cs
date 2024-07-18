@@ -35,7 +35,7 @@ namespace OverlayMod.Stat.Stats
             }
         }
 
-        public virtual TextAlignmentOptions? optionalAllignmentOverride { get; }
+        public virtual TextAlignmentOptions optionalAllignmentOverride { get; } = TextAlignmentOptions.Center;
 
         [Inject]
         public void Construct(CanvasController canvasController)
@@ -60,7 +60,7 @@ namespace OverlayMod.Stat.Stats
 
             this.textObject.SetActive(enabled);
             this.text.fontSize = size * ((Plugin.scaleX + Plugin.scaleY) / 2); // last part averages the difference in text size incase the display ratio isnt 16:9
-            this.text.alignment = optionalAllignmentOverride ?? TextAlignmentOptions.Center;
+            this.text.alignment = optionalAllignmentOverride;
             this.text.enableWordWrapping = false;
             this.text.color = color;
 

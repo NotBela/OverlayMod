@@ -26,9 +26,7 @@ namespace OverlayMod
             Log = logger;
             PluginConfig.Instance = conf.Generated<PluginConfig>();
 
-            // zenject.Expose<GameEnergyCounter>("Environment");
-
-            zenject.Install<GameInstaller>(Location.GameCore);
+            zenject.Install<NotMultiplayerInstaller>(Location.StandardPlayer | Location.CampaignPlayer);
             zenject.Install<MenuInstaller>(Location.Menu);
         }
     }

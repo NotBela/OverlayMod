@@ -142,7 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\StatConfig.cs" />
-    <Compile Include="Installers\GameInstaller.cs" />
+    <Compile Include="Installers\NotMultiplayerInstaller.cs" />
     <Compile Include="Installers\MenuInstaller.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Configuration\PluginConfig.cs" />

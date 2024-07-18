@@ -4,7 +4,7 @@ using Zenject;
 
 namespace OverlayMod.Installers
 {
-    internal class GameInstaller : Installer<GameInstaller>
+    internal class NotMultiplayerInstaller : Installer<NotMultiplayerInstaller>
     {
         public override void InstallBindings()
         {

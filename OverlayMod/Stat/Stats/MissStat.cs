@@ -7,7 +7,8 @@ namespace OverlayMod.Stat.Stats
 {
     internal class MissStat : Stat, IDisposable
     {
-        [Inject] private readonly BeatmapObjectManager _beatmapObjectManager;
+        [InjectOptional] private readonly BeatmapObjectManager _beatmapObjectManager;
+        [InjectOptional] private readonly MultiplayerConnectedPlayerBeatmapObjectManager _multiplayerBeatmapObjectManager;
 
         private int missedAmt;
 
@@ -56,8 +57,15 @@ namespace OverlayMod.Stat.Stats
 
         protected override void CreateStat()
         {
-            _beatmapObjectManager.noteWasMissedEvent += UpdateTextOnMiss;
-            _beatmapObjectManager.noteWasCutEvent += UpdateTextOnBadCut;
+            if (_beatmapObjectManager != null)
+            {
+                _beatmapObjectManager.noteWasCutEvent += UpdateTextOnBadCut;
+                _beatmapObjectManager.noteWasMissedEvent += UpdateTextOnMiss;
+                return;
+            }
+
+            _multiplayerBeatmapObjectManager.noteWasMissedEvent += UpdateTextOnMiss;
+            _multiplayerBeatmapObjectManager.noteWasCutEvent += UpdateTextOnBadCut;
 
             missedAmt = 0;
             //if (redMissCounter) base.text.color = Color.red;

@@ -8,11 +8,11 @@ namespace OverlayMod.Stat.Stats
 {
     internal class ScoreStat : Stat, IDisposable
     {
-        [Inject] private readonly ScoreController _scoreController;
+        [Inject] private readonly IScoreController _scoreController;
 
         public StatConfig config = new StatConfig(Instance, "ScoreStat");
 
-        public override TextAlignmentOptions? optionalAllignmentOverride => TextAlignmentOptions.Left;
+        public override TextAlignmentOptions optionalAllignmentOverride => TextAlignmentOptions.Left;
 
         public override int posX
         {

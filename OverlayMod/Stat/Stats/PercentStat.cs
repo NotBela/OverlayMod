@@ -10,7 +10,6 @@ namespace OverlayMod.Stat.Stats
     internal class PercentStat : Stat, IDisposable
     {
         [Inject] private readonly RelativeScoreAndImmediateRankCounter _relativeScoreCounter;
-        [Inject] private readonly ScoreController _scoreController;
 
         public StatConfig config { get; } = new StatConfig(Instance, "PercentStat");
 
@@ -46,7 +45,7 @@ namespace OverlayMod.Stat.Stats
             set => config.setConfigEntry("color", value);
         }
 
-        public override TextAlignmentOptions? optionalAllignmentOverride => TextAlignmentOptions.Left;
+        public override TextAlignmentOptions optionalAllignmentOverride => TextAlignmentOptions.Left;
 
         public static PercentStat Instance { get; } = new PercentStat();
 

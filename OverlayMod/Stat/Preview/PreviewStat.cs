@@ -1,9 +1,4 @@
-﻿using OverlayMod.Stat.Stats;
-using OverlayMod.Views.ViewControllers.CenterScreen;
-using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using Zenject;
 
@@ -38,7 +33,7 @@ namespace OverlayMod.Stat.Preview
 
             // this.textObject.SetActive(enabled);
             // this.textMesh.fontSize = size * ((Plugin.scaleX + Plugin.scaleY) / 2); // last part averages the difference in text size incase the display ratio isnt 16:9
-            this.textMesh.alignment = parentStat.optionalAllignmentOverride ?? TextAlignmentOptions.Center;
+            this.textMesh.alignment = parentStat.optionalAllignmentOverride;
             this.textMesh.enableWordWrapping = false;
             Update();
 
@@ -47,19 +42,18 @@ namespace OverlayMod.Stat.Preview
 
         protected virtual void doExtraThings() { return; }
 
-        #region notifypropertychanged garbage
         public virtual void Update()
         {
             this.textMesh.text = text;
             this.textMesh.fontSize = size * ((Plugin.scaleX + Plugin.scaleY) / 2);
 
             var normalPos = parentStat.getNormalizedPosition(posX, posY);
-            normalPos.x -= 50;
+            if (parentStat.optionalAllignmentOverride == TextAlignmentOptions.Left)
+                normalPos.x -= 50;
 
-            this.textObject.transform.localPosition = normalPos;
+            this.textObject.GetComponent<RectTransform>().localPosition = normalPos;
             this.textObject.SetActive(enabled);
             this.textMesh.color = color;
         }
-        #endregion
     }
 }
