@@ -11,6 +11,6 @@ namespace OverlayMod.Stat.Preview.PreviewStats
     {
         protected override Stats.Stat parentStat => ComboStat.Instance;
 
-        protected override string text => "123";
+        protected override string text => "1000";
     }
 }

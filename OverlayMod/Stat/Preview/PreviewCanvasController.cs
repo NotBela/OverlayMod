@@ -7,13 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace OverlayMod.Stat.Preview
 {
     internal class PreviewCanvasController : CanvasController
     {
-        public override bool isPreview => true;
-
         [Inject] private readonly ComboStatPreview _previewCombo;
         [Inject] private readonly MissStatPreview _missStatPreview;
         [Inject] private readonly PercentStatPreview _percentStatPreview;
@@ -27,6 +26,13 @@ namespace OverlayMod.Stat.Preview
             _percentStatPreview.Update();
             _scoreStatPreview.Update();
             _rankStatPreview.Update();
+        }
+
+        public override void Initialize()
+        {
+            base.Initialize();
+
+            canvasGameObj.SetActive(false); // sets false in menu
         }
     }
 }
