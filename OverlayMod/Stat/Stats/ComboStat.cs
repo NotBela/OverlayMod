@@ -1,6 +1,7 @@
 ﻿using OverlayMod.Configuration;
 using System;
-using TMPro;
+using System.Threading;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -33,9 +34,10 @@ namespace OverlayMod.Stat.Stats
             get => config.getConfigEntry<bool>("enabled") ?? false;
             set => config.setConfigEntry("enabled", value);
         }
-        public override Color color { 
-            get => config.getConfigEntry<Color>("color") ?? Color.white; 
-            set => config.setConfigEntry("color", value); 
+        public override Color color
+        {
+            get => config.getConfigEntry<Color>("color") ?? Color.white;
+            set => config.setConfigEntry("color", value);
         }
 
         public bool showComboLines
@@ -43,12 +45,16 @@ namespace OverlayMod.Stat.Stats
             get => config.getConfigEntry<bool>("showComboLines") ?? true;
             set => config.setConfigEntry("showComboLines", value);
         }
+        public bool animateText
+        {
+            get => config.getConfigEntry<bool>("animateText") ?? true;
+            set => config.setConfigEntry("animateText", value);
+        }
 
 
         private GameObject upperComboLineObj = new GameObject();
         private GameObject lowerComboLineObj = new GameObject();
 
-    
         public static ComboStat Instance { get; } = new ComboStat();
 
         protected override void CreateStat()
@@ -64,12 +70,12 @@ namespace OverlayMod.Stat.Stats
             upperComboLineObj.AddComponent<Image>();
             upperComboLineObj.transform.parent = this._canvasController.canvas.transform;
             upperComboLineObj.GetComponent<RectTransform>().sizeDelta = new Vector2(size * 1.5f, 5 * (size / 40));
-            upperComboLineObj.GetComponent<RectTransform>().localPosition = new Vector2(text.bounds.center.x, text.bounds.center.y + (size / 2) + 6);
+            upperComboLineObj.GetComponent<RectTransform>().localPosition = new Vector2(text.bounds.center.x, text.bounds.center.y + (size / 2) + (4 * (size / 40f)));
 
             lowerComboLineObj.AddComponent<Image>();
             lowerComboLineObj.transform.parent = this._canvasController.canvas.transform;
             lowerComboLineObj.GetComponent<RectTransform>().sizeDelta = new Vector2(size * 1.5f, 5 * (size / 40));
-            lowerComboLineObj.GetComponent<RectTransform>().localPosition = new Vector2(text.bounds.center.x, text.bounds.center.y - (size / 2));
+            lowerComboLineObj.GetComponent<RectTransform>().localPosition = new Vector2(text.bounds.center.x, text.bounds.center.y - (size / 2) + (2 * (size / 40f)));
 
         }
 
@@ -85,6 +91,22 @@ namespace OverlayMod.Stat.Stats
 
             upperComboLineObj.GetComponent<RectTransform>().sizeDelta = new Vector2(Math.Max(size * 1.5f, text.maxWidth * 1.5f), 5 * (size / 40));
             lowerComboLineObj.GetComponent<RectTransform>().sizeDelta = new Vector2(Math.Max(size * 1.5f, text.maxWidth * 1.5f), 5 * (size / 40));
+
+            // if (animateText)
+            // {
+            //     var task = new Task(doTextAnimation);
+            //     await Task.Run(() => task);
+            // }
+        }
+
+        private void doTextAnimation() // unused because very laggy and breaks combo after like 50 notes
+        {
+            text.fontSize = size * 1.2f;
+
+            while (text.fontSize > size)
+            {
+                text.fontSize -= .02f * (size / 40.0f);
+            }
         }
 
         public void Dispose()

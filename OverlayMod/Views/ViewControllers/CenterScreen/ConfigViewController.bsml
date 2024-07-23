@@ -26,6 +26,7 @@
 							<slider-setting value="comboWidthValue" bind-value="true" text="Horizontal Position" min="0" max="~maxWidth" integer-only="true" increment="1" show-buttons="true" apply-on-change="true"/>
 							<slider-setting value="comboHeightValue" bind-value="true" text="Vertical Position" min="0" max="~maxHeight" integer-only="true" increment="1" show-buttons="true" apply-on-change="true"/>
 							<increment-setting value="comboSize" bind-value="true" text="Size" min="10" max="200" increment="5" integer-only="true" apply-on-change="true"/>
+							<bool-setting bind-value="true" apply-on-change="true" text="Show Combo Lines" value="comboLinesEnabled"/>
 							<color-setting value="comboColor" bind-value="true" text="Color" apply-on-change="true"/>
 						</vertical>
 					</tab>

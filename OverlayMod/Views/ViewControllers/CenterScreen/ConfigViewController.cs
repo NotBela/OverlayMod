@@ -53,6 +53,13 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
             set { ComboStat.Instance.color = value; _previewCanvasController.updateStats(); }
         }
 
+        [UIValue("comboLinesEnabled")]
+        private bool comboLinesEnabled
+        {
+            get => ComboStat.Instance.showComboLines;
+            set => ComboStat.Instance.showComboLines = value;
+        }
+
         #endregion Combo
 
         #region percent
