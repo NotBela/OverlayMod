@@ -194,7 +194,7 @@ namespace OverlayMod.Views.ViewControllers.CenterScreen
         #endregion score
 
         #region energy
-
+        /*
         [UIValue("energyEnabled")]
         private bool energyEnabled
         {

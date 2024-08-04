@@ -1,7 +1,5 @@
 ﻿using OverlayMod.Configuration;
 using System;
-using System.Threading;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -12,33 +10,13 @@ namespace OverlayMod.Stat.Stats
     {
         [Inject] private readonly ComboController _comboController;
 
-        public StatConfig config = new StatConfig(Instance, "ComboStat");
+        protected override StatConfig config { get; } = new StatConfig(Instance, "ComboStat");
 
-        public override int posX
-        {
-            get => config.getConfigEntry<int>("posX") ?? Screen.width / 2;
-            set => config.setConfigEntry("posX", value);
-        }
-        public override int posY
-        {
-            get => config.getConfigEntry<int>("posY") ?? Screen.height / 2;
-            set => config.setConfigEntry("posY", value);
-        }
-        public override float size
-        {
-            get => config.getConfigEntry<float>("size") ?? 40;
-            set => config.setConfigEntry("size", value);
-        }
-        public override bool enabled
-        {
-            get => config.getConfigEntry<bool>("enabled") ?? false;
-            set => config.setConfigEntry("enabled", value);
-        }
-        public override Color color
-        {
-            get => config.getConfigEntry<Color>("color") ?? Color.white;
-            set => config.setConfigEntry("color", value);
-        }
+        public override int defaultPosX => Screen.width / 2;
+        public override int defaultPosY => Screen.height / 2;
+        public override float defaultSize => 40;
+        public override bool defaultEnabled => false;
+        public override Color defaultColor => Color.white;
 
         public bool showComboLines
         {
@@ -50,7 +28,6 @@ namespace OverlayMod.Stat.Stats
             get => config.getConfigEntry<bool>("animateText") ?? true;
             set => config.setConfigEntry("animateText", value);
         }
-
 
         private GameObject upperComboLineObj = new GameObject();
         private GameObject lowerComboLineObj = new GameObject();
@@ -76,7 +53,6 @@ namespace OverlayMod.Stat.Stats
             lowerComboLineObj.transform.parent = this._canvasController.canvas.transform;
             lowerComboLineObj.GetComponent<RectTransform>().sizeDelta = new Vector2(size * 1.5f, 5 * (size / 40));
             lowerComboLineObj.GetComponent<RectTransform>().localPosition = new Vector2(text.bounds.center.x, text.bounds.center.y - (size / 2) + (2 * (size / 40f)));
-
         }
 
         private void OnComboBroken()

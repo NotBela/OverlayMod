@@ -9,7 +9,7 @@ namespace OverlayMod.Stat.Stats
     {
         [Inject] private readonly RelativeScoreAndImmediateRankCounter _relativeScore;
 
-        public StatConfig config = new StatConfig(Instance, "RankStat");
+        protected override StatConfig config { get; } = new StatConfig(Instance, "RankStat");
 
         #region colors
         public Color ssColor
@@ -54,32 +54,12 @@ namespace OverlayMod.Stat.Stats
             set => config.setConfigEntry("eColor", value);
         }
         #endregion colors
-        public override bool enabled
-        {
-            get => config.getConfigEntry<bool>("enabled") ?? false;
-            set => config.setConfigEntry("enabled", value);
-        }
-        public override int posX
-        {
-            get => config.getConfigEntry<int>("posX") ?? 275;
-            set => config.setConfigEntry("posX", value);
-        }
-        public override int posY
-        {
-            get => config.getConfigEntry<int>("posY") ?? 275;
-            set => config.setConfigEntry("posY", value);
-        }
-        public override float size
-        {
-            get => config.getConfigEntry<float>("size") ?? 100;
-            set => config.setConfigEntry("size", value);
-        }
+        public override bool defaultEnabled => false;
+        public override int defaultPosX => 275;
+        public override int defaultPosY => 275;
+        public override float defaultSize => 100;
 
-        public override Color color
-        {
-            get => config.getConfigEntry<Color>("color") ?? Color.white;
-            set => config.setConfigEntry("color", value);
-        }
+        public override Color defaultColor => Color.white;
 
         public static RankStat Instance = new RankStat();
 

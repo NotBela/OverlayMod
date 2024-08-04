@@ -1,4 +1,5 @@
-﻿using OverlayMod.Configuration;
+﻿/*
+using OverlayMod.Configuration;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -118,6 +119,7 @@ namespace OverlayMod.Stat.Stats
             var rect = new Rect(0, 0, playerPfp.width, playerPfp.height);
             pfpImage.sprite = Sprite.Create(playerPfp, rect, Vector2.zero);
         }
-        */
+        
     }
 }
+*/

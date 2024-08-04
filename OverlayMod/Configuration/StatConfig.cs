@@ -1,7 +1,6 @@
 ﻿using IPA.Utilities;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using OverlayMod.Stat.Stats;
 using System.IO;
 using UnityEngine;
 
@@ -58,11 +57,11 @@ namespace OverlayMod.Configuration
         public void setConfigEntry(string entry, object value)
         {
             JObject config = getConfigIfExistsOrNewConfig($"{pathToConfigFolder}{name}.json");
-            
-            if(value.GetType() == typeof(Color))
+
+            if (value.GetType() == typeof(Color))
             {
                 var color = (Color)value;
-                value = new ColorWorkAround(color.r,color.g,color.b,color.a);
+                value = new ColorWorkAround(color.r, color.g, color.b, color.a);
             }
 
             config[entry] = JToken.FromObject(value);

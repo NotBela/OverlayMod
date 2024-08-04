@@ -11,39 +11,19 @@ namespace OverlayMod.Stat.Stats
     {
         [Inject] private readonly RelativeScoreAndImmediateRankCounter _relativeScoreCounter;
 
-        public StatConfig config { get; } = new StatConfig(Instance, "PercentStat");
+        protected override StatConfig config { get; } = new StatConfig(Instance, "PercentStat");
 
         public int decimalPrecision
         {
             get => config.getConfigEntry<int>("decimalPrecision") ?? 2;
             set => config.setConfigEntry("decimalPrecision", value);
         }
-        public override int posX
-        {
-            get => config.getConfigEntry<int>("posX") ?? 275;
-            set => config.setConfigEntry("posX", value);
-        }
-        public override int posY
-        {
-            get => config.getConfigEntry<int>("posY") ?? 150;
-            set => config.setConfigEntry("posY", value);
-        }
-        public override float size
-        {
-            get => config.getConfigEntry<float>("size") ?? 100;
-            set => config.setConfigEntry("size", value);
-        }
-        public override bool enabled
-        {
-            get => config.getConfigEntry<bool>("enabled") ?? true;
-            set => config.setConfigEntry("enabled", value);
-        }
+        public override int defaultPosX => 275;
+        public override int defaultPosY => 150;
+        public override float defaultSize => 100;
+        public override bool defaultEnabled => true;
 
-        public override Color color
-        {
-            get => config.getConfigEntry<Color>("color") ?? Color.white;
-            set => config.setConfigEntry("color", value);
-        }
+        public override Color defaultColor => Color.white;
 
         public override TextAlignmentOptions optionalAllignmentOverride => TextAlignmentOptions.Left;
 
@@ -54,7 +34,6 @@ namespace OverlayMod.Stat.Stats
             _relativeScoreCounter.relativeScoreOrImmediateRankDidChangeEvent += UpdateText;
 
             setTextParams(100.ToString($"F{decimalPrecision}", this.decimalFormat));
-
         }
 
         private void UpdateText()

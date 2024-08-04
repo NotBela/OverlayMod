@@ -12,7 +12,7 @@ namespace OverlayMod.Stat.Stats
 
         private int missedAmt;
 
-        public StatConfig config = new StatConfig(Instance, "MissStat");
+        protected override StatConfig config { get; } = new StatConfig(Instance, "MissStat");
 
         public bool hideUntilMissed
         {
@@ -26,32 +26,12 @@ namespace OverlayMod.Stat.Stats
             set => config.setConfigEntry("redMissText", value);
         }
         */
-        public override int posY
-        {
-            get => config.getConfigEntry<int>("posY") ?? 100;
-            set => config.setConfigEntry("posY", value);
-        }
-        public override int posX
-        {
-            get => config.getConfigEntry<int>("posX") ?? 500;
-            set => config.setConfigEntry("posX", value);
-        }
-        public override float size
-        {
-            get => config.getConfigEntry<float>("size") ?? 40;
-            set => config.setConfigEntry("size", value);
-        }
-        public override bool enabled
-        {
-            get => config.getConfigEntry<bool>("enabled") ?? true;
-            set => config.setConfigEntry("enabled", value);
-        }
+        public override int defaultPosY => 100;
+        public override int defaultPosX => 500;
+        public override float defaultSize => 40;
+        public override bool defaultEnabled => true;
 
-        public override Color color
-        {
-            get => config.getConfigEntry<Color>("color") ?? Color.red;
-            set => config.setConfigEntry("color", value);
-        }
+        public override Color defaultColor => Color.red;
 
         public static MissStat Instance { get; } = new MissStat();
 

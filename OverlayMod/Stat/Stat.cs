@@ -16,15 +16,41 @@ namespace OverlayMod.Stat.Stats
         protected TextMeshProUGUI text;
         protected GameObject textObject;
 
-        public abstract int posX { get; set; }
-        public abstract int posY { get; set; }
-        public abstract float size { get; set; }
-        public abstract bool enabled { get; set; }
+        protected abstract StatConfig config { get; }
 
+        public abstract int defaultPosX { get; }
+        public abstract int defaultPosY { get; }
+        public abstract float defaultSize { get; }
+        public abstract bool defaultEnabled { get; }
+        public abstract Color defaultColor { get; }
 
-        public abstract Color color { get; set; }
+        public int posX
+        {
+            get => config.getConfigEntry<int>("posX") ?? defaultPosX;
+            set => config.setConfigEntry("posX", value);
+        }
+        public int posY
+        {
+            get => config.getConfigEntry<int>("posY") ?? defaultPosY;
+            set => config.setConfigEntry("posX", value);
+        }
+        public float size 
+        {
+            get => config.getConfigEntry<float>("size") ?? defaultSize;
+            set => config.setConfigEntry("size", value);
+        }
+        public bool enabled
+        {
+            get => config.getConfigEntry<bool>("enabled") ?? defaultEnabled;
+            set => config.setConfigEntry("enabled", value);
+        }
+
+        public Color color
+        {
+            get => config.getConfigEntry<Color>("color") ?? defaultColor;
+            set => config.setConfigEntry("color", value);
+        }
         
-
         public CultureInfo decimalFormat
         {
             get

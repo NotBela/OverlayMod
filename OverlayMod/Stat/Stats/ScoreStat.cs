@@ -10,36 +10,15 @@ namespace OverlayMod.Stat.Stats
     {
         [Inject] private readonly IScoreController _scoreController;
 
-        public StatConfig config = new StatConfig(Instance, "ScoreStat");
+        protected override StatConfig config { get; } = new StatConfig(Instance, "ScoreStat");
 
         public override TextAlignmentOptions optionalAllignmentOverride => TextAlignmentOptions.Left;
 
-        public override int posX
-        {
-            get => config.getConfigEntry<int>("posX") ?? 275;
-            set => config.setConfigEntry("posX", value);
-        }
-        public override int posY
-        {
-            get => config.getConfigEntry<int>("posY") ?? 75;
-            set => config.setConfigEntry("posY", value);
-        }
-        public override float size
-        {
-            get => config.getConfigEntry<float>("size") ?? 40;
-            set => config.setConfigEntry("size", value);
-        }
-        public override bool enabled
-        {
-            get => config.getConfigEntry<bool>("enabled") ?? true;
-            set => config.setConfigEntry("enabled", value);
-        }
-
-        public override Color color
-        {
-            get => config.getConfigEntry<Color>("color") ?? Color.white;
-            set => config.setConfigEntry("color", value);
-        }
+        public override int defaultPosX => 275;
+        public override int defaultPosY => 75;
+        public override float defaultSize => 40;
+        public override bool defaultEnabled => true;
+        public override Color defaultColor => Color.white;
 
         public static ScoreStat Instance { get; } = new ScoreStat();
 
