@@ -1,10 +1,7 @@
 ﻿using OverlayMod.Configuration;
-using System;
-using System.Collections.Generic;
 using System.Globalization;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
 
 namespace OverlayMod.Stat.Stats
@@ -34,7 +31,7 @@ namespace OverlayMod.Stat.Stats
             get => config.getConfigEntry<int>("posY") ?? defaultPosY;
             set => config.setConfigEntry("posX", value);
         }
-        public float size 
+        public float size
         {
             get => config.getConfigEntry<float>("size") ?? defaultSize;
             set => config.setConfigEntry("size", value);
@@ -50,7 +47,7 @@ namespace OverlayMod.Stat.Stats
             get => config.getConfigEntry<Color>("color") ?? defaultColor;
             set => config.setConfigEntry("color", value);
         }
-        
+
         public CultureInfo decimalFormat
         {
             get

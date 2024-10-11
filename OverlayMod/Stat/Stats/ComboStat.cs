@@ -23,11 +23,6 @@ namespace OverlayMod.Stat.Stats
             get => config.getConfigEntry<bool>("showComboLines") ?? true;
             set => config.setConfigEntry("showComboLines", value);
         }
-        public bool animateText
-        {
-            get => config.getConfigEntry<bool>("animateText") ?? true;
-            set => config.setConfigEntry("animateText", value);
-        }
 
         private GameObject upperComboLineObj = new GameObject();
         private GameObject lowerComboLineObj = new GameObject();
