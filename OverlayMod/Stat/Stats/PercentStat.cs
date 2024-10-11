@@ -33,7 +33,7 @@ namespace OverlayMod.Stat.Stats
         {
             _relativeScoreCounter.relativeScoreOrImmediateRankDidChangeEvent += UpdateText;
 
-            setTextParams(100.ToString($"F{decimalPrecision}", this.decimalFormat));
+            setTextParams(100.ToString($"F{decimalPrecision}%", this.decimalFormat));
         }
 
         private void UpdateText()
