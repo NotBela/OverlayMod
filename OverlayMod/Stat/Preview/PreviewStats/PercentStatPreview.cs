@@ -6,7 +6,7 @@ namespace OverlayMod.Stat.Preview.PreviewStats
     {
         protected override Stats.Stat parentStat => PercentStat.Instance;
 
-        protected override string text => 100.ToString($"F{PercentStat.Instance.decimalPrecision}%", parentStat.decimalFormat);
+        protected override string text => $"{100.ToString($"F{PercentStat.Instance.decimalPrecision}", parentStat.decimalFormat)}%";
 
         public override void Update()
         {
