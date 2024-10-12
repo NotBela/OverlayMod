@@ -29,7 +29,7 @@ namespace OverlayMod.Stat.Stats
         public int posY
         {
             get => config.getConfigEntry<int>("posY") ?? defaultPosY;
-            set => config.setConfigEntry("posX", value);
+            set => config.setConfigEntry("posY", value);
         }
         public float size
         {

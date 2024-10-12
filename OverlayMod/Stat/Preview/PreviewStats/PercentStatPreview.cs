@@ -1,10 +1,4 @@
-﻿using Microsoft.SqlServer.Server;
-using OverlayMod.Stat.Stats;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OverlayMod.Stat.Stats;
 
 namespace OverlayMod.Stat.Preview.PreviewStats
 {
@@ -12,7 +6,7 @@ namespace OverlayMod.Stat.Preview.PreviewStats
     {
         protected override Stats.Stat parentStat => PercentStat.Instance;
 
-        protected override string text => 100.ToString($"F{PercentStat.Instance.decimalPrecision}", parentStat.decimalFormat);
+        protected override string text => 100.ToString($"F{PercentStat.Instance.decimalPrecision}%", parentStat.decimalFormat);
 
         public override void Update()
         {
