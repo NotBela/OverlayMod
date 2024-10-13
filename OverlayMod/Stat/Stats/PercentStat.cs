@@ -37,7 +37,7 @@ namespace OverlayMod.Stat.Stats
 
         private void UpdateText()
         {
-            this.text.text = $"{(_relativeScoreCounter.relativeScore * 100).ToString($"F{PercentStat.Instance.decimalPrecision}", this.decimalFormat)}";
+            this.text.text = $"{(_relativeScoreCounter.relativeScore * 100).ToString($"F{PercentStat.Instance.decimalPrecision}", this.decimalFormat)}%";
         }
 
         public void Dispose()
