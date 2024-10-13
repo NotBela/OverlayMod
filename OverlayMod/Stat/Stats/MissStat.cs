@@ -7,8 +7,7 @@ namespace OverlayMod.Stat.Stats
 {
     internal class MissStat : Stat, IDisposable
     {
-        [InjectOptional] private readonly BeatmapObjectManager _beatmapObjectManager;
-        [InjectOptional] private readonly MultiplayerConnectedPlayerBeatmapObjectManager _multiplayerBeatmapObjectManager;
+        [Inject] private readonly BeatmapObjectManager _beatmapObjectManager;
 
         private int missedAmt;
 
@@ -19,13 +18,7 @@ namespace OverlayMod.Stat.Stats
             get => config.getConfigEntry<bool>("hideWhileFc") ?? true;
             set => config.setConfigEntry("hideWhileFc", value);
         }
-        /*
-        public bool redMissCounter
-        {
-            get => config.getConfigEntry<bool>("redMissText") ?? true;
-            set => config.setConfigEntry("redMissText", value);
-        }
-        */
+        
         public override int defaultPosY => 100;
         public override int defaultPosX => 500;
         public override float defaultSize => 40;
@@ -37,18 +30,10 @@ namespace OverlayMod.Stat.Stats
 
         protected override void CreateStat()
         {
-            if (_beatmapObjectManager != null)
-            {
-                _beatmapObjectManager.noteWasCutEvent += UpdateTextOnBadCut;
-                _beatmapObjectManager.noteWasMissedEvent += UpdateTextOnMiss;
-                return;
-            }
-
-            _multiplayerBeatmapObjectManager.noteWasMissedEvent += UpdateTextOnMiss;
-            _multiplayerBeatmapObjectManager.noteWasCutEvent += UpdateTextOnBadCut;
+            _beatmapObjectManager.noteWasCutEvent += UpdateTextOnBadCut;
+            _beatmapObjectManager.noteWasMissedEvent += UpdateTextOnMiss;
 
             missedAmt = 0;
-            //if (redMissCounter) base.text.color = Color.red;
 
             setTextParams($"x{missedAmt}");
 

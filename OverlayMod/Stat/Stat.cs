@@ -66,7 +66,7 @@ namespace OverlayMod.Stat.Stats
             this._canvasController = canvasController;
         }
 
-        public void Initialize()
+        public virtual void Initialize()
         {
             textObject = new GameObject();
             textObject.transform.parent = _canvasController.canvasGameObj.transform;
