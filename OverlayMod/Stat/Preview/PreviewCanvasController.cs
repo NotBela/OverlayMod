@@ -1,13 +1,5 @@
-﻿using OverlayMod.Configuration;
-using OverlayMod.Stat.Preview.PreviewStats;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using OverlayMod.Stat.Preview.PreviewStats;
 using Zenject;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace OverlayMod.Stat.Preview
 {

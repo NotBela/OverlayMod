@@ -1,8 +1,6 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace OverlayMod.Views.ViewControllers.LeftScreen
 {
@@ -26,7 +24,7 @@ namespace OverlayMod.Views.ViewControllers.LeftScreen
 
                 var releases = JArray.Parse(await response.Content.ReadAsStringAsync());
                 var latest = releases[0];
-                
+
                 var latestVersion = latest["tag_name"].Value<string>();
 
                 return latestVersion == currentVersion;
