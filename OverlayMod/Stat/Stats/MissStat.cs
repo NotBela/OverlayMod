@@ -10,7 +10,6 @@ namespace OverlayMod.Stat.Stats
         [Inject] private readonly BeatmapObjectManager _beatmapObjectManager;
 
         private int missedAmt;
-
         protected override StatConfig config { get; } = new StatConfig(Instance, "MissStat");
 
         public bool hideUntilMissed
